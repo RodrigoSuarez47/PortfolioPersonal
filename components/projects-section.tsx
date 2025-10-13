@@ -5,71 +5,29 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
-import { Github, FolderOpen, ArrowBigRightDashIcon, ExternalLink, EyeIcon, FileTextIcon, ListIcon, InfoIcon, ArrowRightCircleIcon, FileCodeIcon } from "lucide-react"
+import { Github, FolderOpen, FileCodeIcon, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { Carousel } from "@/components/ui/carousel"
 import Lightbox from "@/components/ui/lightbox"
-import { TbListDetails } from "react-icons/tb"
 
 const projects = [
   {
     id: 1,
     title: "Sistema de Gestión Mayorista Javier",
+    status: "En producción",
     description:
-      "Sistema completo con API RESTful, frontend MVC y funcionalidades avanzadas de gestión",
+      "ERP compuesto por API RESTful y frontend MVC (Razor Views, C#). Módulos para artículos, proveedores, clientes, usuarios, pedidos y reportes.",
     images: [
-      {
-        src: "/images/SistemaMayoristaJavier/favicon.svg",
-        alt: "Carátula del Proyecto",
-        description: "Icono del sistema de gestión Mayorista Javier.",
-      },
-      {
-        src: "/images/SistemaMayoristaJavier/MayoristaJavier-Login.png",
-        alt: "Login",
-        description: "Pantalla de inicio de sesión segura.",
-      },
-      {
-        src: "/images/SistemaMayoristaJavier/MayoristaJavier-Articles.png",
-        alt: "Artículos",
-        description: "Gestión avanzada de artículos y stock.",
-      },
-      {
-        src: "/images/SistemaMayoristaJavier/MayoristaJavier-Suppliers.png",
-        alt: "Proveedores",
-        description: "Administración de proveedores.",
-      },
-      {
-        src: "/images/SistemaMayoristaJavier/MayoristaJavier-Orders.png",
-        alt: "Pedidos",
-        description: "Módulo de pedidos con generación automática de archivos PDF.",
-      },
-      {
-        src: "/images/SistemaMayoristaJavier/MayoristaJavier-Dashboard.png",
-        alt: "Reportes",
-        description: "Dashboard interactivo con reportes y métricas clave.",
-      },
-      {
-        src: "/images/SistemaMayoristaJavier/MayoristaJavier-Users.png",
-        alt: "Usuarios",
-        description: "Gestión de usuarios del sistema.",
-      },
+      { src: "/images/SistemaMayoristaJavier/favicon.svg", alt: "Carátula del Proyecto", description: "Icono del sistema de gestión Mayorista Javier." },
+      { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Login.png", alt: "Login", description: "Pantalla de inicio de sesión." },
+      { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Articles.png", alt: "Artículos", description: "Gestión de artículos y stock." },
+      { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Suppliers.png", alt: "Proveedores", description: "Administración de proveedores." },
+      { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Orders.png", alt: "Pedidos", description: "Módulo de pedidos con generación automática de órdenes en PDF." },
+      { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Dashboard.png", alt: "Reportes", description: "Dashboard interactivo con reportes y métricas clave." },
+      { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Users.png", alt: "Usuarios", description: "Gestión de usuarios del sistema." },
     ],
-    technologies: [
-      "C#",
-      "PostgreSQL",
-      "JWT",
-      "BCrypt.NET",
-      "PDFSharp",
-      "MVC",
-      "Razor Pages",
-      "Tabulator",
-      "Chart.js",
-      "Bootstrap",
-      "Neon",
-      "Somee",
-    ],
-    longDescription:
-      "Sistema integral de gestión mayorista que incluye una API RESTful desarrollada en C# con autenticación JWT, un frontend MVC con Razor Pages, tablas interactivas y visualización de datos.",
+    technologies: ["C#", "Entity Framework Core", ".NET 8", "PostgreSQL", "JWT", "BCrypt.NET", "PDFSharp", "Razor Pages", "Tabulator", "Chart.js", "Bootstrap", "Neon", "Somee"],
+    longDescription: "Sistema integral de gestión mayorista que incluye una API RESTful desarrollada en C# con autenticación JWT, un frontend MVC con Razor Pages, tablas interactivas y visualización de datos.",
     features: [
       "API RESTful con endpoints protegidos mediante JWT",
       "Sistema de autenticación seguro con BCrypt.NET",
@@ -80,7 +38,7 @@ const projects = [
       "Base de datos PostgreSQL alojada en Neon",
       "Hosting de la aplicación en Somee",
       "Dashboard de métricas y reportes",
-      "Sistema de toma de pedidos e impresión para clientes",
+      "Sistema de toma de pedidos e impresión de los mismos",
     ],
     demoUrl: null,
     githubUrl: "https://github.com/rodrigoSuarez47",
@@ -88,42 +46,60 @@ const projects = [
   {
     id: 2,
     title: "Web de Clientes para Mayorista Javier (PWA)",
+    status: "En producción",
     description:
-      "Catálogo web progresivo (PWA) desarrollado en TypeScript y React para clientes mayoristas. Permite consultar productos y precios de forma rápida y offline.",
+      "Catálogo web (PWA) desarrollado en TypeScript y React, enfocado a clientes. Gracias a la integración con el ERP de la empresa, obtiene información actualizada. Permite consultar productos, stock y precios en tiempo real. Optimizada para móviles, tablets y desktop, con funcionalidad offline-first.",
     images: [
-      {
-        src: "/images/WebClientesMayoristaJavier/favicon.svg",
-        alt: "Favicon del proyecto",
-        description: "Icono / carátula del PWA.",
-      },
-      {
-        src: "/images/WebClientesMayoristaJavier/PWA desktop.png",
-        alt: "PWA Desktop",
-        description: "Vista del PWA en escritorio.",
-      },
+      { src: "/images/WebClientesMayoristaJavier/favicon.svg", alt: "Favicon del proyecto", description: "Icono / carátula del PWA." },
+      { src: "/images/WebClientesMayoristaJavier/PWA desktop.png", alt: "PWA Desktop", description: "Vista del PWA en escritorio." },
     ],
-    technologies: ["TypeScript", "React", "PWA", "TailwindCSS", "Vercel"],
-    longDescription:
-      "Aplicación web progresiva (PWA) para clientes mayoristas, desarrollada con TypeScript y React. Permite consultar el catálogo de productos y precios de manera moderna, rápida y offline.",
+    technologies: ["TypeScript", "React", "Next.js", "PWA (Progressive Web App)", "SPA (Single Page App)", "TailwindCSS", "Vercel"],
+    longDescription: "Aplicación web progresiva (PWA) para clientes, desarrollada con TypeScript y React. Permite consultar el catálogo de productos y precios de manera moderna, rápida. Optimizada para dispositivos móviles y desktop, con funcionalidad offline-first. Desplegada en Vercel",
     features: [
       "Catálogo de productos con búsqueda y filtros",
       "Consulta de productos y precios en tiempo real (y offline)",
+      "Integración con el sistema de gestión de la empresa",
       "Desarrollo completo en TypeScript",
-      "Interfaz moderna y responsive con React",
-      "Diseño optimizado con TailwindCSS",
+      "Interfaz moderna y responsive con React + TailwindCSS",
+      "Optimización para SEO y rendimiento",
+      "Capacidad para manejar un creciente número de usuarios y productos",
       "Instalación nativa en dispositivos móviles y desktop",
       "Funciona sin conexión (offline-first)",
+      "Despliegue en Vercel",
     ],
     demoUrl: "https://mayoristajavier.vercel.app/",
     githubUrl: "https://github.com/rodrigoSuarez47",
+  },
+  {
+    id: 3,
+    title: "Gestor de Salas de Reunión — Jaume & Sere",
+    status: "En desarrollo",
+    description:
+      "Proyecto final de carrera. API RESTful en .NET 8 con integración a Active Directory, y frontend en React + Vite. Sistema integral para la gestión de reservas de salas de reunión, con notificaciones automáticas vía Outlook (Microsoft Graph). Despliegue en Azure. Actualmente en desarrollo.",
+    images: [
+      { src: "/images/GestorSalasJ&S/JYS_TRANSP.png", alt: "Logo Jaume & Sere", description: "" },
+    ],
+    technologies: ["C#", ".NET 8", "Entity Framework Core", "MS SQL Server Express", "Active Directory (Windows Server)", "Microsoft Graph / Outlook", "React", "Vite", "TypeScript", "TailwindCSS", "Azure"],
+    longDescription: "Proyecto final de carrera (Analista en Tecnologías de la Información). Sistema integral para la gestión de reservas de salas de reunión. Backend desarrollado en C# con .NET 8, Entity Framework Core y SQL Server Express, con integración a Active Directory para autenticación y roles. Notificaciones automáticas mediante Outlook (Microsoft Graph). Frontend en React + Vite con diseño responsive y despliegue planificado en Azure. Actualmente en desarrollo.",
+    features: [
+      "API RESTful en .NET 8 para manejo de salas y reservas",
+      "Entity Framework Core como ORM con patrón Repository",
+      "Integración con Active Directory (autenticación y autorización por roles)",
+      "Notificaciones automáticas vía Outlook (Microsoft Graph)",
+      "Frontend: React + Vite + TypeScript, 100% responsive",
+      "Dashboard con métricas de uso de salas",
+      "Historial de reservas con auditoría de cambios",
+      "Deploy planificado en Azure App Service",
+      "Proyecto en desarrollo — entrega final de carrera",
+    ],
+    demoUrl: null,
+    githubUrl: null,
   },
 ]
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
   const [lightboxState, setLightboxState] = useState<{ projectIndex: number; current: number } | null>(null)
-
-  // swipe states
   const [touchStartX, setTouchStartX] = useState(0)
 
   const openLightbox = (projectIndex: number, start = 0) =>
@@ -135,15 +111,10 @@ export function ProjectsSection() {
     )
   const nextLightbox = () =>
     setLightboxState((s) =>
-      s
-        ? { ...s, current: s.current === projects[s.projectIndex].images.length - 1 ? 0 : s.current + 1 }
-        : s
+      s ? { ...s, current: s.current === projects[s.projectIndex].images.length - 1 ? 0 : s.current + 1 } : s
     )
 
-  // Swipe detection
-  const handleTouchStart = (e: TouchEvent) => {
-    setTouchStartX(e.changedTouches[0].clientX)
-  }
+  const handleTouchStart = (e: TouchEvent) => setTouchStartX(e.changedTouches[0].clientX)
   const handleTouchEnd = (e: TouchEvent) => {
     const deltaX = e.changedTouches[0].clientX - touchStartX
     if (deltaX > 50) prevLightbox()
@@ -165,12 +136,20 @@ export function ProjectsSection() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, idx) => (
-            <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 hover:scale-105">
-              <CardHeader className="p-0">
+            <Card
+              key={project.id}
+              className="group hover:shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden flex flex-col h-full"
+            >
+              <CardHeader className="p-0 relative">
+                {project.status === "En desarrollo" && (
+                  <div className="absolute top-2 left-2 bg-yellow-500 text-black text-xs font-semibold px-3 py-1 rounded-full z-20 shadow-md animate-pulse">
+                    🚧 En desarrollo
+                  </div>
+                )}
                 {project.images && project.images.length > 0 ? (
                   <Carousel
                     images={project.images}
-                    className="w-full h-48 sm:h-56 md:h-64 lg:h-72"
+                    className="w-full h-56 md:h-64 lg:h-72 object-cover"
                     onImageClick={(index) => openLightbox(idx, index)}
                   />
                 ) : (
@@ -179,30 +158,32 @@ export function ProjectsSection() {
                     alt={project.title}
                     width={500}
                     height={300}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-56 md:h-64 lg:h-72 object-cover"
                   />
                 )}
               </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
-                <CardDescription className="mb-4 text-pretty">{project.description}</CardDescription>
+              <CardContent className="p-6 flex flex-col flex-grow">
+                <CardTitle className="text-xl mb-2 flex items-center justify-between">{project.title}</CardTitle>
+                <CardDescription className="mb-4 text-pretty flex-grow">{project.description}</CardDescription>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
+                    <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
                   ))}
                 </div>
                 <Button
-                  variant="outline"
-                  className="group w-full transition-all dark:bg-primary dark:text-black dark:hover:bg-primary dark:hover:text-white 
-                  light:hover:text-black"
+                  className={`group w-full transition-all font-semibold
+                    ${project.status === "En desarrollo"
+                      ? "bg-yellow-500 text-black hover:bg-yellow-400 border-yellow-600"
+                      : "variant-outline dark:bg-primary dark:text-black dark:hover:bg-primary dark:hover:text-white"
+                    }`}
                   onClick={(e: MouseEvent<HTMLButtonElement>) => {
                     e.stopPropagation()
                     setSelectedProject(project)
                   }}
                 >
-                  <FileCodeIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <FileCodeIcon
+                    className={`ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform ${project.status === "En desarrollo" ? "text-black" : ""}`}
+                  />
                   Ver detalles
                 </Button>
               </CardContent>
@@ -228,9 +209,7 @@ export function ProjectsSection() {
             <>
               <DialogHeader>
                 <DialogTitle className="text-2xl mt-4">{selectedProject.title}</DialogTitle>
-                <DialogDescription className="text-base mt-4">
-                  {selectedProject.longDescription}
-                </DialogDescription>
+                <DialogDescription className="text-base mt-4">{selectedProject.longDescription}</DialogDescription>
               </DialogHeader>
 
               <div className="space-y-6">
@@ -239,11 +218,15 @@ export function ProjectsSection() {
                   <ul className="space-y-2">
                     {selectedProject.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                        <span
+                          className={`w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0 ${selectedProject.status === "En desarrollo" ? "bg-yellow-500" : "bg-primary"
+                            }`}
+                        />
                         <span className="text-sm text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
+
                 </div>
 
                 <div>
@@ -256,15 +239,38 @@ export function ProjectsSection() {
                     ))}
                   </div>
                 </div>
-
+                {/* Botones de acción */}
                 {/* Botones de acción */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-6">
                   {selectedProject.demoUrl && (
-                    <Button variant="outline" asChild className="flex-1 w-full sm:w-auto dark:bg-primary dark:text-black dark:hover:bg-primary dark:hover:text-white
-                    ">
+                    <Button
+                      variant="outline"
+                      asChild
+                      className={`flex-1 w-full sm:w-auto font-semibold
+        ${selectedProject.status === "En desarrollo"
+                          ? "bg-yellow-500 text-black hover:bg-yellow-400 border-yellow-600"
+                          : "dark:bg-primary dark:text-black dark:hover:bg-primary dark:hover:text-white"
+                        }`}
+                    >
                       <a href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Navegar al proyecto
+                      </a>
+                    </Button>
+                  )}
+                  {selectedProject.githubUrl && (
+                    <Button
+                      variant="outline"
+                      asChild
+                      className={`flex-1 w-full sm:w-auto font-semibold
+        ${selectedProject.status === "En desarrollo"
+                          ? "bg-yellow-500 text-black hover:bg-yellow-400 border-yellow-600"
+                          : "dark:bg-primary dark:text-black dark:hover:bg-primary dark:hover:text-white"
+                        }`}
+                    >
+                      <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        Ver en GitHub
                       </a>
                     </Button>
                   )}

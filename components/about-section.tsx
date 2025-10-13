@@ -11,7 +11,7 @@ export function AboutSection() {
           </div>
           <div className="prose prose-base dark:prose-invert max-w-none mx-auto">
             <p className="text-base text-muted-foreground leading-relaxed">
-              Desarrollador full stack especializado en el diseño y desarrollo de soluciones tecnológicas robustas y escalables. Egresado de la Universidad ORT Uruguay, combino experiencia en frontend y backend con un enfoque en optimización de procesos y buenas prácticas de desarrollo.
+              Desarrollador full stack especializado en el diseño y desarrollo de soluciones tecnológicas robustas y escalables. Estudiante de la Universidad ORT Uruguay, combino experiencia en frontend y backend con un enfoque en optimización de procesos y buenas prácticas de desarrollo.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
               He trabajado en proyectos web y de escritorio, participando en todas las etapas: análisis, desarrollo, despliegue y soporte. Me destaco por escribir código limpio, seguro y eficiente, siempre orientado a resultados y a la mejora continua.

@@ -60,7 +60,7 @@ export function HeroSection() {
           <div className="space-y-4">
             <h1 className="text-4xl lg:text-6xl font-bold text-balance">Rodrigo Suarez</h1>
             <p className="text-xl lg:text-2xl text-muted-foreground">
-              Analista en Tecnologías de la Información – Desarrollador Full Stack
+              Estudiante avanzado de la carrera Analista en Tecnologías de la Información – Desarrollador Full Stack
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl text-pretty">
               Especializado en el diseño y desarrollo de soluciones tecnológicas robustas, seguras y escalables que

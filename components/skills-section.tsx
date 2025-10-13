@@ -60,8 +60,8 @@ const skillCategories = [
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg",
       },
       {
-        name: "Entity Framework",
-        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg",
+        name: "Entity Framework Core",
+        logo: "https://static.gunnarpeipman.com/wp-content/uploads/2019/12/ef-core-featured.png",
       },
       {
         name: "TailwindCSS",
