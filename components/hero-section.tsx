@@ -106,7 +106,7 @@ export function HeroSection() {
           <div className="relative">
             <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20">
               <Image
-                src="https://media.licdn.com/dms/image/v2/D4D03AQGr-bsI4XfApg/profile-displayphoto-crop_800_800/B4DZly1XKeGsAI-/0/1758568220703?e=1761177600&v=beta&t=YxWJbQdO9TB1aCeEfr9uWfcWYOzsZ4Hzz7_-YGez3zU"
+                src="/profile-picture.png"
                 alt="Rodrigo Suarez"
                 width={320}
                 height={320}
