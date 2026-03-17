@@ -23,18 +23,18 @@ export function ContactSection() {
               <h2 className="text-3xl lg:text-4xl font-bold text-balance">Contacto</h2>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              ¿Tienes un proyecto en mente? Me encantaría conocer más sobre tu idea y cómo puedo ayudarte a hacerla
-              realidad.
+              ¿Tienes una oportunidad para sumar talento? Estoy abierto a roles mixtos en desarrollo de software y
+              datos, con foco en crear soluciones escalables y orientadas a resultados.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
               <Card className="p-6 bg-primary/5 border-primary/20">
-                <h3 className="font-semibold mb-3 text-xl">¡Hablemos de tu proyecto!</h3>
+                <h3 className="font-semibold mb-3 text-xl">¿Conversamos sobre una oportunidad?</h3>
                 <p className="text-muted-foreground mb-4">
-                  Estoy disponible para discutir nuevas oportunidades y colaboraciones. Contáctame por WhatsApp para una
-                  respuesta rápida o envíame un email con los detalles de tu proyecto.
+                  Actualmente estoy disponible para procesos de selección y nuevas oportunidades profesionales.
+                  Contáctame por WhatsApp para una respuesta rápida o por email para compartir detalles del rol.
                 </p>
                 <div className="space-y-3">
                   <Button
@@ -63,7 +63,7 @@ export function ContactSection() {
                     <Mail className="h-5 w-5 text-primary" />
                     <a
                       href="mailto:rodrisua1@hotmail.com"
-                      className="text-muted-foreground hover:text-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       rodrisua1@hotmail.com
                     </a>
@@ -75,7 +75,7 @@ export function ContactSection() {
                       href="https://wa.me/59894974540"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground hover:text-green-500 transition-colors"
+                      className="text-muted-foreground hover:text-green-500 transition-colors"
                     >
                       +598 94 974 540 (WhatsApp)
                     </a>
@@ -86,19 +86,19 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <Card className="p-6">
-                <h4 className="font-semibold mb-4 text-lg">¿Por qué trabajar conmigo?</h4>
+                <h4 className="font-semibold mb-4 text-lg">¿Por qué considerarme para tu equipo?</h4>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Experiencia comprobada:</strong> Proyectos reales implementados con tecnologías modernas y
+                      <strong>Experiencia aplicada:</strong> Proyectos reales en producción con tecnologías modernas y
                       arquitecturas escalables
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Código de calidad:</strong> Desarrollo siguiendo mejores prácticas, clean code y patrones
+                      <strong>Calidad técnica:</strong> Desarrollo siguiendo mejores prácticas, clean code y patrones
                       de diseño establecidos
                     </span>
                   </li>
@@ -112,29 +112,29 @@ export function ContactSection() {
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Stack tecnológico completo:</strong> Desde frontend moderno hasta APIs robustas y
-                      despliegue en la nube
+                      <strong>Perfil mixto:</strong> Capacidad para aportar en desarrollo de software y trabajo con
+                      datos para decisiones basadas en evidencia
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Comunicación transparente:</strong> Actualizaciones constantes, documentación completa y
-                      soporte continuo
+                      <strong>Comunicación profesional:</strong> Seguimiento claro, documentación y colaboración activa
+                      con equipos técnicos y de negocio
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Enfoque empresarial:</strong> Soluciones que escalan con tu negocio y se adaptan a futuras
-                      necesidades
+                      <strong>Enfoque de negocio:</strong> Soluciones que escalan y se alinean con objetivos concretos
+                      de la organización
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Entrega puntual:</strong> Respeto por los plazos establecidos y gestión eficiente de
-                      proyectos
+                      <strong>Compromiso de entrega:</strong> Responsabilidad con plazos y ejecución eficiente en cada
+                      etapa
                     </span>
                   </li>
                 </ul>

@@ -11,13 +11,18 @@ export function AboutSection() {
           </div>
           <div className="prose prose-base dark:prose-invert max-w-none mx-auto">
             <p className="text-base text-muted-foreground leading-relaxed">
-              Desarrollador full stack especializado en el diseño y desarrollo de soluciones tecnológicas robustas y escalables. Estudiante de la Universidad ORT Uruguay, combino experiencia en frontend y backend con un enfoque en optimización de procesos y buenas prácticas de desarrollo.
+              Soy estudiante avanzado de Analista en Tecnologías de la Información en Universidad ORT, con perfil
+              mixto orientado al desarrollo de software y al trabajo con datos. Aporto una mirada integral para
+              transformar necesidades de negocio en soluciones digitales robustas, seguras y escalables.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
-              He trabajado en proyectos web y de escritorio, participando en todas las etapas: análisis, desarrollo, despliegue y soporte. Me destaco por escribir código limpio, seguro y eficiente, siempre orientado a resultados y a la mejora continua.
+              He participado en proyectos web y de escritorio de punta a punta, desde el análisis funcional hasta el
+              despliegue y soporte. Trabajo con foco en calidad técnica, claridad de implementación y entrega de valor,
+              combinando construcción de producto con decisiones apoyadas en datos.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Actualmente resido en Montevideo, Uruguay, donde colaboro en iniciativas que integran tecnología de vanguardia para resolver necesidades reales de negocio.
+              Mi especialización en Big Data complementa este enfoque, permitiéndome convertir grandes volúmenes de
+              información en insights accionables para optimizar procesos y mejorar resultados de negocio.
             </p>
           </div>
         </div>

@@ -8,9 +8,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "Rodrigo Suárez | Full Stack Developer Portfolio",
+  title: "Rodrigo Suárez | Portfolio de Desarrollo y Big Data",
   description:
-    "Rodrigo Suárez, Full Stack Developer de Montevideo, Uruguay. Graduado de la Universidad ORT con escolaridad destacada. Apasionado por la tecnología, especializado en React, Next.js, C#, Java y PostgreSQL. Desarrollo soluciones web escalables, PWAs y sistemas de gestión empresarial.",
+    "Rodrigo Suárez, estudiante avanzado de Analista en Tecnologías de la Información (Universidad ORT). Perfil mixto en desarrollo de software y Big Data, con experiencia en soluciones web escalables, PWAs y sistemas de gestión.",
   generator: "Next.js",
   keywords: [
     "Full Stack Developer Uruguay",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Rodrigo Suárez | Full Stack Developer Portfolio",
+    title: "Rodrigo Suárez | Portfolio de Desarrollo y Big Data",
     description:
-      "Portfolio de Rodrigo Suárez, Full Stack Developer especializado en React, Next.js, C#, Java, PostgreSQL y más. Montevideo, Uruguay.",
+      "Portfolio de Rodrigo Suárez: desarrollo de software, Big Data y soluciones escalables orientadas a negocio. Montevideo, Uruguay.",
     type: "website",
     locale: "es_UY",
     siteName: "Rodrigo Suárez Portfolio",
@@ -61,10 +61,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rodrigo Suárez | Full Stack Developer",
+    title: "Rodrigo Suárez | Desarrollo y Big Data",
     description:
-      "Portfolio de Rodrigo Suárez, Full Stack Developer de Uruguay con experiencia en React, Next.js, C#, PostgreSQL y más.",
-    images: ["https://tuusuario.vercel.app/og-image.png"],
+      "Portfolio de Rodrigo Suárez con perfil mixto en desarrollo de software y Big Data.",
+    images: ["https://RodrigoSuarez.vercel.app/og-image.png"],
   },
   robots: {
     index: true,

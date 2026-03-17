@@ -16,7 +16,7 @@ const projects = [
     title: "Sistema de Gestión Mayorista Javier",
     status: "En producción",
     description:
-      "ERP compuesto por API RESTful y frontend MVC (Razor Views, C#). Módulos para artículos, proveedores, clientes, usuarios, pedidos y reportes.",
+      "ERP compuesto por API RESTful y frontend MVC (Razor Views, C#). Módulos para artículos, proveedores, clientes, usuarios, pedidos y reportes. Impacto: centralización operativa y reducción de tareas manuales en la gestión diaria.",
     images: [
       { src: "/images/SistemaMayoristaJavier/favicon.svg", alt: "Carátula del Proyecto", description: "Icono del sistema de gestión Mayorista Javier." },
       { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Login.png", alt: "Login", description: "Pantalla de inicio de sesión." },
@@ -27,7 +27,7 @@ const projects = [
       { src: "/images/SistemaMayoristaJavier/MayoristaJavier-Users.png", alt: "Usuarios", description: "Gestión de usuarios del sistema." },
     ],
     technologies: ["C#", "Entity Framework Core", ".NET 8", "PostgreSQL", "JWT", "BCrypt.NET", "PDFSharp", "Razor Pages", "Tabulator", "Chart.js", "Bootstrap", "Neon", "Somee"],
-    longDescription: "Sistema integral de gestión mayorista que incluye una API RESTful desarrollada en C# con autenticación JWT, un frontend MVC con Razor Pages, tablas interactivas y visualización de datos.",
+    longDescription: "Sistema integral de gestión mayorista que incluye una API RESTful desarrollada en C# con autenticación JWT, un frontend MVC con Razor Pages, tablas interactivas y visualización de datos. Aporta trazabilidad de procesos, mejor control de stock y toma de decisiones basada en métricas.",
     features: [
       "API RESTful con endpoints protegidos mediante JWT",
       "Sistema de autenticación seguro con BCrypt.NET",
@@ -48,13 +48,13 @@ const projects = [
     title: "Web de Clientes para Mayorista Javier (PWA)",
     status: "En producción",
     description:
-      "Catálogo web (PWA) desarrollado en TypeScript y React, enfocado a clientes. Gracias a la integración con el ERP de la empresa, obtiene información actualizada. Permite consultar productos, stock y precios en tiempo real. Optimizada para móviles, tablets y desktop, con funcionalidad offline-first.",
+      "Catálogo web (PWA) desarrollado en TypeScript y React, enfocado a clientes. Gracias a la integración con el ERP de la empresa, obtiene información actualizada. Permite consultar productos, stock y precios en tiempo real. Optimizada para móviles, tablets y desktop, con funcionalidad offline-first. Impacto: mejora de la experiencia de compra y mayor autonomía del cliente.",
     images: [
       { src: "/images/WebClientesMayoristaJavier/favicon.svg", alt: "Favicon del proyecto", description: "Icono / carátula del PWA." },
       { src: "/images/WebClientesMayoristaJavier/PWA desktop.png", alt: "PWA Desktop", description: "Vista del PWA en escritorio." },
     ],
     technologies: ["TypeScript", "React", "Next.js", "PWA (Progressive Web App)", "SPA (Single Page App)", "TailwindCSS", "Vercel"],
-    longDescription: "Aplicación web progresiva (PWA) para clientes, desarrollada con TypeScript y React. Permite consultar el catálogo de productos y precios de manera moderna, rápida. Optimizada para dispositivos móviles y desktop, con funcionalidad offline-first. Desplegada en Vercel",
+    longDescription: "Aplicación web progresiva (PWA) para clientes, desarrollada con TypeScript y React. Permite consultar el catálogo de productos y precios de manera moderna y rápida. Optimizada para dispositivos móviles y desktop, con funcionalidad offline-first. Desplegada en Vercel. Genera un canal digital de autogestión con información comercial siempre disponible.",
     features: [
       "Catálogo de productos con búsqueda y filtros",
       "Consulta de productos y precios en tiempo real (y offline)",
@@ -75,12 +75,12 @@ const projects = [
     title: "Gestor de Salas de Reunión — Jaume & Sere",
     status: "En desarrollo",
     description:
-      "Proyecto final de carrera. API RESTful en .NET 8 con integración a Active Directory, y frontend en React + Vite. Sistema integral para la gestión de reservas de salas de reunión, con notificaciones automáticas vía Outlook (Microsoft Graph). Despliegue en Azure. Actualmente en desarrollo.",
+      "Proyecto final de carrera. API RESTful en .NET 8 con integración a Active Directory, y frontend en React + Vite. Sistema integral para la gestión de reservas de salas de reunión, con notificaciones automáticas vía Outlook (Microsoft Graph). Despliegue en Azure. Actualmente en desarrollo. Impacto esperado: optimización de la coordinación interna y reducción de conflictos de agenda.",
     images: [
       { src: "/images/GestorSalasJ&S/JYS_TRANSP.png", alt: "Logo Jaume & Sere", description: "" },
     ],
     technologies: ["C#", ".NET 8", "Entity Framework Core", "MS SQL Server Express", "Active Directory (Windows Server)", "Microsoft Graph / Outlook", "React", "Vite", "TypeScript", "TailwindCSS", "Azure"],
-    longDescription: "Proyecto final de carrera (Analista en Tecnologías de la Información). Sistema integral para la gestión de reservas de salas de reunión. Backend desarrollado en C# con .NET 8, Entity Framework Core y SQL Server Express, con integración a Active Directory para autenticación y roles. Notificaciones automáticas mediante Outlook (Microsoft Graph). Frontend en React + Vite con diseño responsive y despliegue planificado en Azure. Actualmente en desarrollo.",
+    longDescription: "Proyecto final de carrera (Analista en Tecnologías de la Información). Sistema integral para la gestión de reservas de salas de reunión. Backend desarrollado en C# con .NET 8, Entity Framework Core y SQL Server Express, con integración a Active Directory para autenticación y roles. Notificaciones automáticas mediante Outlook (Microsoft Graph). Frontend en React + Vite con diseño responsive y despliegue planificado en Azure. Actualmente en desarrollo, enfocado en eficiencia operativa y mejor uso de recursos compartidos.",
     features: [
       "API RESTful en .NET 8 para manejo de salas y reservas",
       "Entity Framework Core como ORM con patrón Repository",
@@ -130,7 +130,8 @@ export function ProjectsSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-balance">Proyectos</h2>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Una selección de proyectos que demuestran mis habilidades técnicas y enfoque en soluciones escalables
+            Una selección de proyectos que demuestran mi perfil mixto en desarrollo y datos, con foco en soluciones
+            escalables orientadas a negocio
           </p>
         </div>
 

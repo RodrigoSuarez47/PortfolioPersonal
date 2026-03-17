@@ -60,11 +60,12 @@ export function HeroSection() {
           <div className="space-y-4">
             <h1 className="text-4xl lg:text-6xl font-bold text-balance">Rodrigo Suarez</h1>
             <p className="text-xl lg:text-2xl text-muted-foreground">
-              Estudiante avanzado de la carrera Analista en Tecnologías de la Información – Desarrollador Full Stack
+              Estudiante avanzado de Analista en Tecnologías de la Información — Universidad ORT · Especialización en
+              Big Data
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl text-pretty">
-              Especializado en el diseño y desarrollo de soluciones tecnológicas robustas, seguras y escalables que
-              impulsan el crecimiento empresarial
+              Diseño y desarrollo soluciones tecnológicas robustas, seguras y escalables de punta a punta,
+              transformando objetivos de negocio en productos digitales de alto impacto
             </p>
           </div>
 
@@ -74,28 +75,28 @@ export function HeroSection() {
               size="lg"
               className="group transition-all hover:bg-white hover:text-primary dark:hover:bg-primary dark:hover:text-white"
             >
-              Ver proyectos
+              Ver casos de éxito
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
             <div className="flex gap-2">
               <Button variant="outline" size="icon" asChild className="group">
                 <a href="https://github.com/rodrigoSuarez47" target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary text-black group-hover:text-white" />
+                  <Github className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild className="group">
                 <a href="https://www.linkedin.com/in/rodrigogabrielsuarez/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary text-black group-hover:text-white" />
+                  <Linkedin className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild className="group">
                 <a href="mailto:rodrisua1@hotmail.com">
-                  <Mail className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary text-black group-hover:text-white" />
+                  <Mail className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild className="group">
                 <a href="https://wa.me/59894974540" target="_blank" rel="noopener noreferrer">
-                  <FaWhatsapp className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary text-black group-hover:text-white" />
+                  <FaWhatsapp className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
                 </a>
               </Button>
             </div>
