@@ -23,7 +23,7 @@ export function ContactSection() {
               <h2 className="text-3xl lg:text-4xl font-bold text-balance">Contacto</h2>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              ¿Tienes una oportunidad para sumar talento? Estoy abierto a roles mixtos en desarrollo de software y
+              ¿Tienes una oportunidad para sumar talento? Estoy abierto a roles en desarrollo de software y análisis de
               datos, con foco en crear soluciones escalables y orientadas a resultados.
             </p>
           </div>
@@ -99,7 +99,7 @@ export function ContactSection() {
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
                       <strong>Calidad técnica:</strong> Desarrollo siguiendo mejores prácticas, clean code y patrones
-                      de diseño establecidos
+                      de diseño
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -113,7 +113,7 @@ export function ContactSection() {
                     <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                     <span>
                       <strong>Perfil mixto:</strong> Capacidad para aportar en desarrollo de software y trabajo con
-                      datos para decisiones basadas en evidencia
+                      datos para la toma de decisiones basadas en evidencia
                     </span>
                   </li>
                   <li className="flex items-start">

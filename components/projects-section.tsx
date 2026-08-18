@@ -73,14 +73,19 @@ const projects = [
   {
     id: 3,
     title: "Gestor de Salas de Reunión — Jaume & Sere",
-    status: "En desarrollo",
+    status: "En producción",
     description:
       "Proyecto final de carrera. API RESTful en .NET 8 con integración a Active Directory, y frontend en React + Vite. Sistema integral para la gestión de reservas de salas de reunión, con notificaciones automáticas vía Outlook (Microsoft Graph). Despliegue en Azure. Actualmente en desarrollo. Impacto esperado: optimización de la coordinación interna y reducción de conflictos de agenda.",
     images: [
       { src: "/images/GestorSalasJ&S/JYS_TRANSP.png", alt: "Logo Jaume & Sere", description: "" },
+      {src: "/images/GestorSalasJ&S/GestorSalasJYS-Login.png", alt: "Pantalla de Login", description: "Pantalla de inicio de sesión con integración a Active Directory."},
+      {src: "/images/GestorSalasJ&S/GestorSalasJYS-Reservas.png", alt: "Gestión de Reservas", description: "Módulo de gestión de reservas de salas."},
+      {src: "/images/GestorSalasJ&S/GestorSalasJYS-Salas.png", alt: "Gestión de Salas", description: "Administración de salas disponibles para reserva."},
+      {src: "/images/GestorSalasJ&S/GestorSalasJYS-Dashboard.png", alt: "Dashboard", description: "Dashboard con métricas de uso y disponibilidad de salas."},
+      {src: "/images/GestorSalasJ&S/GestorSalasJYS-Historial.png", alt: "Historial de Reservas", description: "Historial completo de reservas con auditoría de cambios."},
     ],
     technologies: ["C#", ".NET 8", "Entity Framework Core", "MS SQL Server Express", "Active Directory (Windows Server)", "Microsoft Graph / Outlook", "React", "Vite", "TypeScript", "TailwindCSS", "Azure"],
-    longDescription: "Proyecto final de carrera (Analista en Tecnologías de la Información). Sistema integral para la gestión de reservas de salas de reunión. Backend desarrollado en C# con .NET 8, Entity Framework Core y SQL Server Express, con integración a Active Directory para autenticación y roles. Notificaciones automáticas mediante Outlook (Microsoft Graph). Frontend en React + Vite con diseño responsive y despliegue planificado en Azure. Actualmente en desarrollo, enfocado en eficiencia operativa y mejor uso de recursos compartidos.",
+    longDescription: "Proyecto final de carrera (Analista en Tecnologías de la Información). Sistema integral para la gestión de reservas de salas de reunión. Backend desarrollado en C# con .NET 8, Entity Framework Core y SQL Server Express, con integración a Active Directory para autenticación y roles. Notificaciones automáticas mediante Outlook (Microsoft Graph). Frontend en React + Vite con diseño responsive y despliegue en Azure. Enfocado en eficiencia operativa y mejor uso de recursos compartidos.",
     features: [
       "API RESTful en .NET 8 para manejo de salas y reservas",
       "Entity Framework Core como ORM con patrón Repository",
@@ -89,8 +94,7 @@ const projects = [
       "Frontend: React + Vite + TypeScript, 100% responsive",
       "Dashboard con métricas de uso de salas",
       "Historial de reservas con auditoría de cambios",
-      "Deploy planificado en Azure App Service",
-      "Proyecto en desarrollo — entrega final de carrera",
+      "Deploy en Azure App Service"
     ],
     demoUrl: null,
     githubUrl: null,
@@ -130,7 +134,7 @@ export function ProjectsSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-balance">Proyectos</h2>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Una selección de proyectos que demuestran mi perfil mixto en desarrollo y datos, con foco en soluciones
+            Una selección de proyectos que demuestran mi perfil, con foco en soluciones
             escalables orientadas a negocio
           </p>
         </div>
@@ -240,7 +244,6 @@ export function ProjectsSection() {
                     ))}
                   </div>
                 </div>
-                {/* Botones de acción */}
                 {/* Botones de acción */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-6">
                   {selectedProject.demoUrl && (

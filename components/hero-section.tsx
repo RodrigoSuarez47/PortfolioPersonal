@@ -64,7 +64,7 @@ export function HeroSection() {
               Big Data
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl text-pretty">
-              Diseño y desarrollo soluciones tecnológicas robustas, seguras y escalables de punta a punta,
+              Diseño y desarrollo soluciones tecnológicas robustas, seguras y escalables,
               transformando objetivos de negocio en productos digitales de alto impacto
             </p>
           </div>

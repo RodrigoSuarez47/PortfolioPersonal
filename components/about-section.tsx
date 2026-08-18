@@ -11,7 +11,7 @@ export function AboutSection() {
           </div>
           <div className="prose prose-base dark:prose-invert max-w-none mx-auto">
             <p className="text-base text-muted-foreground leading-relaxed">
-              Soy estudiante avanzado de Analista en Tecnologías de la Información en Universidad ORT, con perfil
+              Soy egresado de la carrera Analista en Tecnologías de la Información en Universidad ORT, con perfil
               mixto orientado al desarrollo de software y al trabajo con datos. Aporto una mirada integral para
               transformar necesidades de negocio en soluciones digitales robustas, seguras y escalables.
             </p>
