@@ -60,12 +60,10 @@ export function HeroSection() {
           <div className="space-y-4">
             <h1 className="text-4xl lg:text-6xl font-bold text-balance">Rodrigo Suarez</h1>
             <p className="text-xl lg:text-2xl text-muted-foreground">
-              Estudiante avanzado de Analista en Tecnologías de la Información — Universidad ORT · Especialización en
-              Big Data
+              Analista en Tecnologías de la Información — Universidad ORT.
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl text-pretty">
-              Diseño y desarrollo soluciones tecnológicas robustas, seguras y escalables,
-              transformando objetivos de negocio en productos digitales de alto impacto
+            <p className="text-xl lg:text-2xl text-muted-foreground text-pretty">
+              Especialización en Big Data.  Analista GeneXus Jr.
             </p>
           </div>
 
