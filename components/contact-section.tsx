@@ -125,49 +125,49 @@ export function ContactSection() {
                 <h4 className="font-semibold mb-4 text-lg">¿Por qué considerarme para tu equipo?</h4>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 shrink-0" />
                     <span>
                       <strong>Experiencia aplicada:</strong> Proyectos reales en producción con tecnologías modernas y
                       arquitecturas escalables
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 shrink-0" />
                     <span>
                       <strong>Calidad técnica:</strong> Desarrollo siguiendo mejores prácticas, clean code y patrones
                       de diseño
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 shrink-0" />
                     <span>
                       <strong>Seguridad integrada:</strong> Implementación de JWT, BCrypt y medidas de seguridad desde
                       el diseño
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 shrink-0" />
                     <span>
                       <strong>Perfil mixto:</strong> Capacidad para aportar en desarrollo de software y trabajo con
                       datos para la toma de decisiones basadas en evidencia
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 shrink-0" />
                     <span>
                       <strong>Comunicación profesional:</strong> Seguimiento claro, documentación y colaboración activa
                       con equipos técnicos y de negocio
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 shrink-0" />
                     <span>
                       <strong>Enfoque de negocio:</strong> Soluciones que escalan y se alinean con objetivos concretos
                       de la organización
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 shrink-0" />
                     <span>
                       <strong>Compromiso de entrega:</strong> Responsabilidad con plazos y ejecución eficiente en cada
                       etapa
