@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Mail, Phone } from "lucide-react"
+import { Download, FileBadge2, GraduationCap, Mail, Phone } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
 
 export function ContactSection() {
@@ -53,6 +53,18 @@ export function ContactSection() {
                       <span className="transition-colors group-hover:text-primary dark:group-hover:text-primary">Enviar Email</span>
                     </a>
                   </Button>
+                  <Button variant="outline" asChild className="w-full bg-transparent dark:hover:text-primary transition-colors">
+                    <a
+                      href="/documents/CV_Rodrigo_Suarez.pdf"
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                    >
+                      <Download className="mr-2 h-4 w-4 transition-colors group-hover:text-primary dark:group-hover:text-primary" />
+                      <span className="transition-colors group-hover:text-primary dark:group-hover:text-primary">Descargar CV</span>
+                    </a>
+                  </Button>
                 </div>
               </Card>
 
@@ -82,6 +94,30 @@ export function ContactSection() {
                   </div>
                 </div>
               </div>
+
+              <Card className="p-6 bg-primary/5 border-primary/20">
+                <h3 className="font-semibold mb-3 text-xl flex items-center gap-2">
+                  <GraduationCap className="h-5 w-5 text-primary" />
+                  Formación académica
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Aquí puedes revisar mi escolaridad y el certificado de graduación.
+                </p>
+                <div className="space-y-3">
+                  <Button variant="outline" asChild className="w-full justify-start bg-transparent">
+                    <a href="/documents/Escolaridad_ATI.pdf" aria-label="Ver escolaridad">
+                      <GraduationCap className="mr-2 h-4 w-4" />
+                      Ver escolaridad
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild className="w-full justify-start bg-transparent">
+                    <a href="/documents/Constancia_Graduacion_ATI.pdf" aria-label="Ver certificado de graduación">
+                      <FileBadge2 className="mr-2 h-4 w-4" />
+                      Ver certificado de graduación
+                    </a>
+                  </Button>
+                </div>
+              </Card>
             </div>
 
             <div className="space-y-6">
