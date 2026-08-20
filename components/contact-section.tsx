@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Download, FileBadge2, GraduationCap, Mail, Phone } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
-import { ProtectedDocumentButton } from "@/components/protected-document-button"
 
 export function ContactSection() {
   return (
@@ -54,11 +53,18 @@ export function ContactSection() {
                       <span className="transition-colors group-hover:text-primary dark:group-hover:text-primary">Enviar Email</span>
                     </a>
                   </Button>
-                  <ProtectedDocumentButton
-                    documentId="cv"
-                    label="Descargar CV"
-                    icon={<Download className="mr-2 h-4 w-4" />}
-                  />
+                  <Button variant="outline" asChild className="w-full bg-transparent dark:hover:text-primary transition-colors">
+                    <a
+                      href="/documents/Cv_Rodrigo_Suarez.pdf"
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center"
+                    >
+                      <Download className="mr-2 h-4 w-4 transition-colors group-hover:text-primary dark:group-hover:text-primary" />
+                      <span className="transition-colors group-hover:text-primary dark:group-hover:text-primary">Descargar CV</span>
+                    </a>
+                  </Button>
                 </div>
               </Card>
 
@@ -98,16 +104,18 @@ export function ContactSection() {
                   Aquí puedes revisar mi escolaridad y el certificado de graduación.
                 </p>
                 <div className="space-y-3">
-                  <ProtectedDocumentButton
-                    documentId="academicRecord"
-                    label="Ver escolaridad"
-                    icon={<GraduationCap className="mr-2 h-4 w-4" />}
-                  />
-                  <ProtectedDocumentButton
-                    documentId="graduationCertificate"
-                    label="Ver certificado de graduación"
-                    icon={<FileBadge2 className="mr-2 h-4 w-4" />}
-                  />
+                  <Button variant="outline" asChild className="w-full justify-center bg-transparent">
+                    <a href="/documents/Escolaridad_ATI.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver escolaridad">
+                      <GraduationCap className="mr-2 h-4 w-4" />
+                      Ver escolaridad
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild className="w-full justify-center bg-transparent">
+                    <a href="/documents/Constancia_graduacion_ATI.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado de graduación">
+                      <FileBadge2 className="mr-2 h-4 w-4" />
+                      Ver certificado de graduación
+                    </a>
+                  </Button>
                 </div>
               </Card>
             </div>
