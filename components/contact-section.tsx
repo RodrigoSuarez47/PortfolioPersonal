@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Download, FileBadge2, GraduationCap, Mail, Phone } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
+import { ProtectedDocumentButton } from "@/components/protected-document-button"
 
 export function ContactSection() {
   return (
@@ -53,25 +54,18 @@ export function ContactSection() {
                       <span className="transition-colors group-hover:text-primary dark:group-hover:text-primary">Enviar Email</span>
                     </a>
                   </Button>
-                  <Button variant="outline" asChild className="w-full bg-transparent dark:hover:text-primary transition-colors">
-                    <a
-                      href="/documents/CV_Rodrigo_Suarez.pdf"
-                      download
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center"
-                    >
-                      <Download className="mr-2 h-4 w-4 transition-colors group-hover:text-primary dark:group-hover:text-primary" />
-                      <span className="transition-colors group-hover:text-primary dark:group-hover:text-primary">Descargar CV</span>
-                    </a>
-                  </Button>
+                  <ProtectedDocumentButton
+                    documentId="cv"
+                    label="Descargar CV"
+                    icon={<Download className="mr-2 h-4 w-4" />}
+                  />
                 </div>
               </Card>
 
-              <div>
+              <div className="text-center">
                 <h3 className="text-xl font-semibold mb-6">Información de contacto</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center justify-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />
                     <a
                       href="mailto:rodrisua1@hotmail.com"
@@ -81,7 +75,7 @@ export function ContactSection() {
                     </a>
                   </div>
 
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center justify-center gap-3">
                     <FaWhatsapp className="h-5 w-5 text-green-500" />
                     <a
                       href="https://wa.me/59894974540"
@@ -104,18 +98,16 @@ export function ContactSection() {
                   Aquí puedes revisar mi escolaridad y el certificado de graduación.
                 </p>
                 <div className="space-y-3">
-                  <Button variant="outline" asChild className="w-full justify-start bg-transparent">
-                    <a href="/documents/Escolaridad_ATI.pdf" aria-label="Ver escolaridad">
-                      <GraduationCap className="mr-2 h-4 w-4" />
-                      Ver escolaridad
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild className="w-full justify-start bg-transparent">
-                    <a href="/documents/Constancia_Graduacion_ATI.pdf" aria-label="Ver certificado de graduación">
-                      <FileBadge2 className="mr-2 h-4 w-4" />
-                      Ver certificado de graduación
-                    </a>
-                  </Button>
+                  <ProtectedDocumentButton
+                    documentId="academicRecord"
+                    label="Ver escolaridad"
+                    icon={<GraduationCap className="mr-2 h-4 w-4" />}
+                  />
+                  <ProtectedDocumentButton
+                    documentId="graduationCertificate"
+                    label="Ver certificado de graduación"
+                    icon={<FileBadge2 className="mr-2 h-4 w-4" />}
+                  />
                 </div>
               </Card>
             </div>

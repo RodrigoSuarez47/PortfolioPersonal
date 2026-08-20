@@ -21,17 +21,28 @@ export function Navigation() {
     setMounted(true)
   }, [])
 
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false)
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isOpen])
+
   if (!mounted) {
     return null
   }
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
+      <nav aria-label="Navegación principal" className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Code2 className="h-6 w-6 text-primary" />
+              <Code2 aria-hidden="true" className="h-6 w-6 text-primary" />
             </div>
 
             {/* Desktop Navigation */}
@@ -49,17 +60,37 @@ export function Navigation() {
                   </a>
                 );
               })}
-              <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="dark:hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label={`Cambiar a modo ${theme === "dark" ? "claro" : "oscuro"}`}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="dark:hover:text-primary"
+              >
                 {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
             </div>
 
             {/* Mobile Navigation Button */}
             <div className="md:hidden flex items-center space-x-2">
-              <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="dark:hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label={`Cambiar a modo ${theme === "dark" ? "claro" : "oscuro"}`}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="dark:hover:text-primary"
+              >
                 {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
-              <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="dark:hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-expanded={isOpen}
+                aria-controls="mobile-navigation"
+                onClick={() => setIsOpen(!isOpen)}
+                className="dark:hover:text-primary"
+              >
                 {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
               </Button>
             </div>
@@ -68,7 +99,7 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-background border-t">
+          <div id="mobile-navigation" className="md:hidden bg-background border-t">
             <div className="px-6 py-4 space-y-4">
               {navItems.map((item) => {
                 const Icon = item.icon;

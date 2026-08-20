@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
-import { Github, FolderOpen, FileCodeIcon, ExternalLink } from "lucide-react"
+import { FolderOpen, FileCodeIcon, ExternalLink } from "lucide-react"
+import { FaGithub } from "react-icons/fa"
 import Image from "next/image"
 import { Carousel } from "@/components/ui/carousel"
 import Lightbox from "@/components/ui/lightbox"
@@ -75,7 +76,7 @@ const projects = [
     title: "Gestor de Salas de Reunión — Jaume & Sere",
     status: "En producción",
     description:
-      "Proyecto final de carrera. API RESTful en .NET 8 con integración a Active Directory, y frontend en React + Vite. Sistema integral para la gestión de reservas de salas de reunión, con notificaciones automáticas vía Outlook (Microsoft Graph). Despliegue en Azure. Actualmente en desarrollo. Impacto esperado: optimización de la coordinación interna y reducción de conflictos de agenda.",
+      "Proyecto final de carrera. API RESTful en .NET 8 con integración a Active Directory, y frontend en React + Vite. Sistema integral para la gestión de reservas de salas de reunión, con notificaciones automáticas vía Outlook (Microsoft Graph). Despliegue en Azure. Impacto esperado: optimización de la coordinación interna y reducción de conflictos de agenda.",
     images: [
       { src: "/images/GestorSalasJ&S/JYS_TRANSP.png", alt: "Logo Jaume & Sere", description: "" },
       { src: "/images/GestorSalasJ&S/J&S-Calendario.png", alt: "Vista de Calendario", description: "Vista de calendario con reservas de salas." },
@@ -203,7 +204,7 @@ export function ProjectsSection() {
           <p className="text-muted-foreground mb-4">Más proyectos próximamente...</p>
           <Button variant="outline" asChild className="dark:hover:text-primary">
             <a href="https://github.com/rodrigoSuarez47" target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-4 w-4" />
+              <FaGithub className="mr-2 h-4 w-4" />
               Ver todos en GitHub
             </a>
           </Button>
@@ -276,7 +277,7 @@ export function ProjectsSection() {
                         }`}
                     >
                       <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
+                        <FaGithub className="mr-2 h-4 w-4" />
                         Ver en GitHub
                       </a>
                     </Button>

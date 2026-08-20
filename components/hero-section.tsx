@@ -1,8 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
-import { FaWhatsapp } from "react-icons/fa"
+import { ArrowDown, Mail } from "lucide-react"
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa"
 import Image from "next/image"
 
 const ProgrammingSymbols = () => {
@@ -79,12 +79,12 @@ export function HeroSection() {
             <div className="flex gap-2">
               <Button variant="outline" size="icon" asChild className="group">
                 <a href="https://github.com/rodrigoSuarez47" target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
+                  <FaGithub className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild className="group">
                 <a href="https://www.linkedin.com/in/rodrigogabrielsuarez/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
+                  <FaLinkedin className="h-4 w-4 transition-colors text-foreground dark:text-white dark:group-hover:text-primary group-hover:text-white" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild className="group">

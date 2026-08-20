@@ -19,6 +19,9 @@ yarn-error.log*
 # env files
 .env*
 
+# private documents
+/private/documents/
+
 # vercel
 .vercel
 
