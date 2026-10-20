@@ -30,16 +30,19 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
       {project.demoUrl && <a class="button button-primary" href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Visitar web") + ": " + project.title}>{t("Visitar web")} ↗</a>}
       {project.githubUrl && <a class="button button-outline" href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Código") + ": " + project.title}>{t("Código")} ↗</a>}
     </div>
-    <section aria-label={t("Caso de estudio")} class="space-y-5 border-t pt-5">
-      <p class="rounded-xl bg-primary/10 p-4 font-semibold">{project.caseStudy.highlight}</p>
-      <dl class="space-y-4 text-sm leading-relaxed">
+    <p class="rounded-xl bg-primary/10 p-4 font-semibold">{project.caseStudy.highlight}</p>
+    <details data-case-study class="border-t pt-4">
+      <summary class="cursor-pointer text-sm font-medium">{t("Caso de estudio")}</summary>
+      <div class="space-y-4 pt-4">
+        <dl class="space-y-4 text-sm leading-relaxed">
         {(Object.keys(labels) as (keyof typeof labels)[]).map((key) => <div>
           <dt class="mb-1 font-semibold">{t(labels[key])}</dt>
           <dd class="text-muted-foreground">{project.caseStudy[key]}</dd>
         </div>)}
-      </dl>
-      <p class="text-xs leading-relaxed text-muted-foreground">{project.caseStudy.evidence}</p>
-    </section>
+        </dl>
+        <p class="text-xs leading-relaxed text-muted-foreground">{project.caseStudy.evidence}</p>
+      </div>
+    </details>
     <details class="border-t pt-4">
       <summary class="cursor-pointer text-sm font-medium">{t("Detalles técnicos")}</summary>
       <div class="space-y-4 pt-4 text-sm leading-relaxed text-muted-foreground">

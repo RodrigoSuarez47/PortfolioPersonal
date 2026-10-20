@@ -11,6 +11,11 @@ for (const [file, language, canonical] of [["index.html", "es-UY", "/"], ["en/in
   assert.equal((html.match(/class="project-card"/g) ?? []).length, 4, file + ": four case studies")
   assert.ok(html.includes('id="experience"'), file + ": experience section")
   assert.ok(html.includes("15"), file + ": supplied business outcome")
+  const caseStudies = [...html.matchAll(/<details\b[^>]*data-case-study[^>]*>/g)]
+  assert.equal(caseStudies.length, 4, file + ": expandable case studies")
+  assert.ok(caseStudies.every(([tag]) => !/\bopen\b/.test(tag)), file + ": case studies collapsed by default")
+  const resume = language === "en" ? "Cv_Rodrigo_Suarez_EN.pdf" : "Cv_Rodrigo_Suarez.pdf"
+  assert.equal(html.split('href="/documents/' + resume + '"').length - 1, 2, file + ": matching language CV in hero and contact")
   assert.ok(!html.includes("/_next/"), file + ": no Next.js runtime")
   assert.match(html, /hreflang="en"/)
   assert.match(html, /hreflang="es-UY"/)

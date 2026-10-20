@@ -2,11 +2,12 @@
 import { getCopy, type Locale } from "@/lib/i18n"
 import Section from "./Section.astro"
 import { site } from "@/lib/site"
+import { getResume } from "@/lib/documents"
 interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
 const t = getCopy(locale)
 const documents = [
-  { title: "Currículum", href: "/documents/Cv_Rodrigo_Suarez.pdf" },
+  { title: "Currículum", href: getResume(locale) },
   { title: "Escolaridad", href: "/documents/Escolaridad_ATI.pdf" },
   { title: "Constancia de graduación", href: "/documents/Constancia_graduacion_ATI.pdf" },
 ]
