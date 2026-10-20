@@ -241,10 +241,10 @@ const projectsByLocale: Record<Locale, readonly Project[]> = {
       "demoUrl": null,
       "githubUrl": null,
       "caseStudy": {
-        "problem": "La agenda de las salas se llevaba en papel. La letra podía ser difícil de interpretar y algunas reservas no se cancelaban, por lo que las salas aparecían ocupadas aunque ya no fueran a utilizarse.",
+        "problem": "La agenda de las salas se llevaba en papel. La letra podía ser difícil de interpretar y algunas reservas no se cancelaban, por lo que las salas aparecían ocupadas aunque ya no fueran a utilizarse. Además, no todos los participantes recibían la información de las reuniones o de sus cancelaciones.",
         "role": "Participación en el análisis y desarrollo del sistema de reservas como proyecto final de carrera para Jaume & Sere.",
-        "decisions": "Reemplazar la agenda de papel por un calendario centralizado, con gestión de reservas y cancelaciones. Integrar Active Directory para el acceso corporativo y Outlook mediante Microsoft Graph para las notificaciones, con API .NET y frontend React.",
-        "result": "Según lo informado por la organización, se eliminaron las reservas que mantenían salas ocupadas incorrectamente. La agenda digital permite consultar y gestionar las reservas sin depender de anotaciones manuscritas.",
+        "decisions": "Reemplazar la agenda de papel por un calendario centralizado, con gestión de reservas y cancelaciones. Integrar Active Directory para el acceso corporativo y Outlook mediante Microsoft Graph para enviar invitaciones y notificaciones por correo a todos los participantes, incluidos los avisos de cancelación, con API .NET y frontend React.",
+        "result": "Según lo informado por la organización, se eliminaron las reservas que mantenían salas ocupadas incorrectamente. Las invitaciones y notificaciones por correo resolvieron también la falta de información entre los participantes: todos reciben la convocatoria y los avisos de cancelación.",
         "highlight": "Fin de las reservas que bloqueaban salas incorrectamente",
         "evidence": "Resultado informado por la organización."
       }
@@ -491,10 +491,10 @@ const projectsByLocale: Record<Locale, readonly Project[]> = {
       "demoUrl": null,
       "githubUrl": null,
       "caseStudy": {
-        "problem": "Meeting room bookings were kept on paper. Handwriting was sometimes difficult to read, and bookings were not always canceled, leaving rooms incorrectly marked as occupied.",
+        "problem": "Meeting room bookings were kept on paper. Handwriting was sometimes difficult to read, and bookings were not always canceled, leaving rooms incorrectly marked as occupied. Some participants also missed meeting details or were unaware that a meeting had been canceled.",
         "role": "Contribution to the analysis and development of the booking system as a final degree project for Jaume & Sere.",
-        "decisions": "Replace the paper agenda with a central calendar supporting bookings and cancellations. Integrate Active Directory for corporate access and Outlook through Microsoft Graph for notifications, using a .NET API and React frontend.",
-        "result": "The organization reported that bookings incorrectly blocking meeting rooms were eliminated. The digital calendar makes bookings readable and manageable without handwritten records.",
+        "decisions": "Replace the paper agenda with a central calendar supporting bookings and cancellations. Integrate Active Directory for corporate access and Outlook through Microsoft Graph to send invitations and email notifications to all participants, including cancellation notices, using a .NET API and React frontend.",
+        "result": "The organization reported that bookings incorrectly blocking meeting rooms were eliminated. Email invitations and notifications also resolved communication gaps: all participants receive meeting invitations and cancellation notices.",
         "highlight": "No more bookings incorrectly blocking rooms",
         "evidence": "Outcome reported by the organization."
       }
