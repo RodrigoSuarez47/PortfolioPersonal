@@ -36,7 +36,15 @@ const walk = dir => readdirSync(dir).flatMap(name => {
   return statSync(path).isDirectory() ? walk(path) : [path]
 })
 const scripts = walk(root).filter(path => path.endsWith(".js"))
-const bytes = scripts.reduce((total, path) => total + statSync(path).size, 0)
+const inlineScripts = new Set()
+for (const file of ["index.html", "en/index.html"]) {
+  const html = readFileSync(join(root, file), "utf8")
+  for (const [, attributes, code] of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/g)) {
+    if (!attributes.includes("application/ld+json") && !attributes.includes("src=")) inlineScripts.add(code)
+  }
+}
+const bytes = scripts.reduce((total, path) => total + statSync(path).size, 0) +
+  [...inlineScripts].reduce((total, code) => total + Buffer.byteLength(code), 0)
 assert.ok(bytes < 25000, "Static site JavaScript must stay below 25 KB before compression")
 console.log("Verified both languages, case studies, SEO, local links and assets.")
-console.log("JavaScript:", bytes, "bytes in", scripts.length, "files.")
+console.log("First-party JavaScript:", bytes, "bytes across files and unique inline scripts. Analytics loaded separately.")
