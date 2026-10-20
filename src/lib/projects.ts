@@ -54,13 +54,13 @@ const projectCore: ProjectCore[] = [
     "demoUrl": null,
     "githubUrl": null,
     "imageSources": [
-      "/images/SistemaMayoristaJavier/favicon.svg",
+      "/images/SistemaMayoristaJavier/MayoristaJavier-Dashboard.png",
       "/images/SistemaMayoristaJavier/MayoristaJavier-Login.png",
       "/images/SistemaMayoristaJavier/MayoristaJavier-Articles.png",
       "/images/SistemaMayoristaJavier/MayoristaJavier-Suppliers.png",
       "/images/SistemaMayoristaJavier/MayoristaJavier-Orders.png",
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Dashboard.png",
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Users.png"
+      "/images/SistemaMayoristaJavier/MayoristaJavier-Users.png",
+      "/images/SistemaMayoristaJavier/favicon.svg"
     ]
   },
   {
@@ -77,8 +77,8 @@ const projectCore: ProjectCore[] = [
     "demoUrl": "https://mayoristajavier.vercel.app/",
     "githubUrl": null,
     "imageSources": [
-      "/images/WebClientesMayoristaJavier/favicon.svg",
-      "/images/WebClientesMayoristaJavier/PWA desktop.png"
+      "/images/WebClientesMayoristaJavier/PWA desktop.png",
+      "/images/WebClientesMayoristaJavier/favicon.svg"
     ]
   },
   {
@@ -99,7 +99,6 @@ const projectCore: ProjectCore[] = [
     "demoUrl": null,
     "githubUrl": null,
     "imageSources": [
-      "/images/GestorSalasJ&S/JYS_TRANSP.png",
       "/images/GestorSalasJ&S/J&S-Calendario.png",
       "/images/GestorSalasJ&S/J&S-ListadoMisReservas.png",
       "/images/GestorSalasJ&S/J&S-Sedes.png",
@@ -107,7 +106,8 @@ const projectCore: ProjectCore[] = [
       "/images/GestorSalasJ&S/J&S-EquipamientoSalas.png",
       "/images/GestorSalasJ&S/J&S-ParametrosSistema.png",
       "/images/GestorSalasJ&S/J&S-Admin-usoIndebido.png",
-      "/images/GestorSalasJ&S/J&S-VistaTablet.png"
+      "/images/GestorSalasJ&S/J&S-VistaTablet.png",
+      "/images/GestorSalasJ&S/JYS_TRANSP.png"
     ]
   },
   {
@@ -152,8 +152,8 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
       },
       "imageCaptions": [
         {
-          "alt": "Carátula del Proyecto",
-          "description": "Icono del sistema de gestión Mayorista Javier."
+          "alt": "Reportes",
+          "description": "Dashboard interactivo con reportes y métricas clave."
         },
         {
           "alt": "Login",
@@ -172,12 +172,12 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
           "description": "Módulo de pedidos con generación automática de órdenes en PDF."
         },
         {
-          "alt": "Reportes",
-          "description": "Dashboard interactivo con reportes y métricas clave."
-        },
-        {
           "alt": "Usuarios",
           "description": "Gestión de usuarios del sistema."
+        },
+        {
+          "alt": "Carátula del Proyecto",
+          "description": "Icono del sistema de gestión Mayorista Javier."
         }
       ]
     },
@@ -208,12 +208,12 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
       },
       "imageCaptions": [
         {
-          "alt": "Favicon del proyecto",
-          "description": "Icono / carátula del PWA."
-        },
-        {
           "alt": "PWA Desktop",
           "description": "Vista del PWA en escritorio."
+        },
+        {
+          "alt": "Favicon del proyecto",
+          "description": "Icono / carátula del PWA."
         }
       ]
     },
@@ -241,10 +241,6 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "evidence": "Resultado informado por la organización."
       },
       "imageCaptions": [
-        {
-          "alt": "Logo Jaume & Sere",
-          "description": ""
-        },
         {
           "alt": "Vista de Calendario",
           "description": "Vista de calendario con reservas de salas."
@@ -276,6 +272,10 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         {
           "alt": "Vista en Tableta",
           "description": "Vista del sistema en tableta."
+        },
+        {
+          "alt": "Logo Jaume & Sere",
+          "description": ""
         }
       ]
     },
@@ -329,32 +329,32 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
       },
       "imageCaptions": [
         {
-          "alt": "Mayorista Javier Management System — project logo",
-          "description": ""
+          "alt": "Mayorista Javier - sales dashboard",
+          "description": "Business reports, sales metrics and KPIs."
         },
         {
-          "alt": "Mayorista Javier Management System — application screenshot 1",
-          "description": "Application screenshot"
+          "alt": "Mayorista Javier - sign-in",
+          "description": "Sign-in screen for the business management system."
         },
         {
-          "alt": "Mayorista Javier Management System — application screenshot 2",
-          "description": "Application screenshot"
+          "alt": "Mayorista Javier - products and inventory",
+          "description": "Product and stock management."
         },
         {
-          "alt": "Mayorista Javier Management System — application screenshot 3",
-          "description": "Application screenshot"
+          "alt": "Mayorista Javier - supplier management",
+          "description": "Supplier administration screen."
         },
         {
-          "alt": "Mayorista Javier Management System — application screenshot 4",
-          "description": "Application screenshot"
+          "alt": "Mayorista Javier - order management",
+          "description": "Order management and PDF order generation."
         },
         {
-          "alt": "Mayorista Javier Management System — application screenshot 5",
-          "description": "Application screenshot"
+          "alt": "Mayorista Javier - user management",
+          "description": "User administration screen."
         },
         {
-          "alt": "Mayorista Javier Management System — application screenshot 6",
-          "description": "Application screenshot"
+          "alt": "Mayorista Javier - management system logo",
+          "description": "Logo of the Mayorista Javier management system."
         }
       ]
     },
@@ -385,12 +385,12 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
       },
       "imageCaptions": [
         {
-          "alt": "Mayorista Javier Customer Catalog (PWA) — project logo",
-          "description": ""
+          "alt": "Mayorista Javier - desktop product catalog",
+          "description": "Customer product catalog in the desktop layout."
         },
         {
-          "alt": "Mayorista Javier Customer Catalog (PWA) — application screenshot 1",
-          "description": "Application screenshot"
+          "alt": "Mayorista Javier - customer catalog logo",
+          "description": "Logo of the customer-facing PWA."
         }
       ]
     },
@@ -419,40 +419,40 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
       },
       "imageCaptions": [
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — project logo",
-          "description": ""
+          "alt": "Jaume & Sere - room booking calendar",
+          "description": "Calendar showing meeting room reservations."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 1",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - my bookings",
+          "description": "List of the current user's room bookings."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 2",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - location management",
+          "description": "Administration of company locations."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 3",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - meeting room management",
+          "description": "Meeting room administration."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 4",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - room equipment",
+          "description": "Administration of equipment available in meeting rooms."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 5",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - system settings",
+          "description": "Booking system configuration."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 6",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - room misuse reports",
+          "description": "Reports of meeting room misuse."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 7",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - tablet layout",
+          "description": "Meeting room booking interface on a tablet."
         },
         {
-          "alt": "Meeting Room Booking — Jaume & Sere — application screenshot 8",
-          "description": "Application screenshot"
+          "alt": "Jaume & Sere - company logo",
+          "description": "Jaume & Sere project logo."
         }
       ]
     },

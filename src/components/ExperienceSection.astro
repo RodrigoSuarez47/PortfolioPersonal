@@ -4,8 +4,10 @@ import { getCopy, type Locale } from "@/lib/i18n"
 interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
 const t = getCopy(locale)
-const background = [
-  { kind: "Experiencia aplicada", title: "Desarrollo de soluciones para negocios", description: "Mayorista Javier: sistema de gestión, inventario, compras, ventas y catálogo de clientes. FyV Traslados: diseño y desarrollo de su web comercial." },
+interface BackgroundItem { kind: string; title: string; period?: string; description: string }
+const background: BackgroundItem[] = [
+  { kind: "Experiencia laboral", title: "Desarrollador freelance", period: "2025 - Actualidad", description: "Mayorista Javier: sistema de gestión, inventario, compras, ventas y catálogo de clientes. FyV Traslados: diseño y desarrollo de su web comercial." },
+  { kind: "Experiencia laboral", title: "Operador de Sistemas Informáticos · CASMU", period: "2020 - Actualidad", description: "Monitoreo de sistemas, análisis de logs y datos, ejecución de consultas SQL y revisión de archivos para la detección proactiva de incidentes." },
   { kind: "Proyecto final de carrera", title: "Gestión de salas para Jaume & Sere", description: "Participación en el análisis y desarrollo de una solución de reservas con .NET, React, Active Directory y Microsoft Graph." },
   { kind: "Formación académica", title: "Analista en Tecnologías de la Información", description: "Universidad ORT Uruguay · Egresado" },
   { kind: "Formación complementaria", title: "Big Data y GeneXus", description: "Especialización en Big Data y formación como Analista GeneXus Jr." },
@@ -17,6 +19,7 @@ const background = [
           <article class="space-y-3 rounded-2xl border bg-card p-6">
             <p class="eyebrow">{t(item.kind)}</p>
             <h3 class="text-lg font-semibold">{t(item.title)}</h3>
+            {item.period && <p class="text-sm font-medium text-primary">{t(item.period)}</p>}
             <p class="text-sm leading-relaxed text-muted-foreground">{t(item.description)}</p>
           </article>
         ))}
