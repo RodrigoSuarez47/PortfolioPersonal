@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://RodrigoSuarez.vercel.app/sitemap.xml
+Sitemap: https://rodrigosuarez.vercel.app/sitemap.xml
