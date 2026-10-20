@@ -2,15 +2,17 @@
 
 import React, { useState } from "react"
 import Image from "next/image"
+import type { Locale } from "@/lib/i18n"
 
 interface CarouselProps {
+    locale?: Locale
     images: { src: string; alt: string; description?: string }[]
     className?: string
     allowFullscreen?: boolean
     onImageClick?: (index: number) => void
 }
 
-export const Carousel: React.FC<CarouselProps> = ({ images, className = "", allowFullscreen = false, onImageClick }) => {
+export const Carousel: React.FC<CarouselProps> = ({ images, locale = "es", className = "", allowFullscreen = false, onImageClick }) => {
     const [current, setCurrent] = useState(0)
 
     const nextImage = () => setCurrent(current === images.length - 1 ? 0 : current + 1)
@@ -22,7 +24,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images, className = "", allo
                 <button
                     type="button"
                     className="absolute inset-0 z-0 cursor-zoom-in"
-                    aria-label={`Ampliar ${images[current].alt}`}
+                    aria-label={`${locale === "en" ? "Enlarge" : "Ampliar"} ${images[current].alt}`}
                     onClick={() => onImageClick?.(current)}
                 >
                     <Image
@@ -47,7 +49,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images, className = "", allo
                             key={idx}
                             onClick={() => setCurrent(idx)}
                             className={`w-3 h-3 rounded-full transition-colors ${idx === current ? 'bg-white' : 'bg-white/50'}`}
-                            aria-label={`Ir a imagen ${idx + 1}`}
+                            aria-label={`${locale === "en" ? "Go to image" : "Ir a imagen"} ${idx + 1}`}
                             aria-current={idx === current ? "true" : undefined}
                         />
                     ))}
@@ -57,7 +59,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images, className = "", allo
                     type="button"
                     onClick={prevImage}
                     className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
-                    aria-label="Imagen anterior"
+                    aria-label={locale === "en" ? "Previous image" : "Imagen anterior"}
                 >
                     ←
                 </button>
@@ -65,7 +67,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images, className = "", allo
                     type="button"
                     onClick={nextImage}
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors"
-                    aria-label="Siguiente imagen"
+                    aria-label={locale === "en" ? "Next image" : "Siguiente imagen"}
                 >
                     →
                 </button>

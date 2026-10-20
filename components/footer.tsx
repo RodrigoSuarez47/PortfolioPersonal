@@ -1,19 +1,13 @@
-import { MapPin } from "lucide-react";
+import { MapPin } from "lucide-react"
+import { getCopy, type Locale } from "@/lib/i18n"
 
-export function Footer() {
-  const currentYear = new Date().getFullYear()
-
+export function Footer({ locale = "es" }: { locale?: Locale }) {
+  const t = getCopy(locale)
   return (
-    <footer className="py-8 px-6 lg:px-8 border-t">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-sm text-muted-foreground">© {currentYear} Rodrigo Suarez. Todos los derechos reservados.</div>
-          <div className="text-sm text-muted-foreground flex items-center space-x-2">
-            <MapPin className="h-5 w-5 text-primary" />
-            <span className="text-muted-foreground">Montevideo, Uruguay</span>
-          </div>
-        </div>
-
+    <footer className="border-t py-8">
+      <div className="page-container flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
+        <p>© {new Date().getFullYear()} Rodrigo Suárez. {t("Todos los derechos reservados.")}</p>
+        <p className="flex items-center gap-2"><MapPin aria-hidden="true" className="h-4 w-4 text-primary" />Montevideo, Uruguay</p>
       </div>
     </footer>
   )
