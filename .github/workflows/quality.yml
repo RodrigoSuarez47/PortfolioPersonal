@@ -13,7 +13,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm install --no-audit --no-fund
-      - name: Export dependency lock for reproducibility
-        run: node -e "console.log('LOCKFILE_GZIP=' + require('node:zlib').gzipSync(require('node:fs').readFileSync('package-lock.json')).toString('base64'))"
+          cache: npm
+      - run: npm ci
       - run: npm run validate

@@ -1,6 +1,8 @@
 ---
 import { getCopy, type Locale } from "@/lib/i18n"
 import { site } from "@/lib/site"
+import { Image } from "astro:assets"
+import portrait from "@/assets/profile-picture.png"
 interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
 const t = getCopy(locale)
@@ -25,7 +27,7 @@ const t = getCopy(locale)
         </div>
         <div class="relative mx-auto w-full max-w-sm">
           <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border bg-muted">
-            <img src="/profile-picture.png" alt={locale === "en" ? "Rodrigo Suárez, software developer" : "Rodrigo Suárez, desarrollador de software"} width="384" height="480" fetchpriority="high" decoding="async" class="h-full w-full object-cover" />
+            <Image src={portrait} alt={locale === "en" ? "Rodrigo Suárez, software developer" : "Rodrigo Suárez, desarrollador de software"} width={384} height={480} widths={[384, 768]} sizes="(max-width: 1024px) 90vw, 384px" format="webp" loading="eager" fetchpriority="high" class="h-full w-full object-cover" />
           </div>
           <p class="mt-4 border-l-2 border-primary pl-4 text-sm text-muted-foreground">C# / .NET · React / TypeScript<br />{t("Integraciones y datos")}</p>
         </div>

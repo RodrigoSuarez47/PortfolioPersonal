@@ -21,7 +21,7 @@ for (const [file, language, canonical] of [["index.html", "es-UY", "/"], ["en/in
     if (value.startsWith("#")) {
       assert.ok(html.includes('id="' + value.slice(1) + '"'), file + ": anchor " + value)
     } else if (value.startsWith("/") && !value.startsWith("//")) {
-      const path = decodeURIComponent(value.split("#")[0].split("?")[0])
+      const path = decodeURIComponent(value.replaceAll("&amp;", "&").split("#")[0].split("?")[0])
       const disk = join(root, path)
       assert.ok(existsSync(disk) || existsSync(join(disk, "index.html")), file + ": local resource " + path)
     }
