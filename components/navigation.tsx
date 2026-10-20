@@ -52,7 +52,7 @@ export function Navigation() {
                     href={item.href}
                     className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground dark:hover:text-white transition-colors duration-200"
                   >
-                    <Icon className="h-4 w-4 text-primary group-hover:text-dark dark:group-hover:text-primary" />
+                    <Icon className="h-4 w-4 text-primary group-hover:text-foreground" />
                     {item.name}
                   </a>
                 );
@@ -62,7 +62,6 @@ export function Navigation() {
                 size="icon"
                 aria-label={`Cambiar a modo ${(mounted && theme === "dark") ? "claro" : "oscuro"}`}
                 onClick={() => setTheme((mounted && theme === "dark") ? "light" : "dark")}
-                className="dark:hover:text-primary"
               >
                 {(mounted && theme === "dark") ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
@@ -75,7 +74,6 @@ export function Navigation() {
                 size="icon"
                 aria-label={`Cambiar a modo ${(mounted && theme === "dark") ? "claro" : "oscuro"}`}
                 onClick={() => setTheme((mounted && theme === "dark") ? "light" : "dark")}
-                className="dark:hover:text-primary"
               >
                 {(mounted && theme === "dark") ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
@@ -86,7 +84,6 @@ export function Navigation() {
                 aria-expanded={isOpen}
                 aria-controls="mobile-navigation"
                 onClick={() => setIsOpen(!isOpen)}
-                className="dark:hover:text-primary"
               >
                 {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
               </Button>
@@ -107,7 +104,7 @@ export function Navigation() {
                     className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground dark:hover:text-white transition-colors duration-200"
                     onClick={() => setIsOpen(false)}
                   >
-                    <Icon className="h-4 w-4 text-primary group-hover:text-white dark:group-hover:text-white" />
+                    <Icon className="h-4 w-4 text-primary group-hover:text-foreground" />
                     {item.name}
                   </a>
                 );
