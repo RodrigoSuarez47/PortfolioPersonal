@@ -6,9 +6,9 @@ import { Moon, Sun, Menu, X, Code2, User, Wrench, FolderOpen, Phone } from "luci
 import { useTheme } from "next-themes"
 
 const navItems = [
+  { name: "Proyectos", href: "#projects", icon: FolderOpen },
   { name: "Sobre mí", href: "#about", icon: User },
   { name: "Habilidades", href: "#skills", icon: Wrench },
-  { name: "Proyectos", href: "#projects", icon: FolderOpen },
   { name: "Contacto", href: "#contact", icon: Phone },
 ]
 
@@ -32,18 +32,15 @@ export function Navigation() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [isOpen])
 
-  if (!mounted) {
-    return null
-  }
-
   return (
     <>
       <nav aria-label="Navegación principal" className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
+            <a href="#home" aria-label="Rodrigo Suárez, inicio" className="flex items-center gap-2 font-semibold tracking-tight">
               <Code2 aria-hidden="true" className="h-6 w-6 text-primary" />
-            </div>
+              <span>Rodrigo Suárez</span>
+            </a>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -63,11 +60,11 @@ export function Navigation() {
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label={`Cambiar a modo ${theme === "dark" ? "claro" : "oscuro"}`}
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label={`Cambiar a modo ${(mounted && theme === "dark") ? "claro" : "oscuro"}`}
+                onClick={() => setTheme((mounted && theme === "dark") ? "light" : "dark")}
                 className="dark:hover:text-primary"
               >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {(mounted && theme === "dark") ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
             </div>
 
@@ -76,11 +73,11 @@ export function Navigation() {
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label={`Cambiar a modo ${theme === "dark" ? "claro" : "oscuro"}`}
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label={`Cambiar a modo ${(mounted && theme === "dark") ? "claro" : "oscuro"}`}
+                onClick={() => setTheme((mounted && theme === "dark") ? "light" : "dark")}
                 className="dark:hover:text-primary"
               >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {(mounted && theme === "dark") ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
               <Button
                 variant="ghost"
