@@ -15,8 +15,8 @@ export function SkillsSection({ locale = "es" }: { locale?: Locale }) {
     <Section id="skills" eyebrow={t("Herramientas")} title={t("Un stack al servicio del problema")} description={t("Tecnologías que utilizo en desarrollo, integración y trabajo con datos. Los proyectos muestran cómo las aplico.")}>
       <div className="grid gap-5 sm:grid-cols-2">
         {categories.map((category) => (
-          <div key={t(category.title)} className="rounded-2xl border bg-card p-6">
-            <h3 className="mb-5 text-lg font-semibold">{category.title}</h3>
+          <div key={category.title} className="rounded-2xl border bg-card p-6">
+            <h3 className="mb-5 text-lg font-semibold">{t(category.title)}</h3>
             <ul className="flex flex-wrap gap-2">{category.skills.map((skill) => <li key={skill} className="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">{skill}</li>)}</ul>
           </div>
         ))}
