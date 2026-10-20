@@ -1,0 +1,28 @@
+---
+import { getCopy, type Locale } from "@/lib/i18n"
+import Section from "./Section.astro"
+interface Props { locale?: Locale }
+const { locale = "es" } = Astro.props
+const t = getCopy(locale)
+const categories = [
+  { title: "Backend e integraciones", skills: ["C#", "ASP.NET Core", "Entity Framework Core", "API REST", "JWT", "Microsoft Graph"] },
+  { title: "Frontend", skills: ["TypeScript", "JavaScript", "React", "Next.js", "Vite", "Tailwind CSS"] },
+  { title: "Datos", skills: ["PostgreSQL", "SQL Server", "MySQL", "MongoDB", "Python", "Big Data"] },
+  { title: "Herramientas y despliegue", skills: ["Git", "GitHub", "Docker", "Azure", "Vercel", "Neon"] },
+]
+const additionalSkills = ["HTML", "CSS", "Java", "Firebase", "Bootstrap", "jQuery", "Redux", "Ionic Framework", "BCrypt.NET", "Kubernetes", "AWS", "Somee", "Windows Server", "GeneXus"]
+---
+<Section id="skills" eyebrow={t("Herramientas")} title={t("Un stack al servicio del problema")} description={t("Tecnologías que utilizo en desarrollo, integración y trabajo con datos. Los proyectos muestran cómo las aplico.")}>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {categories.map((category) => (
+          <div class="rounded-2xl border bg-card p-6">
+            <h3 class="mb-5 text-lg font-semibold">{t(category.title)}</h3>
+            <ul class="flex flex-wrap gap-2">{category.skills.map((skill) => <li class="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">{skill}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <details class="mt-6 rounded-2xl border p-6">
+        <summary class="cursor-pointer text-sm font-medium">{t("Otras tecnologías y herramientas")}</summary>
+        <p class="pt-4 text-sm leading-relaxed text-muted-foreground">{additionalSkills.join(" · ")}</p>
+      </details>
+    </Section>

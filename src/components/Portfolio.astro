@@ -1,0 +1,32 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import Navigation from "./Navigation.astro"
+import HeroSection from "./HeroSection.astro"
+import Section from "./Section.astro"
+import ProjectCard from "./ProjectCard.astro"
+import AboutSection from "./AboutSection.astro"
+import ExperienceSection from "./ExperienceSection.astro"
+import SkillsSection from "./SkillsSection.astro"
+import ContactSection from "./ContactSection.astro"
+import Footer from "./Footer.astro"
+import { getCopy, type Locale } from "@/lib/i18n"
+import { getProjects } from "@/lib/projects"
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const t = getCopy(locale)
+---
+<Layout locale={locale}>
+  <a href="#main-content" class="skip-link">{t("Saltar al contenido")}</a>
+  <Navigation locale={locale} />
+  <main id="main-content" tabindex="-1">
+    <HeroSection locale={locale} />
+    <Section id="projects" eyebrow={t("Trabajo seleccionado")} title={t("Software que resuelve necesidades reales")} description={t("Sistemas de gestión, experiencias web e integraciones. Cada proyecto parte de un proceso de negocio y lo lleva a una solución concreta.")}>
+      <div class="grid items-start gap-6 md:grid-cols-2">{getProjects(locale).map((project) => <ProjectCard project={project} locale={locale} />)}</div>
+    </Section>
+    <AboutSection locale={locale} />
+    <ExperienceSection locale={locale} />
+    <SkillsSection locale={locale} />
+    <ContactSection locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</Layout>

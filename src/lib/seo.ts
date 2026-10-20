@@ -1,0 +1,26 @@
+import { site } from "./site"
+import { localePath, type Locale } from "./i18n"
+import { getProjects } from "./projects"
+
+export function getSeo(locale: Locale) {
+  const path = localePath(locale)
+  const url = site.url + path
+  const title = locale === "en" ? "Rodrigo Suárez | Software Developer in Uruguay" : site.title
+  const description = locale === "en"
+    ? "Information Technology Analyst graduate from Universidad ORT Uruguay. Web applications, APIs and business management systems with C#, React and TypeScript."
+    : site.description
+  const language = locale === "en" ? "en" : "es-UY"
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Person", "@id": site.url + "/#person", name: site.name, url: site.url, jobTitle: locale === "en" ? "Information Technology Analyst" : "Analista en Tecnologías de la Información", sameAs: [site.github, site.linkedin] },
+      { "@type": "WebSite", "@id": site.url + "/#website", url: site.url, name: site.name, inLanguage: ["es-UY", "en"], publisher: { "@id": site.url + "/#person" } },
+      { "@type": "ProfilePage", "@id": url + "#webpage", url, name: title, description, inLanguage: language, isPartOf: { "@id": site.url + "/#website" }, mainEntity: { "@id": site.url + "/#person" }, hasPart: { "@id": url + "#projects" } },
+      { "@type": "ItemList", "@id": url + "#projects", name: locale === "en" ? "Projects by Rodrigo Suárez" : "Proyectos de Rodrigo Suárez", itemListElement: getProjects(locale).map((project, index) => ({
+        "@type": "ListItem", position: index + 1,
+        item: { "@type": "CreativeWork", "@id": url + "#project-" + project.id, name: project.title, description: project.description, url: project.demoUrl ?? url + "#project-" + project.id, creator: { "@id": site.url + "/#person" } },
+      })) },
+    ],
+  }
+  return { title, description, language, url, graph }
+}
