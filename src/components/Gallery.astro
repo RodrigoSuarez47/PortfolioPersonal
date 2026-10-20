@@ -1,0 +1,20 @@
+---
+import type { ProjectImage } from "@/lib/projects"
+import type { Locale } from "@/lib/i18n"
+interface Props { images: ProjectImage[]; locale: Locale }
+const { images, locale } = Astro.props
+const [cover, ...rest] = images
+---
+{cover && <div data-gallery>
+  <a href={cover.src} data-photo data-caption={cover.alt} class="block cursor-zoom-in rounded-xl focus-visible:outline">
+    <img src={cover.src} alt={cover.alt} width="960" height="600" loading="lazy" decoding="async" class="h-56 w-full rounded-xl object-contain sm:h-64" />
+  </a>
+  {rest.length > 0 && <details class="mt-3">
+    <summary class="cursor-pointer text-sm text-muted-foreground">{locale === "es" ? "Ver todas las capturas" : "View all screenshots"} ({images.length})</summary>
+    <div class="mt-3 grid grid-cols-3 gap-2">
+      {rest.map((image) => <a href={image.src} data-photo data-caption={image.alt} aria-label={(locale === "es" ? "Ampliar: " : "Enlarge: ") + image.alt} class="rounded-lg border bg-background">
+        <img src={image.src} alt={image.alt} width="320" height="200" loading="lazy" decoding="async" class="h-24 w-full object-contain" />
+      </a>)}
+    </div>
+  </details>}
+</div>}

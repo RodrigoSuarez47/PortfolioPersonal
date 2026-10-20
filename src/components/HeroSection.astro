@@ -1,0 +1,33 @@
+---
+import { getCopy, type Locale } from "@/lib/i18n"
+import { site } from "@/lib/site"
+interface Props { locale?: Locale }
+const { locale = "es" } = Astro.props
+const t = getCopy(locale)
+
+---
+<section id="home" aria-labelledby="hero-title" class="hero-shell">
+      <div class="page-container grid items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
+        <div class="space-y-7">
+          <p class="eyebrow">{t("Desarrollo de software · Uruguay")}</p>
+          <h1 id="hero-title" class="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">{site.name}</h1>
+          <p class="max-w-xl text-2xl font-medium leading-snug sm:text-3xl">{t("Del proceso de negocio a una solución que funciona.")}</p>
+          <p class="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">{t("Analista en Tecnologías de la Información por Universidad ORT. Desarrollo aplicaciones web, APIs y sistemas de gestión. Especialización en Big Data y formación como Analista GeneXus Jr.")}</p>
+          <div class="flex flex-wrap gap-3">
+            <a class="button button-primary" href="#projects">{t("Explorar proyectos")}</a>
+            <a class="button button-outline" href="#contact">{t("Hablemos")}</a>
+          </div>
+          <div class="flex flex-wrap gap-5 text-sm text-muted-foreground">
+            <a class="hover:text-foreground" href={site.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="hover:text-foreground" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="hover:text-foreground" href="/documents/Cv_Rodrigo_Suarez.pdf" download>{t("Descargar CV ↓")}</a>
+          </div>
+        </div>
+        <div class="relative mx-auto w-full max-w-sm">
+          <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border bg-muted">
+            <img src="/profile-picture.png" alt={locale === "en" ? "Rodrigo Suárez, software developer" : "Rodrigo Suárez, desarrollador de software"} width="384" height="480" fetchpriority="high" decoding="async" class="h-full w-full object-cover" />
+          </div>
+          <p class="mt-4 border-l-2 border-primary pl-4 text-sm text-muted-foreground">C# / .NET · React / TypeScript<br />{t("Integraciones y datos")}</p>
+        </div>
+      </div>
+    </section>
