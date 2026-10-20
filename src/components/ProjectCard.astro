@@ -5,8 +5,7 @@ import type { Project } from "@/lib/projects"
 interface Props { project: Project; locale: Locale }
 const { project, locale } = Astro.props
 const t = getCopy(locale)
-const preferred = project.id === 1 ? "Dashboard" : project.id === 3 ? "Calendario" : "PWA desktop"
-const images = [...project.images].sort((a, b) => Number(b.src.includes(preferred)) - Number(a.src.includes(preferred)))
+const { images } = project
 const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones técnicas", result: "Resultado" }
 ---
 <article class="project-card" aria-labelledby={"project-" + project.id}>

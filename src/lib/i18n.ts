@@ -2,7 +2,6 @@ export type Locale = "es" | "en"
 const english: Record<string, string> = {
   "Saltar al contenido": "Skip to content",
   "Desarrollo de software · Uruguay": "Software development · Uruguay",
-  "Del proceso de negocio a una solución que funciona.": "From business processes to working software.",
   "Analista en Tecnologías de la Información por Universidad ORT. Desarrollo aplicaciones web, APIs y sistemas de gestión. Especialización en Big Data y formación como Analista GeneXus Jr.": "Information Technology Analyst graduate from Universidad ORT Uruguay. I build web applications, APIs and management systems, with a specialization in Big Data and training as a Junior GeneXus Analyst.",
   "Explorar proyectos": "Explore projects",
   "Hablemos": "Let’s talk",
@@ -52,8 +51,6 @@ const english: Record<string, string> = {
   "Experiencia y formación": "Experience & education",
   "Recorrido": "Background",
   "Del análisis a la entrega": "From analysis to delivery",
-  "Experiencia aplicada": "Applied experience",
-  "Desarrollo de soluciones para negocios": "Building software for businesses",
   "Mayorista Javier: sistema de gestión, inventario, compras, ventas y catálogo de clientes. FyV Traslados: diseño y desarrollo de su web comercial.": "Mayorista Javier: management system, inventory, purchases, sales and customer catalog. FyV Traslados: design and development of its business website.",
   "Proyecto final de carrera": "Final degree project",
   "Gestión de salas para Jaume & Sere": "Meeting room management for Jaume & Sere",
@@ -70,7 +67,14 @@ const english: Record<string, string> = {
   "Cambiar a modo claro": "Switch to light mode",
   "Cambiar a modo oscuro": "Switch to dark mode",
   "Rodrigo Suárez, inicio": "Rodrigo Suárez, home",
-  "Todos los derechos reservados.": "All rights reserved."
+  "Todos los derechos reservados.": "All rights reserved.",
+  "Desarrollador Full Stack · C#/.NET y React": "Full Stack Developer · C#/.NET and React",
+  "Experiencia laboral": "Work experience",
+  "Desarrollador freelance": "Freelance Developer",
+  "Operador de Sistemas Informáticos · CASMU": "Computer Systems Operator · CASMU",
+  "2025 - Actualidad": "2025 - Present",
+  "2020 - Actualidad": "2020 - Present",
+  "Monitoreo de sistemas, análisis de logs y datos, ejecución de consultas SQL y revisión de archivos para la detección proactiva de incidentes.": "System monitoring, log and data analysis, SQL queries and file reviews to proactively identify incidents."
 }
 export const getCopy = (locale: Locale) => (text: string) => locale === "en" ? (english[text] ?? text) : text
 export const localePath = (locale: Locale) => locale === "en" ? "/en" : "/"
