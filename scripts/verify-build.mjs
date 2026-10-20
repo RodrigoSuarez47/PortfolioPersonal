@@ -39,7 +39,7 @@ const scripts = walk(root).filter(path => path.endsWith(".js"))
 const inlineScripts = new Set()
 for (const file of ["index.html", "en/index.html"]) {
   const html = readFileSync(join(root, file), "utf8")
-  for (const [, attributes, code] of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/g)) {
+  for (const [, attributes, code] of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
     if (!attributes.includes("application/ld+json") && !attributes.includes("src=")) inlineScripts.add(code)
   }
 }
