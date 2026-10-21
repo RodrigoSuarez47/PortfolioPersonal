@@ -131,9 +131,14 @@ try {
   const chrome = await launch({ chromePath: chromium.executablePath(), chromeFlags: ["--headless", "--no-sandbox"] })
   try {
     for (const path of ["/", "/en"]) {
-      const result = await lighthouse("http://127.0.0.1:4173" + path, { port: chrome.port, output: "json", onlyCategories: ["performance", "accessibility", "best-practices", "seo"] })
+      let result = await lighthouse("http://127.0.0.1:4173" + path, { port: chrome.port, output: "json", onlyCategories: ["performance", "accessibility", "best-practices", "seo"] })
+      if (result.lhr.runtimeError?.code === "NO_NAVSTART") {
+        console.log("Retrying one failed Lighthouse trace recording (NO_NAVSTART); score thresholds are unchanged.")
+        result = await lighthouse("http://127.0.0.1:4173" + path, { port: chrome.port, output: "json", onlyCategories: ["performance", "accessibility", "best-practices", "seo"] })
+      }
       writeFileSync(`audit-results/lighthouse-${path === "/" ? "es" : "en"}.json`, result.report)
-      console.log("Failed audits:", Object.values(result.lhr.audits).filter(audit => audit.score === 0).map(audit => ({ id: audit.id, title: audit.title, details: audit.details })))
+      console.log("Lighthouse runtime:", JSON.stringify(result.lhr.runtimeError ?? null))
+      console.log("Failed audits:", JSON.stringify(Object.values(result.lhr.audits).filter(audit => audit.score === 0 || audit.errorMessage).map(audit => ({ id: audit.id, title: audit.title, details: audit.details, errorMessage: audit.errorMessage }))))
       for (const [id, category] of Object.entries(result.lhr.categories)) {
         console.log(path, id, category.score)
         assert.ok(category.score >= (id === "performance" ? .95 : 1), `${path}: ${id} budget`)
