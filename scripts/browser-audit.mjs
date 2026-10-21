@@ -155,7 +155,7 @@ try {
       console.log("Failed audits:", JSON.stringify(Object.values(result.lhr.audits).filter(audit => audit.score === 0 || audit.errorMessage).map(audit => ({ id: audit.id, title: audit.title, details: audit.details, errorMessage: audit.errorMessage }))))
       for (const [id, category] of Object.entries(result.lhr.categories)) {
         console.log(path, id, category.score)
-        assert.ok(category.score >= (id === "performance" ? .95 : 1), `${path}: ${id} budget`)
+        assert.ok(category.score === 1, `${path}: ${id} budget`)
       }
     }
   } finally { await chrome.kill() }

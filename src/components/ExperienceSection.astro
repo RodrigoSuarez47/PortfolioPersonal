@@ -21,7 +21,7 @@ const background: BackgroundItem[] = [
           <p class="text-sm leading-relaxed text-muted-foreground">{item.description[locale]}</p>
         </article>)}
         {background.map((item) => (
-          <article class:list={["space-y-3 rounded-2xl border bg-card p-6", { "md:col-span-2": item.kind === "Formación complementaria" }]}>
+          <article class="space-y-3 rounded-2xl border bg-card p-6">
             <p class="eyebrow">{t(item.kind)}</p>
             <h3 class="text-lg font-semibold">{t(item.title)}</h3>
             <p class="text-sm leading-relaxed text-muted-foreground">{t(item.description)}</p>
