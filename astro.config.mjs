@@ -8,7 +8,7 @@ export default defineConfig({
   trailingSlash: "never",
   security: {
     csp: {
-      scriptDirective: { resources: ["'self'"], strictDynamic: true },
+      scriptDirective: { resources: ["'self'"] },
       directives: ["default-src 'self'", "img-src 'self' data:", "font-src 'self'", "connect-src 'self' https://vitals.vercel-insights.com", "object-src 'none'", "base-uri 'self'", "form-action 'self'"],
     },
   },

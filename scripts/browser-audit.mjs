@@ -29,6 +29,7 @@ try {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
     const errors = []
     page.on("pageerror", error => errors.push(error.message))
+    page.on("console", message => { if (message.type() === "error") console.log("Browser diagnostic:", message.text()) })
     // Exercise the exact production tool registration in browsers without WebMCP enabled.
     await page.addInitScript(() => {
       window.portfolioTools = {}
@@ -72,7 +73,7 @@ try {
     await plain.goto("http://127.0.0.1:4173" + path)
     await plain.locator("[data-case-study] summary").first().click()
     assert.ok(await plain.locator("[data-case-study]").first().evaluate(details => details.open))
-    assert.equal(await plain.locator('[href="/llms.txt"]').count(), 1)
+    assert.equal(await plain.locator('footer a[href="/llms.txt"]').count(), 1)
     await noJS.close()
   }
   const { default: lighthouse } = await import(require.resolve("lighthouse"))
