@@ -82,7 +82,7 @@
 /* Keep action states above utility colors and give documents a full hit area. */
 .button-primary:hover, .button-primary:focus-visible { background: var(--foreground); color: var(--background); border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 28%, transparent); }
 .button-whatsapp { background: #25d366; color: #052e16; border: 1px solid #25d366; }
-.button-whatsapp:hover, .button-whatsapp:focus-visible { background: #1fb45a; border-color: #1fb45a; color: #052e16; }
+.button-whatsapp:hover, .button-whatsapp:focus-visible { background: #137a3c; border-color: #137a3c; color: #fff; }
 .document-link { border-radius: .5rem; padding-inline: .75rem; transition: color 150ms, background-color 150ms; }
 .document-link:hover, .document-link:focus-visible { background: #006685; color: #fff; }
 .document-link:hover svg, .document-link:focus-visible svg { color: #fff; }
