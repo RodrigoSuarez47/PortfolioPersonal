@@ -7,7 +7,7 @@ const english = {
   "Analista en Tecnologías de la Información por Universidad ORT. Desarrollo aplicaciones web, APIs y sistemas de gestión. Especialización en Big Data y formación como Analista GeneXus Jr.": "Information Technology Analyst graduate from Universidad ORT Uruguay. I build web applications, APIs and management systems, with a specialization in Big Data and training as a Junior GeneXus Analyst.",
   "Explorar proyectos": "Explore projects",
   "Hablemos": "Let’s talk",
-  "Descargar CV ↓": "Download résumé ↓",
+  "Descargar CV": "Download résumé",
   "Integraciones y datos": "Integrations and data",
   "Perfil": "Profile",
   "Tecnología con contexto de negocio": "Technology grounded in business",

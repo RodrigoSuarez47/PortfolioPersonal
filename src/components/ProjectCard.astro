@@ -1,4 +1,7 @@
 ---
+import Icon from "./Icon.astro"
+import TechnologyBadge from "./TechnologyBadge.astro"
+import { site } from "@/lib/site"
 import Gallery from "./Gallery.astro"
 import { getCopy, type Locale } from "@/lib/i18n"
 import type { Project } from "@/lib/projects"
@@ -8,13 +11,13 @@ const t = getCopy(locale)
 const { images } = project
 const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones técnicas", result: "Resultado" } as const
 ---
-<article id={project.slug} class="project-card" aria-labelledby={"project-" + project.id}>
+<article id={project.slug} class="project-card" data-wide={project.id === 5 || undefined} aria-labelledby={"project-" + project.id}>
   <div class="border-b bg-muted/40 p-4">
     {images.length > 0 ? <Gallery images={images} locale={locale} /> : (
       <div class="flex h-56 flex-col justify-between rounded-xl bg-primary/10 p-6 sm:h-64">
-        <p class="eyebrow">{t("Web de servicios")}</p>
+        <p class="eyebrow flex items-center gap-2"><Icon name="building" />{project.cover?.eyebrow ?? t("Web de servicios")}</p>
         <p class="text-3xl font-semibold tracking-tight">{project.title}</p>
-        <p class="text-sm text-muted-foreground">{t("Servicios · Tarifas · Contacto")}</p>
+        <p class="text-sm text-muted-foreground">{project.cover?.subtitle ?? t("Servicios · Tarifas · Contacto")}</p>
       </div>
     )}
   </div>
@@ -23,12 +26,13 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
     <h3 id={"project-" + project.id} tabindex="-1" class="text-2xl font-semibold tracking-tight"><a href={"#" + project.slug} class="hover:text-primary" title={locale === "en" ? "Direct link to this project" : "Enlace directo a este proyecto"}>{project.title}</a></h3>
     <p class="text-sm leading-relaxed text-muted-foreground sm:text-base">{project.description}</p>
     <ul aria-label={t("Tecnologías principales")} class="flex flex-wrap gap-2">
-      {project.technologies.slice(0, 4).map((tech) => <li class="rounded-md bg-muted px-3 py-1 text-xs">{tech}</li>)}
+      {project.technologies.slice(0, 4).map((tech) => <li><TechnologyBadge name={tech} compact /></li>)}
     </ul>
     <div class="flex flex-wrap gap-3">
-      {project.demoUrl && <a class="button button-primary" href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Visitar web") + ": " + project.title}>{t("Visitar web")} ↗</a>}
-      {project.githubUrl && <a class="button button-outline" href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Código") + ": " + project.title}>{t("Código")} ↗</a>}
+      {project.demoUrl && <a class="button button-primary" href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Visitar web") + ": " + project.title}>{t("Visitar web")}<Icon name="external" /></a>}
+      {project.githubUrl && <a class="button button-outline" href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Código") + ": " + project.title}><Icon name="github" />{t("Código")}</a>}
     </div>
+    {project.delivery && <aside class="space-y-3 rounded-xl border border-primary/30 bg-primary/5 p-5" aria-label={project.delivery.title}><h4 class="font-semibold">{project.delivery.title}</h4><p class="text-sm leading-relaxed text-muted-foreground">{project.delivery.description}</p><a class="button button-outline" href={site.email + "?subject=" + encodeURIComponent(locale === "en" ? "Ratio — request installers" : "Ratio — solicitar instaladores")}><Icon name="download" />{project.delivery.cta}</a></aside>}
     <p class="rounded-xl bg-primary/10 p-4 font-semibold">{project.caseStudy.highlight}</p>
     <details data-case-study class="border-t pt-4">
       <summary class="cursor-pointer text-sm font-medium">{t("Caso de estudio")}</summary>

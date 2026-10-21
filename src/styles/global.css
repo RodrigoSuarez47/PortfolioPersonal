@@ -49,7 +49,12 @@
   .section-heading { @apply mb-10 space-y-4 sm:mb-12; }
   .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.16em] text-primary; }
   .hero-shell { @apply relative overflow-hidden pt-32 pb-16 sm:pb-24 lg:pt-40 lg:pb-28; }
+  .project-card[data-wide] { @apply md:col-span-2; }
   .project-card { @apply min-w-0 overflow-hidden rounded-2xl border bg-card transition-colors hover:border-primary/50; }
+  .text-link { @apply transition-colors hover:text-primary focus-visible:text-primary; }
+  summary { @apply transition-colors hover:text-primary focus-visible:text-primary; }
+  .technology-badge { @apply inline-flex items-center gap-2 rounded-lg border border-transparent bg-muted px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground; }
+  .technology-mark { @apply flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background p-0.5; }
   .button { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors; }
   .button-primary { @apply bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground; }
   .button-outline { @apply border bg-background text-foreground hover:bg-primary hover:text-primary-foreground; }
@@ -57,7 +62,7 @@
   .skip-link { @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-primary px-4 py-3 text-primary-foreground focus:translate-y-0; }
   .site-navigation { @apply fixed inset-x-0 top-0 z-50 border-b bg-background/95 backdrop-blur-md; }
   .mobile-menu-links { @apply absolute inset-x-0 top-full flex flex-col border-b bg-background p-4 shadow-lg; }
-  .mobile-menu-links a { @apply rounded-md px-4 py-3 text-sm hover:bg-muted; }
+  .mobile-menu-links a { @apply rounded-md px-4 py-3 text-sm hover:bg-muted hover:text-primary; }
   .mobile-menu summary { list-style: none; }
   .mobile-menu summary::-webkit-details-marker { display: none; }
   .lightbox { width: min(72rem, 94vw); max-height: 94dvh; margin: auto; padding: 1rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--background); color: var(--foreground); }

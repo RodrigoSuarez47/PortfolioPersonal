@@ -7,9 +7,9 @@ Static Astro website with Spanish (`/`) and English (`/en`) pages. No React runt
 Node.js 22.22 or newer.
 
 ```sh
-npm install
-npm run dev
-npm run validate
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm validate
 ```
 
 ## Structure
@@ -41,3 +41,5 @@ CI runs type checking, build assertions, a high-severity dependency audit, brows
 The browser audit simulates `document.modelContext` to test our tool contract where the browser does not expose the experimental API. Native agent discovery still depends on browser support. Lab results do not replace field Core Web Vitals, manual accessibility review or a penetration test.
 
 The local test server provides a no-op fixture for the Vercel-hosted Analytics script, which only exists on the deployment. This keeps a missing local provider endpoint from being reported as a product console error. Production behavior is verified on Vercel separately.
+
+The project pins pnpm 10.34.7 (supported by Dependabot) in package.json. Vercel and CI use that version and a frozen pnpm lockfile. Dependabot keeps the npm ecosystem identifier, which also covers pnpm, with weekly dependency and GitHub Actions updates. PRs run validation before merging; updates are not blindly auto-merged.

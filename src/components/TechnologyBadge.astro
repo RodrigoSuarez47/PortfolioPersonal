@@ -1,0 +1,11 @@
+---
+import Icon from "./Icon.astro"
+import { technologyLogo } from "@/lib/technology-logos"
+interface Props { name: string; compact?: boolean }
+const { name, compact = false } = Astro.props
+const logo = technologyLogo(name)
+---
+<span class:list={["technology-badge", { "!px-2.5 !py-1 !text-xs": compact }]}>
+  {logo ? <span class="technology-mark"><img src={logo} alt="" width="20" height="20" loading="lazy" decoding="async" class:list={["h-5 w-5 object-contain", { "dark:invert": ["GitHub", "Next.js", "Linux"].includes(name) }]} /></span> : <Icon name="code" class="h-4 w-4 text-primary" />}
+  <span>{name}</span>
+</span>

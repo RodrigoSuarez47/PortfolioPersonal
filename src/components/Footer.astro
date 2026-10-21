@@ -1,5 +1,6 @@
 ---
 import { getCopy, type Locale } from "@/lib/i18n"
+import Icon from "./Icon.astro"
 interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
 const t = getCopy(locale)
@@ -7,8 +8,8 @@ const t = getCopy(locale)
 ---
 <footer class="border-t py-8">
       <div class="page-container flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-        <p>© {new Date().getFullYear()} Rodrigo Suárez. {t("Todos los derechos reservados.")}</p>
-        <p class="flex items-center gap-2">Montevideo, Uruguay</p>
-        <a href="/llms.txt" class="underline underline-offset-4 hover:text-foreground">{t("Recursos para IA")}</a>
+        <p>© <span data-copyright-year>{new Date().getFullYear()}</span> Rodrigo Suárez. {t("Todos los derechos reservados.")}</p>
+        <p class="flex items-center gap-2"><Icon name="pin" class="text-primary" />Montevideo, Uruguay</p>
+        <a href="/llms.txt" class="text-link inline-flex items-center gap-2"><Icon name="code" />{t("Recursos para IA")}</a>
       </div>
     </footer>
