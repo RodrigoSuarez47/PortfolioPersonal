@@ -6,3 +6,4 @@ audit-results/
 .env
 .env.*
 !.env.example
+resume-results/

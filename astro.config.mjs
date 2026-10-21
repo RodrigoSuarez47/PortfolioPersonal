@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite"
 export default defineConfig({
   site: siteUrl,
   output: "static",
+  build: { inlineStylesheets: "always" },
   markdown: { syntaxHighlight: false },
   trailingSlash: "never",
   security: {

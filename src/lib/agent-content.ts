@@ -1,4 +1,5 @@
 import { site } from "./site"
+import { employment } from "../data/profile.json"
 import { getProjects, projectPath } from "./projects"
 import { localePath, type Locale } from "./i18n"
 
@@ -10,10 +11,7 @@ export function agentContent(locale: Locale) {
     role: locale === "en" ? "Full Stack Developer · C#/.NET and React" : "Desarrollador Full Stack · C#/.NET y React",
     location: "Montevideo, Uruguay",
     education: "Analista en Tecnologías de la Información — Universidad ORT Uruguay",
-    experience: [
-      { organization: "CASMU", since: 2020, role: locale === "en" ? "Computer Systems Operator" : "Operador de Sistemas Informáticos" },
-      { organization: "Freelance", since: 2025, role: locale === "en" ? "Software Developer" : "Desarrollador de software" },
-    ],
+    experience: employment.map(item => ({ organization: item.organization, since: item.since, until: item.until, role: item.role[locale], description: item.description[locale] })),
     url: site.url + localePath(locale),
     sections: Object.fromEntries(["home", "projects", "about", "experience", "skills", "contact"].map(id => [id, site.url + localePath(locale) + "#" + id])),
     contact: { email: site.email, whatsapp: site.whatsapp, github: site.github, linkedin: site.linkedin },

@@ -53,3 +53,9 @@ Validation also checks that every source module is reachable from a page or conf
 The public profile links to Rodrigo’s LinkedIn and GitHub using rel=me and Schema.org sameAs. The Person entity includes the unaccented name, full professional name, education, location and profile image. Canonical links, language alternates, sitemap and indexable HTML remain enabled. Projects credit Rodrigo as a contributor, including Ratio.
 
 Google ranking is not guaranteed by code or Lighthouse. To measure indexing, the owner must verify this property in Google Search Console, submit /sitemap.xml and request indexing of the home page. Use the portfolio URL in the public website fields of LinkedIn and GitHub so those profiles link back. A custom domain is optional and requires choosing and registering one separately.
+
+## Career and resumes
+
+`src/data/profile.json` supplies employment history for the website, agent data and PDF generator. `python scripts/generate-resumes.py` requires reportlab and pypdf and verifies single-page PDFs, selectable text, employment dates and Ratio. CI renders both resumes for review.
+
+The performance audit now uses gzip and cache headers for hashed assets, matching production delivery. The hero uses right-sized AVIF images; inline styles remove a separate render-blocking request. Performance budgets retain mobile CPU and network throttling.

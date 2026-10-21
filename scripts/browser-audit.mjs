@@ -1,4 +1,5 @@
 import assert from "node:assert/strict"
+import { gzipSync } from "node:zlib"
 import { createRequire } from "node:module"
 import { resolve } from "node:path"
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs"
@@ -7,7 +8,7 @@ import { siteUrl } from "../site.config.mjs"
 
 const require = createRequire(resolve(process.env.AUDIT_TOOLS, "package.json"))
 const { chromium } = require("playwright")
-const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".webp": "image/webp", ".svg": "image/svg+xml", ".json": "application/json", ".md": "text/markdown", ".txt": "text/plain", ".xml": "application/xml" }
+const mime = { ".avif": "image/avif", ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".webp": "image/webp", ".svg": "image/svg+xml", ".json": "application/json", ".md": "text/markdown", ".txt": "text/plain", ".xml": "application/xml" }
 const config = JSON.parse(readFileSync("vercel.json", "utf8"))
 const server = createServer((request, response) => {
   try {
@@ -25,7 +26,14 @@ const server = createServer((request, response) => {
     const bytes = readFileSync(path)
     for (const rule of config.headers) if (rule.source === "/(.*)" || rule.source === pathname) for (const header of rule.headers) response.setHeader(header.key, header.value)
     if (!response.hasHeader("Content-Type")) response.setHeader("Content-Type", mime[path.slice(path.lastIndexOf("."))] ?? "application/octet-stream")
-    response.end(bytes)
+    if (pathname.startsWith("/_astro/")) response.setHeader("Cache-Control", "public, max-age=31536000, immutable")
+    const compressible = /\.(html|js|css|json|md|txt|xml|svg)$/.test(path)
+    if (compressible && request.headers["accept-encoding"]?.includes("gzip")) {
+      response.setHeader("Content-Encoding", "gzip")
+      const vary = response.getHeader("Vary")
+      response.setHeader("Vary", vary ? vary + ", Accept-Encoding" : "Accept-Encoding")
+      response.end(gzipSync(bytes))
+    } else response.end(bytes)
   } catch { response.writeHead(404).end("Not found") }
 })
 await new Promise(resolve => server.listen(4173, "127.0.0.1", resolve))
@@ -93,6 +101,12 @@ try {
     const ratio = page.locator("#ratio-espina")
     assert.ok((await ratio.innerText()).includes("frontend"))
     assert.ok((await ratio.locator('a[href^="mailto:"]').getAttribute("href")).includes("Ratio"))
+    const installerEmail = new URL(await ratio.locator('a[href^="mailto:"]').getAttribute("href"))
+    assert.ok(installerEmail.searchParams.get("body").includes(lang === "en" ? "I visited your portfolio" : "revisé tu portfolio"))
+    assert.equal(await page.locator('footer a[href*="google.com/maps"]').count(), 1)
+    const employment = await page.locator("#experience").innerText()
+    for (const period of ["12/2020", "03/2021", "04/2025", "10/2026"]) assert.ok(employment.includes(period))
+    assert.ok(employment.includes("Ratio"))
     assert.ok(await page.locator('footer svg').count() >= 1)
     assert.ok(await page.locator('#skills img[src^="/images/technologies/"]').count() >= 10)
     // Theme, persistence, keyboard gallery and focus restoration under enforced CSP.
@@ -141,7 +155,7 @@ try {
       console.log("Failed audits:", JSON.stringify(Object.values(result.lhr.audits).filter(audit => audit.score === 0 || audit.errorMessage).map(audit => ({ id: audit.id, title: audit.title, details: audit.details, errorMessage: audit.errorMessage }))))
       for (const [id, category] of Object.entries(result.lhr.categories)) {
         console.log(path, id, category.score)
-        assert.ok(category.score >= (id === "performance" ? .95 : 1), `${path}: ${id} budget`)
+        assert.ok(category.score === 1, `${path}: ${id} budget`)
       }
     }
   } finally { await chrome.kill() }
