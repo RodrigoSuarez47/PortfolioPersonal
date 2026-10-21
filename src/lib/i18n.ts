@@ -53,7 +53,6 @@ const english = {
   "Experiencia y formación": "Experience & education",
   "Recorrido": "Background",
   "Del análisis a la entrega": "From analysis to delivery",
-  "Mayorista Javier: sistema de gestión, inventario, compras, ventas y catálogo de clientes. FyV Traslados: diseño y desarrollo de su web comercial.": "Mayorista Javier: management system, inventory, purchases, sales and customer catalog. FyV Traslados: design and development of its business website.",
   "Proyecto final de carrera": "Final degree project",
   "Gestión de salas para Jaume & Sere": "Meeting room management for Jaume & Sere",
   "Participación en el análisis y desarrollo de una solución de reservas con .NET, React, Active Directory y Microsoft Graph.": "Contributed to the analysis and development of a booking solution with .NET, React, Active Directory and Microsoft Graph.",
@@ -72,11 +71,6 @@ const english = {
   "Todos los derechos reservados.": "All rights reserved.",
   "Desarrollador Full Stack · C#/.NET y React": "Full Stack Developer · C#/.NET and React",
   "Experiencia laboral": "Work experience",
-  "Desarrollador freelance": "Freelance Developer",
-  "Operador de Sistemas Informáticos · CASMU": "Computer Systems Operator · CASMU",
-  "2025 - Actualidad": "2025 - Present",
-  "2020 - Actualidad": "2020 - Present",
-  "Monitoreo de sistemas, análisis de logs y datos, ejecución de consultas SQL y revisión de archivos para la detección proactiva de incidentes.": "System monitoring, log and data analysis, SQL queries and file reviews to proactively identify incidents."
 } as const
 export type CopyKey = keyof typeof english
 export const getCopy = (locale: Locale) => (text: CopyKey) => locale === "en" ? english[text] : text
