@@ -2,34 +2,8 @@
   "employment": [
     {
       "organization": "CASMU",
-      "since": "10/2026",
+      "since": "2020",
       "until": null,
-      "role": {
-        "es": "Desarrollador de Software Semi Senior",
-        "en": "Semi-Senior Software Developer"
-      },
-      "description": {
-        "es": "Desarrollo de software en CASMU.",
-        "en": "Software development at CASMU."
-      }
-    },
-    {
-      "organization": "Freelance",
-      "since": "2025",
-      "until": null,
-      "role": {
-        "es": "Desarrollador freelance",
-        "en": "Freelance Software Developer"
-      },
-      "description": {
-        "es": "Mayorista Javier: gestión, inventario, compras, ventas y catálogo de clientes. FyV Traslados: web comercial. Ratio para Espina: colaboración frontend con Luis Terzano en un sistema de presupuestos y gestión de obras.",
-        "en": "Mayorista Javier: business management, inventory, purchasing, sales and customer catalog. FyV Traslados: business website. Ratio for Espina: frontend collaboration with Luis Terzano on construction budgeting and management software."
-      }
-    },
-    {
-      "organization": "CASMU",
-      "since": "04/2025",
-      "until": "10/2026",
       "role": {
         "es": "Operador de Sistemas Informáticos",
         "en": "Computer Systems Operator"
@@ -37,32 +11,6 @@
       "description": {
         "es": "Monitoreo de sistemas, análisis de logs y datos, consultas SQL y revisión de archivos para detectar incidentes.",
         "en": "System monitoring, log and data analysis, SQL queries and file review to identify incidents."
-      }
-    },
-    {
-      "organization": "1727 Emergencias (CASMU)",
-      "since": "03/2021",
-      "until": "04/2025",
-      "role": {
-        "es": "Telefonista de Emergencias Médicas",
-        "en": "Medical Emergency Telephone Operator"
-      },
-      "description": {
-        "es": "Atención telefónica de emergencias médicas.",
-        "en": "Telephone support for medical emergencies."
-      }
-    },
-    {
-      "organization": "CASMU",
-      "since": "12/2020",
-      "until": "03/2021",
-      "role": {
-        "es": "Telefonista para línea COVID-19",
-        "en": "COVID-19 Hotline Operator"
-      },
-      "description": {
-        "es": "Atención telefónica en la línea COVID-19.",
-        "en": "Telephone support on the COVID-19 hotline."
       }
     }
   ]
