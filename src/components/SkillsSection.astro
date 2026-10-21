@@ -1,5 +1,6 @@
 ---
 import { getCopy, type Locale } from "@/lib/i18n"
+import TechnologyBadge from "./TechnologyBadge.astro"
 import Section from "./Section.astro"
 interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
@@ -17,12 +18,12 @@ const additionalSkills = ["HTML", "CSS", "Java", "Firebase", "Bootstrap", "jQuer
         {categories.map((category) => (
           <div class="rounded-2xl border bg-card p-6">
             <h3 class="mb-5 text-lg font-semibold">{t(category.title)}</h3>
-            <ul class="flex flex-wrap gap-2">{category.skills.map((skill) => <li class="rounded-md bg-muted px-3 py-2 text-sm text-muted-foreground">{skill}</li>)}</ul>
+            <ul class="flex flex-wrap gap-2">{category.skills.map((skill) => <li><TechnologyBadge name={skill} /></li>)}</ul>
           </div>
         ))}
       </div>
       <details class="mt-6 rounded-2xl border p-6">
         <summary class="cursor-pointer text-sm font-medium">{t("Otras tecnologías y herramientas")}</summary>
-        <p class="pt-4 text-sm leading-relaxed text-muted-foreground">{additionalSkills.join(" · ")}</p>
+        <ul class="flex flex-wrap gap-2 pt-4">{additionalSkills.map(skill => <li><TechnologyBadge name={skill} /></li>)}</ul>
       </details>
     </Section>

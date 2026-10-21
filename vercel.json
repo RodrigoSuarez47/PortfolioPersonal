@@ -1,8 +1,8 @@
 {
   "framework": "astro",
-  "buildCommand": "npm run build",
+  "buildCommand": "node scripts/package-manager.mjs build",
   "outputDirectory": "dist",
-  "installCommand": "npm ci",
+  "installCommand": "node scripts/package-manager.mjs install --frozen-lockfile",
   "headers": [
     {
       "source": "/(.*)",

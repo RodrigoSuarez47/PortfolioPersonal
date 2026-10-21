@@ -4,8 +4,10 @@ if (toggle) {
   const updateLabel = () => {
     const dark = document.documentElement.classList.contains("dark")
     toggle.setAttribute("aria-label", (dark ? toggle.dataset.lightLabel : toggle.dataset.darkLabel) ?? "")
-    const symbol = toggle.querySelector("[data-theme-symbol]")
-    if (symbol) symbol.textContent = dark ? "☀" : "☾"
+    const lightSymbol = toggle.querySelector<HTMLElement>("[data-theme-light]")
+    const darkSymbol = toggle.querySelector<HTMLElement>("[data-theme-dark]")
+    if (lightSymbol) lightSymbol.hidden = !dark
+    if (darkSymbol) darkSymbol.hidden = dark
   }
   toggle.hidden = false
   updateLabel()

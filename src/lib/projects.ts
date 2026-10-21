@@ -16,6 +16,8 @@ export interface CaseStudy {
 }
 
 export interface Project {
+  cover?: { eyebrow: string; subtitle: string }
+  delivery?: { title: string; description: string; cta: string }
   caseStudy: CaseStudy
   id: ProjectId
   slug: string
@@ -31,7 +33,7 @@ export interface Project {
 }
 
 
-export type ProjectId = 1 | 2 | 3 | 4
+export type ProjectId = 1 | 2 | 3 | 4 | 5
 type ProjectCore = Pick<Project, "id" | "slug" | "technologies" | "demoUrl" | "githubUrl"> & { images: { src: string; captions: Record<Locale, Omit<ProjectImage, "src">> }[] }
 type ProjectCopy = Omit<Project, "id" | "slug" | "technologies" | "demoUrl" | "githubUrl" | "images">
 
@@ -355,6 +357,19 @@ const projectCore: ProjectCore[] = [
         }
       }
     ]
+  },
+  {
+    "id": 5,
+    "slug": "ratio-espina",
+    "technologies": [
+      "WPF",
+      "API",
+      "Windows Server",
+      "Linux"
+    ],
+    "demoUrl": null,
+    "githubUrl": null,
+    "images": []
   }
 ]
 
@@ -455,6 +470,37 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "highlight": "Servicios y proceso en un solo lugar",
         "evidence": "Resultado: sitio web publicado con servicios, proceso y contacto centralizados."
       }
+    },
+    "5": {
+      "title": "Ratio · Gestión de obras para Espina",
+      "status": "Software libre · En desarrollo",
+      "description": "Software libre de gestión de obras para Espina, adaptado a las necesidades de la construcción en Uruguay. Colaboro con Luis Terzano principalmente como desarrollador frontend, dentro de un proyecto que busca reunir el trabajo de los departamentos en un solo sistema.",
+      "longDescription": "Ratio busca sustituir planillas dispersas por una herramienta compartida para gestionar proyectos de obra y procesos del contexto uruguayo, incluidas las leyes sociales. Mi incorporación al equipo se centra en el frontend: claridad de la información, consistencia visual y facilidad de uso en los flujos de trabajo.",
+      "features": [
+        "Gestión de proyectos de obra orientada al contexto uruguayo",
+        "Centralización de información entre departamentos",
+        "Consideración de requisitos locales, incluidas las leyes sociales",
+        "Trabajo colaborativo como objetivo frente a las planillas aisladas",
+        "API con instaladores para servidores Windows y Linux",
+        "Cliente de escritorio con instalador para Windows"
+      ],
+      "cover": {
+        "eyebrow": "Construcción · Uruguay",
+        "subtitle": "Software libre · Colaboración frontend"
+      },
+      "delivery": {
+        "title": "Probá Ratio",
+        "description": "Si querés evaluar la herramienta, contactame. Te proporciono los instaladores de la API para servidores Windows o Linux y del cliente de escritorio para Windows.",
+        "cta": "Solicitar instaladores"
+      },
+      "caseStudy": {
+        "problem": "Espina necesitaba una solución de gestión de obras ajustada a la realidad uruguaya, incluidas las leyes sociales. Cada departamento trabajaba con varias planillas Excel difíciles de utilizar y entender, que no facilitaban el trabajo conjunto. El desafío incluye reducir la fragmentación de información, la doble carga y las diferencias entre versiones.",
+        "role": "Desarrollador frontend en colaboración con Luis Terzano. Me incorporé a un proyecto existente para aportar a la interfaz y a la experiencia de uso; mi responsabilidad se concentra en el frontend dentro del equipo.",
+        "decisions": "Orientar las interfaces a los flujos de los usuarios y presentar la información de forma consistente. El proyecto busca centralizar los procesos en un sistema compartido y contempla una API instalable en servidores Windows o Linux y un cliente de escritorio para Windows.",
+        "result": "Desarrollo colaborativo en curso, con mi contribución centrada en el frontend. La herramienta cuenta con instaladores que facilito a quienes quieran evaluar la API y el cliente de escritorio.",
+        "highlight": "Gestión de obras adaptada a Uruguay · Mi aporte: frontend",
+        "evidence": "Estado actual: desarrollo colaborativo. Evaluación mediante instaladores facilitados por Rodrigo."
+      }
     }
   },
   "en": {
@@ -552,6 +598,37 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "result": "The company has a published website bringing its offering together and making it easier to share service information and contact the team through WhatsApp.",
         "highlight": "Services and process in one place",
         "evidence": "Delivered: a published website with services, process and contact information in one place."
+      }
+    },
+    "5": {
+      "title": "Ratio · Construction management for Espina",
+      "status": "Free software · In development",
+      "description": "Free software for construction project management at Espina, tailored to Uruguay’s construction industry. I collaborate with Luis Terzano primarily as a frontend developer on a project aimed at bringing departmental workflows into one shared system.",
+      "longDescription": "Ratio aims to replace scattered spreadsheets with a shared tool for construction projects and local requirements, including Uruguay’s construction-sector social contributions (leyes sociales). My contribution focuses on the frontend: clear information, consistent interfaces and usable workflows.",
+      "features": [
+        "Construction project management for Uruguay’s local context",
+        "Centralized information across departments",
+        "Local requirements, including construction-sector social contributions",
+        "Collaboration as a goal instead of isolated spreadsheets",
+        "API installers for Windows and Linux servers",
+        "Desktop client installer for Windows"
+      ],
+      "cover": {
+        "eyebrow": "Construction · Uruguay",
+        "subtitle": "Free software · Frontend contribution"
+      },
+      "delivery": {
+        "title": "Try Ratio",
+        "description": "Contact me to evaluate the software. I provide installers for the API on Windows or Linux servers and for the Windows desktop client.",
+        "cta": "Request installers"
+      },
+      "caseStudy": {
+        "problem": "Espina needed construction management software adapted to Uruguay’s local context, including construction-sector social contributions (leyes sociales). Departments relied on multiple Excel spreadsheets that were difficult to use and understand and did not support effective collaboration. The challenge also includes reducing fragmented information, repeated data entry and conflicting versions.",
+        "role": "Frontend developer collaborating with Luis Terzano. I joined an existing project to contribute to the interface and user experience, with responsibility focused on the frontend within the team.",
+        "decisions": "Design interfaces around user workflows and present information consistently. The project aims to centralize processes in a shared system, with an API installable on Windows or Linux servers and a desktop client for Windows.",
+        "result": "Collaborative development is ongoing, with my contribution focused on the frontend. I provide installers to people who want to evaluate the API and desktop client.",
+        "highlight": "Construction management for Uruguay · My contribution: frontend",
+        "evidence": "Current status: collaborative development. Installers for evaluation are available from Rodrigo."
       }
     }
   }
