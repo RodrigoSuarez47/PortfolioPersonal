@@ -10,7 +10,7 @@ import reportlab
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, KeepTogether, HRFlowable
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader
@@ -25,16 +25,16 @@ pdfmetrics.registerFontFamily("Resume", normal="Resume", bold="ResumeBold")
 profile = json.loads((ROOT / "src/data/profile.json").read_text(encoding="utf-8"))
 ink, accent = colors.HexColor("#17212b"), colors.HexColor("#006685")
 styles = {
-    "name": ParagraphStyle("name", fontName="ResumeBold", fontSize=23, leading=27, textColor=ink, spaceAfter=3),
-    "role": ParagraphStyle("role", fontName="ResumeBold", fontSize=10.5, leading=13.5, textColor=accent, spaceAfter=4),
-    "contact": ParagraphStyle("contact", fontName="Resume", fontSize=9, leading=12, textColor=ink),
-    "heading": ParagraphStyle("heading", fontName="ResumeBold", fontSize=10.5, leading=14, textColor=accent, spaceBefore=9, spaceAfter=4),
-    "body": ParagraphStyle("body", fontName="Resume", fontSize=10, leading=13.2, textColor=ink, spaceAfter=3),
+    "name": ParagraphStyle("name", fontName="ResumeBold", fontSize=26, leading=31, textColor=ink, spaceAfter=3),
+    "role": ParagraphStyle("role", fontName="Resume", fontSize=11, leading=15, textColor=accent, spaceAfter=4),
+    "contact": ParagraphStyle("contact", fontName="Resume", fontSize=9, leading=13, textColor=ink),
+    "heading": ParagraphStyle("heading", fontName="ResumeBold", fontSize=10.5, leading=14, textColor=accent, spaceBefore=13, spaceAfter=6),
+    "body": ParagraphStyle("body", fontName="Resume", fontSize=10, leading=14, textColor=ink, spaceAfter=3),
     "job": ParagraphStyle("job", fontName="ResumeBold", fontSize=10, leading=13, textColor=ink, spaceBefore=3, spaceAfter=1),
 }
 copy = {
 "es": {
-"role": "Desarrollador Full Stack | C#/.NET y React",
+"role": "Analista en Tecnologías de la Información | Universidad ORT Uruguay",
 "profile_h": "PERFIL PROFESIONAL",
 "profile": "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo aplicaciones web, APIs y sistemas de gestión con C#/.NET, React y TypeScript. Experiencia en integraciones corporativas y procesos de negocio; formación en Big Data.",
 "experience_h": "EXPERIENCIA LABORAL", "present": "Actualidad",
@@ -47,7 +47,7 @@ copy = {
 "references": "Referencias disponibles a solicitud."
 },
 "en": {
-"role": "Full Stack Developer | C#/.NET and React",
+"role": "Information Technology Analyst | Universidad ORT Uruguay",
 "profile_h": "PROFESSIONAL SUMMARY",
 "profile": "Information Technology Analyst graduate from Universidad ORT Uruguay. I develop web applications, APIs and business management systems with C#/.NET, React and TypeScript. Experience with corporate integrations and business processes; additional training in Big Data.",
 "experience_h": "WORK EXPERIENCE", "present": "Present",
@@ -68,16 +68,21 @@ for locale, c in copy.items():
     story += [para('Montevideo, Uruguay | +598 94 974 540 | <link href="mailto:rodrisua1@hotmail.com">rodrisua1@hotmail.com</link>', "contact")]
     story += [para('<link href="https://rodrigosuarez.vercel.app/">rodrigosuarez.vercel.app</link> | <link href="https://github.com/RodrigoSuarez47">github.com/RodrigoSuarez47</link>', "contact")]
     story += [para('<link href="https://www.linkedin.com/in/rodrigogabrielsuarez/">linkedin.com/in/rodrigogabrielsuarez</link>', "contact")]
-    story += [para(c["profile_h"], "heading"), para(c["profile"])]
-    story += [para(c["experience_h"], "heading")]
+    def section(title):
+        return [para(title, "heading"), HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#cbd5df"), spaceAfter=6)]
+    story += section(c["profile_h"]) + [para(c["profile"])]
+    education, training = c["education"].split("<br/>", 2)[:2], c["education"].split("<br/>", 2)[2]
+    story += section("FORMACIÓN ACADÉMICA" if locale == "es" else "EDUCATION") + [para("<br/>".join(education))]
+    story += section("FORMACIÓN COMPLEMENTARIA" if locale == "es" else "ADDITIONAL TRAINING") + [para(training)]
+    story += section(c["experience_h"])
     for item in profile["employment"]:
         period = item["since"] + " - " + (item["until"] or c["present"])
         heading = escape(item["role"][locale]) + " | " + escape(item["organization"]) + " | " + period
         story.append(KeepTogether([para(heading, "job"), para(escape(item["description"][locale]))]))
-    for heading, body in [("projects_h","projects"), ("education_h","education"), ("skills_h","skills")]:
-        story += [para(c[heading], "heading"), para(c[body])]
-    story += [Spacer(1, 3), para(c["references"], "contact")]
-    doc = SimpleDocTemplate(str(path), pagesize=A4, rightMargin=36, leftMargin=36, topMargin=31, bottomMargin=28, title="Rodrigo Suárez - Resume" if locale=="en" else "Rodrigo Suárez - Currículum", author="Rodrigo Suárez", subject=c["role"])
+    for heading, body in [("projects_h","projects"), ("skills_h","skills")]:
+        story += section(c[heading]) + [para(c[body])]
+    story += section("REFERENCIAS" if locale == "es" else "REFERENCES") + [para(c["references"], "contact")]
+    doc = SimpleDocTemplate(str(path), pagesize=A4, rightMargin=48, leftMargin=48, topMargin=42, bottomMargin=38, title="Rodrigo Suárez - Resume" if locale=="en" else "Rodrigo Suárez - Currículum", author="Rodrigo Suárez", subject=c["role"])
     doc.build(story)
     pdf = PdfReader(path)
     assert len(pdf.pages) == 1, f"{locale}: resume must fit on one page"
