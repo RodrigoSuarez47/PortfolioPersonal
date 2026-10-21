@@ -4,6 +4,7 @@ import { getCopy, type Locale } from "@/lib/i18n"
 interface Props { locale: Locale }
 const { locale } = Astro.props
 const t = getCopy(locale)
+const navigationIcons = { "#projects": "code", "#about": "file", "#experience": "building", "#skills": "code", "#contact": "mail" } as const
 const items = [
   ["Proyectos", "#projects"], ["Sobre mí", "#about"], ["Experiencia y formación", "#experience"],
   ["Habilidades", "#skills"], ["Contacto", "#contact"],
@@ -13,7 +14,7 @@ const items = [
   <div class="page-container flex min-h-16 items-center justify-between gap-3">
     <a href="#home" class="text-link text-sm font-semibold tracking-tight sm:text-base" aria-label={t("Rodrigo Suárez, inicio")}>Rodrigo Suárez</a>
     <div class="hidden items-center gap-5 xl:flex">
-      {items.map(([title, href]) => <a href={href} class="text-sm text-muted-foreground hover:text-primary focus-visible:text-primary">{t(title)}</a>)}
+      {items.map(([title, href]) => <a href={href} class="text-link inline-flex items-center gap-2 text-sm text-muted-foreground"><Icon name={navigationIcons[href]} class="h-4 w-4" />{t(title)}</a>)}
     </div>
     <div class="flex items-center gap-2">
       <a class="button button-outline" href={locale === "es" ? "/en" : "/"} hreflang={locale === "es" ? "en" : "es"} lang={locale === "es" ? "en" : "es"} aria-label={locale === "es" ? "View in English" : "Ver en español"}>{locale === "es" ? "EN" : "ES"}</a>
@@ -22,7 +23,7 @@ const items = [
       </button>
       <details class="mobile-menu xl:hidden">
         <summary class="button button-outline"><Icon name="menu" />{locale === "es" ? "Menú" : "Menu"}</summary>
-        <div class="mobile-menu-links">{items.map(([title, href]) => <a href={href}>{t(title)}</a>)}</div>
+        <div class="mobile-menu-links">{items.map(([title, href]) => <a href={href} class="inline-flex items-center gap-2"><Icon name={navigationIcons[href]} class="h-4 w-4" />{t(title)}</a>)}</div>
       </details>
     </div>
   </div>
