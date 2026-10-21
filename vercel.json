@@ -70,9 +70,9 @@
       ]
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
+      "src": "^/(?:en)?/?$",
       "has": [
         {
           "type": "header",
@@ -80,18 +80,11 @@
           "value": "(.*)text/markdown(.*)"
         }
       ],
-      "destination": "/portfolio.md"
-    },
-    {
-      "source": "/en",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": "(.*)text/markdown(.*)"
-        }
-      ],
-      "destination": "/portfolio.md"
+      "dest": "/portfolio.md",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept"
+      }
     }
   ]
 }
