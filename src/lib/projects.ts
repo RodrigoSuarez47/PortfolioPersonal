@@ -18,6 +18,7 @@ export interface CaseStudy {
 export interface Project {
   cover?: { eyebrow: string; subtitle: string; logo?: string }
   delivery?: { title: string; description: string; cta: string }
+  summary: Pick<CaseStudy, "problem" | "role" | "result">
   caseStudy: CaseStudy
   id: ProjectId
   slug: string
@@ -401,7 +402,12 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "decisions": "Centralizar la información en una API .NET con PostgreSQL, registrar compras y ventas para actualizar el inventario y presentar métricas y KPIs en un dashboard. Incorporar la carga de pedidos a partir del mensaje de WhatsApp generado por la web de clientes.",
         "result": "Inventario actualizado con las compras y ventas registradas, visibilidad de las ventas y datos para planificar reposiciones. Los pedidos se cargan copiando y pegando el mensaje recibido por WhatsApp y quedan listos para preparar y entregar.",
         "highlight": "≈15 minutos ahorrados por pedido",
-        "evidence": "Estimación del negocio para el flujo integrado de catálogo web y sistema de gestión."
+        "evidence": "Estimación del cliente: aproximadamente 15 minutos ahorrados por pedido en el flujo integrado de catálogo y sistema de gestión."
+      },
+      "summary": {
+        "problem": "Pedidos en papel, stock incierto y ventas sin consolidar.",
+        "role": "Desarrollo del sistema de gestión y su API.",
+        "result": "Inventario actualizado y ~15 min ahorrados por pedido."
       }
     },
     "2": {
@@ -427,7 +433,12 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "decisions": "Conectar el catálogo con la información del sistema de gestión y ofrecer una PWA adaptable a distintos dispositivos. Permitir armar el pedido en la web y enviarlo como un mensaje de WhatsApp que el negocio puede copiar y pegar en el sistema.",
         "result": "Los clientes pueden consultar el catálogo y preparar pedidos desde la web. El negocio recibe el mensaje por WhatsApp y carga el pedido en segundos para su preparación y entrega.",
         "highlight": "Del catálogo al pedido en segundos",
-        "evidence": "El ahorro de aproximadamente 15 minutos por pedido corresponde al mismo flujo integrado descrito en el sistema de gestión."
+        "evidence": "El ahorro de ~15 minutos por pedido es una estimación del cliente sobre el mismo flujo integrado; no es un ahorro adicional."
+      },
+      "summary": {
+        "problem": "Clientes sin catálogo y pedidos transcritos a mano.",
+        "role": "Desarrollo de la PWA e integración con el sistema de gestión.",
+        "result": "Catálogo y pedidos por WhatsApp listos para cargar en segundos."
       }
     },
     "3": {
@@ -452,6 +463,11 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "result": "Según lo informado por la organización, se eliminaron las reservas que mantenían salas ocupadas incorrectamente. Las invitaciones y notificaciones por correo resolvieron también la falta de información entre los participantes: todos reciben la convocatoria y los avisos de cancelación.",
         "highlight": "Fin de las reservas que bloqueaban salas incorrectamente",
         "evidence": "Resultado informado por la organización."
+      },
+      "summary": {
+        "problem": "Agenda en papel, reservas incorrectas y avisos que no llegaban a todos.",
+        "role": "Análisis y desarrollo en equipo como proyecto final de carrera.",
+        "result": "Se eliminaron las reservas incorrectas y se centralizaron los avisos."
       }
     },
     "4": {
@@ -472,13 +488,18 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "result": "La empresa cuenta con un sitio publicado que reúne su propuesta y facilita compartir la información y contactar por WhatsApp.",
         "highlight": "Servicios y proceso en un solo lugar",
         "evidence": "Resultado: sitio web publicado con servicios, proceso y contacto centralizados."
+      },
+      "summary": {
+        "problem": "Servicios y proceso de contratación sin un lugar único de consulta.",
+        "role": "Diseño y desarrollo de la web comercial.",
+        "result": "Web publicada con servicios, proceso y contacto por WhatsApp."
       }
     },
     "5": {
       "title": "Ratio · Gestión de obras para Espina",
       "status": "Software libre · En desarrollo",
-      "description": "Software libre de gestión de obras para Espina, adaptado a las necesidades de la construcción en Uruguay. Colaboro con Luis Terzano principalmente como desarrollador frontend, dentro de un proyecto que busca reunir el trabajo de los departamentos en un solo sistema.",
-      "longDescription": "Ratio busca sustituir planillas dispersas por una herramienta compartida para gestionar proyectos de obra y procesos del contexto uruguayo, incluidas las leyes sociales. Mi incorporación al equipo se centra en el frontend: claridad de la información, consistencia visual y facilidad de uso en los flujos de trabajo.",
+      "description": "Colaboración con Luis Terzano en Ratio para Espina: administración de usuarios y logs, importación y exportación Excel e instaladores con Inno Setup. Actualmente desarrollo un diagrama de Gantt para planificar tiempos de obra.",
+      "longDescription": "Software libre de gestión de obras adaptado al contexto uruguayo. Me incorporé como colaborador, principalmente en frontend, y asumí de punta a punta los flujos de logs y usuarios del panel administrador, la importación y exportación Excel y la generación de instaladores con Inno Setup. El diagrama de Gantt para tiempos de obra está en desarrollo.",
       "features": [
         "Gestión de proyectos de obra orientada al contexto uruguayo",
         "Presupuestos con materiales, mano de obra, maquinaria, partidas y rubros",
@@ -488,12 +509,16 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "Consideración de requisitos locales, incluidas las leyes sociales",
         "Trabajo colaborativo como objetivo frente a las planillas aisladas",
         "API con instaladores para servidores Windows y Linux",
-        "Cliente de escritorio con instalador para Windows"
+        "Cliente de escritorio con instalador para Windows",
+        "Mi aporte: logs y usuarios del panel administrador",
+        "Mi aporte: importación y exportación Excel de punta a punta",
+        "Mi aporte: generación de instaladores con Inno Setup de punta a punta",
+        "En desarrollo: diagrama de Gantt para planificar tiempos de obra"
       ],
       "cover": {
         "eyebrow": "Construcción · Uruguay",
         "logo": "/images/Ratio/ratio-logo.jpg",
-        "subtitle": "Software libre · Colaboración frontend"
+        "subtitle": "Software libre · Colaboración de desarrollo"
       },
       "delivery": {
         "title": "Probá Ratio",
@@ -502,11 +527,16 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina necesitaba una solución de gestión de obras ajustada a la realidad uruguaya, incluidas las leyes sociales. Cada departamento trabajaba con varias planillas Excel difíciles de utilizar y entender, que no facilitaban el trabajo conjunto. El desafío incluye reducir la fragmentación de información, la doble carga y las diferencias entre versiones.",
-        "role": "Desarrollador frontend en colaboración con Luis Terzano. Me incorporé a un proyecto existente para aportar a la interfaz y a la experiencia de uso; mi responsabilidad se concentra en el frontend dentro del equipo, sin asumir el liderazgo técnico del proyecto.",
-        "decisions": "Orientar las interfaces a los flujos de los usuarios y presentar la información de forma consistente. El proyecto busca centralizar los procesos en un sistema compartido y contempla una API instalable en servidores Windows o Linux y un cliente de escritorio para Windows.",
-        "result": "Desarrollo colaborativo en curso, con mi contribución centrada en el frontend. La herramienta cuenta con instaladores que facilito a quienes quieran evaluar la API y el cliente de escritorio.",
-        "highlight": "Gestión de obras adaptada a Uruguay · Mi aporte: frontend",
-        "evidence": "Estado actual: desarrollo colaborativo. Evaluación mediante instaladores facilitados por Rodrigo."
+        "role": "Colaborador de desarrollo con Luis Terzano, principalmente en frontend, sin ser el programador principal. Trabajé en logs y usuarios del panel administrador, importación y exportación Excel y generación de instaladores con Inno Setup de punta a punta.",
+        "decisions": "Resolver los flujos completos de administración, intercambio de datos con Excel y distribución del software mediante instaladores con Inno Setup. Actualmente trabajo en un diagrama de Gantt para visualizar y planificar los tiempos de obra.",
+        "result": "Logs y usuarios, Excel e Inno Setup implementados; Gantt en desarrollo.",
+        "highlight": "Logs y usuarios, Excel e Inno Setup implementados; Gantt en desarrollo.",
+        "evidence": "Aportes y estado informados por Rodrigo. Gantt en desarrollo; sin métricas de impacto cuantificadas todavía."
+      },
+      "summary": {
+        "problem": "Planillas aisladas y necesidades propias de la construcción en Uruguay.",
+        "role": "Colaboración frontend con Luis Terzano: administración, Excel e instaladores.",
+        "result": "Logs y usuarios, Excel e Inno Setup implementados; Gantt en desarrollo."
       }
     }
   },
@@ -534,7 +564,12 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "decisions": "Centralize business data in a .NET API with PostgreSQL, update inventory from recorded purchases and sales, and display business metrics and KPIs in a dashboard. Support loading orders from the WhatsApp message generated by the customer website.",
         "result": "Inventory stays current with recorded purchases and sales. Sales reports provide information for replenishment decisions. Staff copy and paste incoming WhatsApp messages to load orders ready for picking and delivery.",
         "highlight": "≈15 minutes saved per order",
-        "evidence": "Business estimate for the integrated catalog and management system workflow."
+        "evidence": "Client estimate: approximately 15 minutes saved per order across the integrated catalog and management system workflow."
+      },
+      "summary": {
+        "problem": "Paper orders, uncertain stock and fragmented sales records.",
+        "role": "Developed the management system and its API.",
+        "result": "Current inventory and ~15 minutes saved per order."
       }
     },
     "2": {
@@ -560,7 +595,12 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "decisions": "Connect the catalog to the management system’s product information and deliver a responsive PWA. Let customers build an order online and send a WhatsApp message that staff can copy and paste into the management system.",
         "result": "Customers browse the catalog and prepare their orders online. The business receives the WhatsApp message and loads the order in seconds, ready for picking and delivery.",
         "highlight": "From catalog to order in seconds",
-        "evidence": "The approximately 15 minutes saved per order refers to the same integrated workflow described in the management system."
+        "evidence": "The ~15-minute saving per order is a client estimate for the same integrated workflow, not an additional saving."
+      },
+      "summary": {
+        "problem": "No customer catalog and manually transcribed orders.",
+        "role": "Developed the PWA and its management system integration.",
+        "result": "Catalog and WhatsApp orders ready to load in seconds."
       }
     },
     "3": {
@@ -585,6 +625,11 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "result": "The organization reported that bookings incorrectly blocking meeting rooms were eliminated. Email invitations and notifications also resolved communication gaps: all participants receive meeting invitations and cancellation notices.",
         "highlight": "No more bookings incorrectly blocking rooms",
         "evidence": "Outcome reported by the organization."
+      },
+      "summary": {
+        "problem": "Paper bookings, incorrectly blocked rooms and missed meeting updates.",
+        "role": "Team analysis and development for the final degree project.",
+        "result": "Incorrect bookings eliminated and meeting notifications centralized."
       }
     },
     "4": {
@@ -605,13 +650,18 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "result": "The company has a published website bringing its offering together and making it easier to share service information and contact the team through WhatsApp.",
         "highlight": "Services and process in one place",
         "evidence": "Delivered: a published website with services, process and contact information in one place."
+      },
+      "summary": {
+        "problem": "No single place to explain services and the booking process.",
+        "role": "Designed and developed the business website.",
+        "result": "Published website with services, process and WhatsApp contact."
       }
     },
     "5": {
       "title": "Ratio · Construction management for Espina",
       "status": "Free software · In development",
-      "description": "Free software for construction project management at Espina, tailored to Uruguay’s construction industry. I collaborate with Luis Terzano primarily as a frontend developer on a project aimed at bringing departmental workflows into one shared system.",
-      "longDescription": "Ratio aims to replace scattered spreadsheets with a shared tool for construction projects and local requirements, including Uruguay’s construction-sector social contributions (leyes sociales). My contribution focuses on the frontend: clear information, consistent interfaces and usable workflows.",
+      "description": "Collaboration with Luis Terzano on Ratio for Espina: user and log administration, end-to-end Excel import/export and Inno Setup installers. Currently developing a Gantt chart for construction scheduling.",
+      "longDescription": "Free construction management software tailored to Uruguay. I joined as a contributor, primarily in frontend, taking end-to-end responsibility for admin panel log and user workflows, Excel import/export and Inno Setup installer generation. The Gantt chart for construction scheduling is in development.",
       "features": [
         "Construction project management for Uruguay’s local context",
         "Budgets with materials, labor, machinery, work items and cost categories",
@@ -621,12 +671,16 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "Local requirements, including construction-sector social contributions",
         "Collaboration as a goal instead of isolated spreadsheets",
         "API installers for Windows and Linux servers",
-        "Desktop client installer for Windows"
+        "Desktop client installer for Windows",
+        "My contribution: admin panel logs and user management",
+        "My contribution: end-to-end Excel import and export",
+        "My contribution: end-to-end Inno Setup installer generation",
+        "In development: Gantt chart for construction scheduling"
       ],
       "cover": {
         "eyebrow": "Construction · Uruguay",
         "logo": "/images/Ratio/ratio-logo.jpg",
-        "subtitle": "Free software · Frontend contribution"
+        "subtitle": "Free software · Development contribution"
       },
       "delivery": {
         "title": "Try Ratio",
@@ -635,11 +689,16 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina needed construction management software adapted to Uruguay’s local context, including construction-sector social contributions (leyes sociales). Departments relied on multiple Excel spreadsheets that were difficult to use and understand and did not support effective collaboration. The challenge also includes reducing fragmented information, repeated data entry and conflicting versions.",
-        "role": "Frontend developer collaborating with Luis Terzano. I joined an existing project to contribute to the interface and user experience, with responsibility focused on the frontend within the team rather than technical leadership.",
-        "decisions": "Design interfaces around user workflows and present information consistently. The project aims to centralize processes in a shared system, with an API installable on Windows or Linux servers and a desktop client for Windows.",
-        "result": "Collaborative development is ongoing, with my contribution focused on the frontend. I provide installers to people who want to evaluate the API and desktop client.",
-        "highlight": "Construction management for Uruguay · My contribution: frontend",
-        "evidence": "Current status: collaborative development. Installers for evaluation are available from Rodrigo."
+        "role": "Development contributor alongside Luis Terzano, primarily in frontend, rather than the lead developer. Worked on admin panel logs and users, end-to-end Excel import/export and end-to-end Inno Setup installer generation.",
+        "decisions": "Implement complete administration, Excel data exchange and software distribution workflows with Inno Setup installers. Currently working on a Gantt chart to visualize and plan construction timelines.",
+        "result": "Logs, users, Excel and Inno Setup delivered; Gantt in development.",
+        "highlight": "Logs, users, Excel and Inno Setup delivered; Gantt in development.",
+        "evidence": "Contributions and status reported by Rodrigo. Gantt is in development; no quantified impact metrics yet."
+      },
+      "summary": {
+        "problem": "Isolated spreadsheets and Uruguay-specific construction requirements.",
+        "role": "Collaboration with Luis Terzano in frontend: administration, Excel and installers.",
+        "result": "Logs, users, Excel and Inno Setup delivered; Gantt in development."
       }
     }
   }

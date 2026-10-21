@@ -38,8 +38,8 @@ copy = {
 "profile_h": "PERFIL PROFESIONAL",
 "profile": "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo aplicaciones web, APIs y sistemas de gestión con C#/.NET, React y TypeScript. Experiencia en integraciones corporativas y procesos de negocio; formación en Big Data.",
 "experience_h": "EXPERIENCIA LABORAL", "present": "Actualidad",
-"projects_h": "PROYECTO FINAL DE CARRERA",
-"projects": "<b>Jaume &amp; Sere:</b> participación en análisis y desarrollo de reservas de salas con .NET, React, Active Directory y Microsoft Graph; invitaciones y notificaciones de reuniones y cancelaciones.",
+"projects_h": "PROYECTOS DESTACADOS",
+"projects": "<b>Mayorista Javier:</b> sistema .NET/PostgreSQL y catálogo web; inventario, ventas y pedidos por WhatsApp. Ahorro estimado por el cliente: ~15 min/pedido.<br/><b>Ratio (Espina):</b> colaboración con Luis Terzano; logs y usuarios del panel administrador, Excel e instaladores Inno Setup de punta a punta. Gantt en desarrollo.<br/><b>Jaume &amp; Sere:</b> proyecto final en equipo; reservas con .NET/React, Active Directory y avisos Outlook mediante Microsoft Graph.",
 "education_h": "FORMACIÓN ACADÉMICA Y COMPLEMENTARIA",
 "education": "<b>Universidad ORT Uruguay</b> | Analista en Tecnologías de la Información | 2023 - 2026.<br/>Título intermedio: Analista Programador. Promedio: 94%.<br/>Big Data (ORT) y Analista GeneXus 18 | 2026.<br/>Desarrollo Web, JavaScript y React (Coderhouse) | 2023. PC y Redes (BIOS) | 2017.",
 "skills_h": "HABILIDADES TÉCNICAS",
@@ -51,8 +51,8 @@ copy = {
 "profile_h": "PROFESSIONAL SUMMARY",
 "profile": "Information Technology Analyst graduate from Universidad ORT Uruguay. I develop web applications, APIs and business management systems with C#/.NET, React and TypeScript. Experience with corporate integrations and business processes; additional training in Big Data.",
 "experience_h": "WORK EXPERIENCE", "present": "Present",
-"projects_h": "FINAL DEGREE PROJECT",
-"projects": "<b>Jaume &amp; Sere:</b> contributed to analysis and development of meeting room bookings with .NET, React, Active Directory and Microsoft Graph, including meeting invitations and cancellation notifications.",
+"projects_h": "SELECTED PROJECTS",
+"projects": "<b>Mayorista Javier:</b> .NET/PostgreSQL system and web catalog; inventory, sales and WhatsApp orders. Client-estimated saving: ~15 min/order.<br/><b>Ratio (Espina):</b> contributor alongside Luis Terzano; admin logs/users, end-to-end Excel import/export and Inno Setup installers. Gantt in development.<br/><b>Jaume &amp; Sere:</b> team final degree project; .NET/React bookings, Active Directory and Outlook notifications via Microsoft Graph.",
 "education_h": "EDUCATION AND ADDITIONAL TRAINING",
 "education": "<b>Universidad ORT Uruguay</b> | Information Technology Analyst | 2023 - 2026.<br/>Intermediate qualification: Programming Analyst. Grade average: 94%.<br/>Big Data certificate (ORT) and GeneXus 18 Analyst | 2026.<br/>Web Development, JavaScript and React (Coderhouse) | 2023. PC and Networks (BIOS) | 2017.",
 "skills_h": "TECHNICAL SKILLS",
@@ -87,7 +87,7 @@ for locale, c in copy.items():
     pdf = PdfReader(path)
     assert len(pdf.pages) == 1, f"{locale}: resume must fit on one page"
     extracted = pdf.pages[0].extract_text()
-    for expected in ["2020", "CASMU", "C#", "rodrisua1@hotmail.com", profile["employment"][0]["role"][locale]]:
+    for expected in ["2020", "CASMU", "Mayorista Javier", "Ratio", "Inno Setup", "Gantt", "C#", "rodrisua1@hotmail.com", profile["employment"][0]["role"][locale]]:
         assert expected in extracted, f"{locale}: missing ATS text {expected}"
     assert "\ufffd" not in extracted and len(extracted) > 1200
     destination = ROOT / "public" / "documents" / name
