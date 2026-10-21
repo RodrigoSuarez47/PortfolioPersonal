@@ -26,7 +26,13 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
   <div class="flex flex-col gap-5 p-6 sm:p-8">
     <p class="eyebrow">{project.status}</p>
     <h3 id={"project-" + project.id} tabindex="-1" class="text-2xl font-semibold tracking-tight"><a href={"#" + project.slug} class="hover:text-primary" title={locale === "en" ? "Direct link to this project" : "Enlace directo a este proyecto"}>{project.title}</a></h3>
-    <p class="text-sm leading-relaxed text-muted-foreground sm:text-base">{project.description}</p>
+    <dl class="space-y-3 text-sm leading-relaxed" data-project-summary>
+      {(["problem", "role", "result"] as const).map(key => <div>
+        <dt class="font-semibold">{key === "role" ? (locale === "en" ? "My contribution" : "Mi aporte") : t(labels[key])}</dt>
+        <dd class="text-muted-foreground">{project.summary[key]}</dd>
+      </div>)}
+    </dl>
+    <p class="text-xs leading-relaxed text-muted-foreground">{project.caseStudy.evidence}</p>
     <ul aria-label={t("Tecnologías principales")} class="flex flex-wrap gap-2">
       {project.technologies.slice(0, 4).map((tech) => <li><TechnologyBadge name={tech} compact /></li>)}
     </ul>
@@ -34,10 +40,9 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
       {project.demoUrl && <a class="button button-primary" href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Visitar web") + ": " + project.title}>{t("Visitar web")}<Icon name="external" /></a>}
       {project.githubUrl && <a class="button button-outline" href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Código") + ": " + project.title}><Icon name="github" />{t("Código")}</a>}
     </div>
-    {project.delivery && <aside class="space-y-3 rounded-xl border border-primary/30 bg-primary/5 p-5" aria-label={project.delivery.title}><h4 class="font-semibold">{project.delivery.title}</h4><p class="text-sm leading-relaxed text-muted-foreground">{project.delivery.description}</p><a class="button button-outline" href={site.email + "?subject=" + encodeURIComponent(locale === "en" ? "Ratio — request installers" : "Ratio — solicitar instaladores") + "&body=" + encodeURIComponent(locale === "en" ? "Hello, I visited your portfolio and I would be interested in trying Ratio. Could you share more information and the installers? Thank you!" : "Hola, revisé tu portfolio y me interesaría probar Ratio. ¿Podrías brindarme más información y los instaladores? ¡Gracias!")}><Icon name="download" />{project.delivery.cta}</a></aside>}
-    <p class="rounded-xl bg-primary/10 p-4 font-semibold">{project.caseStudy.highlight}</p>
+    {project.delivery && <aside class="space-y-3 rounded-xl border border-primary/30 bg-primary/5 p-5" aria-label={project.delivery.title}><h4 class="font-semibold">{project.delivery.title}</h4><a class="button button-outline" href={site.email + "?subject=" + encodeURIComponent(locale === "en" ? "Ratio — request installers" : "Ratio — solicitar instaladores") + "&body=" + encodeURIComponent(locale === "en" ? "Hello, I visited your portfolio and I would be interested in trying Ratio. Could you share more information and the installers? Thank you!" : "Hola, revisé tu portfolio y me interesaría probar Ratio. ¿Podrías brindarme más información y los instaladores? ¡Gracias!")}><Icon name="download" />{project.delivery.cta}</a></aside>}
     <details data-case-study class="border-t pt-4">
-      <summary class="cursor-pointer text-sm font-medium">{t("Caso de estudio")}</summary>
+      <summary class="cursor-pointer text-sm font-medium">{t("Detalles técnicos")}</summary>
       <div class="space-y-4 pt-4">
         <dl class="space-y-4 text-sm leading-relaxed">
         {(Object.keys(labels) as (keyof typeof labels)[]).map((key) => <div>
@@ -45,13 +50,9 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
           <dd class="text-muted-foreground">{project.caseStudy[key]}</dd>
         </div>)}
         </dl>
-        <p class="text-xs leading-relaxed text-muted-foreground">{project.caseStudy.evidence}</p>
-      </div>
-    </details>
-    <details class="border-t pt-4">
-      <summary class="cursor-pointer text-sm font-medium">{t("Detalles técnicos")}</summary>
-      <div class="space-y-4 pt-4 text-sm leading-relaxed text-muted-foreground">
-        <p>{project.longDescription}</p>
+
+        <p class="text-sm text-muted-foreground">{project.longDescription}</p>
+        {project.delivery && <p class="text-sm text-muted-foreground">{project.delivery.description}</p>}
         <ul class="list-disc space-y-2 pl-5">{project.features.map((feature) => <li>{feature}</li>)}</ul>
         <p><strong class="text-foreground">{t("Stack completo: ")}</strong>{project.technologies.join(" · ")}</p>
       </div>
