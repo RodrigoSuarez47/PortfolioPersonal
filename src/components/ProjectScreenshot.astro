@@ -1,0 +1,14 @@
+---
+import { getImage } from "astro:assets"
+import { projectAsset } from "@/lib/images"
+import type { ProjectImage } from "@/lib/projects"
+interface Props { image: ProjectImage; thumbnail?: boolean; locale: "es" | "en" }
+const { image, thumbnail = false, locale } = Astro.props
+const src = projectAsset(image.src)
+const full = typeof src === "string" ? src : (await getImage({ src, width: Math.min(src.width, 1600), format: "webp", quality: 85 })).src
+const variants = typeof src === "string" ? [] : await Promise.all((thumbnail ? [160, 320] : [480, 960]).map(width => getImage({ src, width: Math.min(width, src.width), format: "webp", quality: 80 })))
+const preview = variants.at(-1)
+---
+<a href={full} data-photo data-caption={image.alt} aria-label={(locale === "es" ? "Ampliar: " : "Enlarge: ") + image.alt} class:list={["block cursor-zoom-in rounded-xl focus-visible:outline", { "border bg-background": thumbnail }]}>
+  <img {...preview?.attributes} src={preview?.src ?? image.src} srcset={variants.length ? variants.map(item => `${item.src} ${item.attributes.width}w`).join(", ") : undefined} sizes={thumbnail ? "(max-width: 768px) 30vw, 160px" : "(max-width: 768px) 90vw, 600px"} alt={image.alt} width={preview?.attributes.width ?? 320} height={preview?.attributes.height ?? 200} loading="lazy" decoding="async" class={thumbnail ? "h-24 w-full object-contain" : "h-56 w-full rounded-xl object-contain sm:h-64"} />
+</a>

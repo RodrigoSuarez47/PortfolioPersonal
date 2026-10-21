@@ -1,5 +1,7 @@
 export type Locale = "es" | "en"
-const english: Record<string, string> = {
+const english = {
+  "Frontend": "Frontend",
+  "Recursos para IA": "AI resources",
   "Saltar al contenido": "Skip to content",
   "Desarrollo de software · Uruguay": "Software development · Uruguay",
   "Analista en Tecnologías de la Información por Universidad ORT. Desarrollo aplicaciones web, APIs y sistemas de gestión. Especialización en Big Data y formación como Analista GeneXus Jr.": "Information Technology Analyst graduate from Universidad ORT Uruguay. I build web applications, APIs and management systems, with a specialization in Big Data and training as a Junior GeneXus Analyst.",
@@ -75,6 +77,7 @@ const english: Record<string, string> = {
   "2025 - Actualidad": "2025 - Present",
   "2020 - Actualidad": "2020 - Present",
   "Monitoreo de sistemas, análisis de logs y datos, ejecución de consultas SQL y revisión de archivos para la detección proactiva de incidentes.": "System monitoring, log and data analysis, SQL queries and file reviews to proactively identify incidents."
-}
-export const getCopy = (locale: Locale) => (text: string) => locale === "en" ? (english[text] ?? text) : text
+} as const
+export type CopyKey = keyof typeof english
+export const getCopy = (locale: Locale) => (text: CopyKey) => locale === "en" ? english[text] : text
 export const localePath = (locale: Locale) => locale === "en" ? "/en" : "/"

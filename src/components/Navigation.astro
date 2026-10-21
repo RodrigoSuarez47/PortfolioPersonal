@@ -6,7 +6,7 @@ const t = getCopy(locale)
 const items = [
   ["Proyectos", "#projects"], ["Sobre mí", "#about"], ["Experiencia y formación", "#experience"],
   ["Habilidades", "#skills"], ["Contacto", "#contact"],
-]
+] as const
 ---
 <nav aria-label={t("Navegación principal")} class="site-navigation">
   <div class="page-container flex min-h-16 items-center justify-between gap-3">

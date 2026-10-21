@@ -10,7 +10,7 @@ const documents = [
   { title: "Currículum", href: getResume(locale) },
   { title: "Escolaridad", href: "/documents/Escolaridad_ATI.pdf" },
   { title: "Constancia de graduación", href: "/documents/Constancia_graduacion_ATI.pdf" },
-]
+] as const
 ---
 <Section id="contact" eyebrow={t("Siguiente paso")} title={t("Conversemos sobre tu equipo o proyecto")} description={t("Abierto a oportunidades en desarrollo de software y trabajo con datos. Cuéntame el contexto, el desafío y qué necesitas construir.")}>
       <div class="grid gap-6 md:grid-cols-2">

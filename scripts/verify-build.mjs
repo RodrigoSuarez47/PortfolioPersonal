@@ -1,12 +1,14 @@
 import assert from "node:assert/strict"
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs"
 import { resolve, join } from "node:path"
+import { siteUrl } from "../site.config.mjs"
 
 const root = resolve("dist")
 for (const [file, language, canonical] of [["index.html", "es-UY", "/"], ["en/index.html", "en", "/en"]]) {
   const html = readFileSync(join(root, file), "utf8")
   assert.match(html, new RegExp('<html[^>]*lang="' + language + '"'), file + ": document language")
-  assert.ok(html.includes('href="https://rodrigosuarez.vercel.app' + canonical + '"'), file + ": canonical")
+  const canonicalTag = html.match(/<link\b[^>]*rel="canonical"[^>]*>/)?.[0]
+  assert.ok(canonicalTag?.includes('href="' + siteUrl + canonical + '"'), file + ": canonical link, not an alternate")
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, file + ": one page heading")
   assert.equal((html.match(/class="project-card"/g) ?? []).length, 4, file + ": four case studies")
   assert.ok(html.includes('id="experience"'), file + ": experience section")
@@ -36,6 +38,17 @@ const en = readFileSync(join(root, "en/index.html"), "utf8")
 assert.ok(en.includes("cancellation notices"), "English meeting cancellation outcome")
 assert.ok(en.includes("Backend and integrations"), "English skills translated")
 assert.ok(existsSync(join(root, "sitemap.xml")))
+const data = JSON.parse(readFileSync(join(root, "portfolio.json"), "utf8"))
+for (const locale of ["es", "en"]) {
+  assert.equal(data[locale].projects.length, 4)
+  for (const project of data[locale].projects) {
+    assert.ok(project.url.includes("#"), "Projects remain on the same page")
+    assert.ok(project.caseStudy.evidence && project.caseStudy.result)
+  }
+}
+assert.ok(readFileSync(join(root, "llms.txt"), "utf8").includes("/portfolio.json"))
+assert.ok(readFileSync(join(root, "portfolio.md"), "utf8").includes("15"))
+assert.ok(!existsSync(join(root, "projects")), "No standalone project pages")
 const walk = dir => readdirSync(dir).flatMap(name => {
   const path = join(dir, name)
   return statSync(path).isDirectory() ? walk(path) : [path]

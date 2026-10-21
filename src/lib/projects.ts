@@ -17,7 +17,8 @@ export interface CaseStudy {
 
 export interface Project {
   caseStudy: CaseStudy
-  id: number
+  id: ProjectId
+  slug: string
   title: string
   status: string
   description: string
@@ -30,8 +31,9 @@ export interface Project {
 }
 
 
-type ProjectCore = Pick<Project, "id" | "technologies" | "demoUrl" | "githubUrl"> & { imageSources: string[] }
-type ProjectCopy = Omit<Project, "id" | "technologies" | "demoUrl" | "githubUrl" | "images"> & { imageCaptions: Omit<ProjectImage, "src">[] }
+export type ProjectId = 1 | 2 | 3 | 4
+type ProjectCore = Pick<Project, "id" | "slug" | "technologies" | "demoUrl" | "githubUrl"> & { images: { src: string; captions: Record<Locale, Omit<ProjectImage, "src">> }[] }
+type ProjectCopy = Omit<Project, "id" | "slug" | "technologies" | "demoUrl" | "githubUrl" | "images">
 
 const projectCore: ProjectCore[] = [
   {
@@ -53,14 +55,99 @@ const projectCore: ProjectCore[] = [
     ],
     "demoUrl": null,
     "githubUrl": null,
-    "imageSources": [
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Dashboard.png",
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Login.png",
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Articles.png",
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Suppliers.png",
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Orders.png",
-      "/images/SistemaMayoristaJavier/MayoristaJavier-Users.png",
-      "/images/SistemaMayoristaJavier/favicon.svg"
+    "slug": "mayorista-javier",
+    "images": [
+      {
+        "src": "/images/SistemaMayoristaJavier/MayoristaJavier-Dashboard.png",
+        "captions": {
+          "es": {
+            "alt": "Reportes",
+            "description": "Dashboard interactivo con reportes y métricas clave."
+          },
+          "en": {
+            "alt": "Mayorista Javier - sales dashboard",
+            "description": "Business reports, sales metrics and KPIs."
+          }
+        }
+      },
+      {
+        "src": "/images/SistemaMayoristaJavier/MayoristaJavier-Login.png",
+        "captions": {
+          "es": {
+            "alt": "Login",
+            "description": "Pantalla de inicio de sesión."
+          },
+          "en": {
+            "alt": "Mayorista Javier - sign-in",
+            "description": "Sign-in screen for the business management system."
+          }
+        }
+      },
+      {
+        "src": "/images/SistemaMayoristaJavier/MayoristaJavier-Articles.png",
+        "captions": {
+          "es": {
+            "alt": "Artículos",
+            "description": "Gestión de artículos y stock."
+          },
+          "en": {
+            "alt": "Mayorista Javier - products and inventory",
+            "description": "Product and stock management."
+          }
+        }
+      },
+      {
+        "src": "/images/SistemaMayoristaJavier/MayoristaJavier-Suppliers.png",
+        "captions": {
+          "es": {
+            "alt": "Proveedores",
+            "description": "Administración de proveedores."
+          },
+          "en": {
+            "alt": "Mayorista Javier - supplier management",
+            "description": "Supplier administration screen."
+          }
+        }
+      },
+      {
+        "src": "/images/SistemaMayoristaJavier/MayoristaJavier-Orders.png",
+        "captions": {
+          "es": {
+            "alt": "Pedidos",
+            "description": "Módulo de pedidos con generación automática de órdenes en PDF."
+          },
+          "en": {
+            "alt": "Mayorista Javier - order management",
+            "description": "Order management and PDF order generation."
+          }
+        }
+      },
+      {
+        "src": "/images/SistemaMayoristaJavier/MayoristaJavier-Users.png",
+        "captions": {
+          "es": {
+            "alt": "Usuarios",
+            "description": "Gestión de usuarios del sistema."
+          },
+          "en": {
+            "alt": "Mayorista Javier - user management",
+            "description": "User administration screen."
+          }
+        }
+      },
+      {
+        "src": "/images/SistemaMayoristaJavier/favicon.svg",
+        "captions": {
+          "es": {
+            "alt": "Carátula del Proyecto",
+            "description": "Icono del sistema de gestión Mayorista Javier."
+          },
+          "en": {
+            "alt": "Mayorista Javier - management system logo",
+            "description": "Logo of the Mayorista Javier management system."
+          }
+        }
+      }
     ]
   },
   {
@@ -76,9 +163,34 @@ const projectCore: ProjectCore[] = [
     ],
     "demoUrl": "https://mayoristajavier.vercel.app/",
     "githubUrl": null,
-    "imageSources": [
-      "/images/WebClientesMayoristaJavier/PWA desktop.png",
-      "/images/WebClientesMayoristaJavier/favicon.svg"
+    "slug": "catalogo-mayorista-javier",
+    "images": [
+      {
+        "src": "/images/WebClientesMayoristaJavier/PWA desktop.png",
+        "captions": {
+          "es": {
+            "alt": "PWA Desktop",
+            "description": "Vista del PWA en escritorio."
+          },
+          "en": {
+            "alt": "Mayorista Javier - desktop product catalog",
+            "description": "Customer product catalog in the desktop layout."
+          }
+        }
+      },
+      {
+        "src": "/images/WebClientesMayoristaJavier/favicon.svg",
+        "captions": {
+          "es": {
+            "alt": "Favicon del proyecto",
+            "description": "Icono / carátula del PWA."
+          },
+          "en": {
+            "alt": "Mayorista Javier - customer catalog logo",
+            "description": "Logo of the customer-facing PWA."
+          }
+        }
+      }
     ]
   },
   {
@@ -98,16 +210,125 @@ const projectCore: ProjectCore[] = [
     ],
     "demoUrl": null,
     "githubUrl": null,
-    "imageSources": [
-      "/images/GestorSalasJ&S/J&S-Calendario.png",
-      "/images/GestorSalasJ&S/J&S-ListadoMisReservas.png",
-      "/images/GestorSalasJ&S/J&S-Sedes.png",
-      "/images/GestorSalasJ&S/J&S-Salas.png",
-      "/images/GestorSalasJ&S/J&S-EquipamientoSalas.png",
-      "/images/GestorSalasJ&S/J&S-ParametrosSistema.png",
-      "/images/GestorSalasJ&S/J&S-Admin-usoIndebido.png",
-      "/images/GestorSalasJ&S/J&S-VistaTablet.png",
-      "/images/GestorSalasJ&S/JYS_TRANSP.png"
+    "slug": "jaume-sere",
+    "images": [
+      {
+        "src": "/images/GestorSalasJ&S/J&S-Calendario.png",
+        "captions": {
+          "es": {
+            "alt": "Vista de Calendario",
+            "description": "Vista de calendario con reservas de salas."
+          },
+          "en": {
+            "alt": "Jaume & Sere - room booking calendar",
+            "description": "Calendar showing meeting room reservations."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/J&S-ListadoMisReservas.png",
+        "captions": {
+          "es": {
+            "alt": "Listado de Mis Reservas",
+            "description": "Listado de reservas realizadas por el usuario."
+          },
+          "en": {
+            "alt": "Jaume & Sere - my bookings",
+            "description": "List of the current user's room bookings."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/J&S-Sedes.png",
+        "captions": {
+          "es": {
+            "alt": "Administración de Sedes",
+            "description": "Administración de sedes del sistema."
+          },
+          "en": {
+            "alt": "Jaume & Sere - location management",
+            "description": "Administration of company locations."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/J&S-Salas.png",
+        "captions": {
+          "es": {
+            "alt": "Administración de Salas",
+            "description": "Administración de salas de reunión."
+          },
+          "en": {
+            "alt": "Jaume & Sere - meeting room management",
+            "description": "Meeting room administration."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/J&S-EquipamientoSalas.png",
+        "captions": {
+          "es": {
+            "alt": "Administración de Equipamiento",
+            "description": "Administración de equipamiento disponible en las salas de reunión."
+          },
+          "en": {
+            "alt": "Jaume & Sere - room equipment",
+            "description": "Administration of equipment available in meeting rooms."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/J&S-ParametrosSistema.png",
+        "captions": {
+          "es": {
+            "alt": "Administración de Parámetros del Sistema",
+            "description": "Administración de parámetros del sistema."
+          },
+          "en": {
+            "alt": "Jaume & Sere - system settings",
+            "description": "Booking system configuration."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/J&S-Admin-usoIndebido.png",
+        "captions": {
+          "es": {
+            "alt": "Reportes de Uso Indebido de Salas",
+            "description": "Reportes de uso indebido de salas de reunión."
+          },
+          "en": {
+            "alt": "Jaume & Sere - room misuse reports",
+            "description": "Reports of meeting room misuse."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/J&S-VistaTablet.png",
+        "captions": {
+          "es": {
+            "alt": "Vista en Tableta",
+            "description": "Vista del sistema en tableta."
+          },
+          "en": {
+            "alt": "Jaume & Sere - tablet layout",
+            "description": "Meeting room booking interface on a tablet."
+          }
+        }
+      },
+      {
+        "src": "/images/GestorSalasJ&S/JYS_TRANSP.png",
+        "captions": {
+          "es": {
+            "alt": "Logo Jaume & Sere",
+            "description": ""
+          },
+          "en": {
+            "alt": "Jaume & Sere - company logo",
+            "description": "Jaume & Sere project logo."
+          }
+        }
+      }
     ]
   },
   {
@@ -120,10 +341,24 @@ const projectCore: ProjectCore[] = [
     ],
     "demoUrl": "https://fyv-traslados.vercel.app/",
     "githubUrl": "https://github.com/RodrigoSuarez47/fyv-traslados",
-    "imageSources": []
+    "slug": "fyv-traslados",
+    "images": [
+      {
+        "src": "/images/FyV/fyv-home.jpg",
+        "captions": {
+          "es": {
+            "alt": "FyV Traslados: portada, servicios y consulta por WhatsApp"
+          },
+          "en": {
+            "alt": "FyV Traslados: homepage, services and WhatsApp inquiry"
+          }
+        }
+      }
+    ]
   }
 ]
-const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
+
+const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
   "es": {
     "1": {
       "title": "Sistema de Gestión Mayorista Javier",
@@ -149,37 +384,7 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "Inventario actualizado con las compras y ventas registradas, visibilidad de las ventas y datos para planificar reposiciones. Los pedidos se cargan copiando y pegando el mensaje recibido por WhatsApp y quedan listos para preparar y entregar.",
         "highlight": "≈15 minutos ahorrados por pedido",
         "evidence": "Estimación del negocio para el flujo integrado de catálogo web y sistema de gestión."
-      },
-      "imageCaptions": [
-        {
-          "alt": "Reportes",
-          "description": "Dashboard interactivo con reportes y métricas clave."
-        },
-        {
-          "alt": "Login",
-          "description": "Pantalla de inicio de sesión."
-        },
-        {
-          "alt": "Artículos",
-          "description": "Gestión de artículos y stock."
-        },
-        {
-          "alt": "Proveedores",
-          "description": "Administración de proveedores."
-        },
-        {
-          "alt": "Pedidos",
-          "description": "Módulo de pedidos con generación automática de órdenes en PDF."
-        },
-        {
-          "alt": "Usuarios",
-          "description": "Gestión de usuarios del sistema."
-        },
-        {
-          "alt": "Carátula del Proyecto",
-          "description": "Icono del sistema de gestión Mayorista Javier."
-        }
-      ]
+      }
     },
     "2": {
       "title": "Web de Clientes para Mayorista Javier (PWA)",
@@ -205,17 +410,7 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "Los clientes pueden consultar el catálogo y preparar pedidos desde la web. El negocio recibe el mensaje por WhatsApp y carga el pedido en segundos para su preparación y entrega.",
         "highlight": "Del catálogo al pedido en segundos",
         "evidence": "El ahorro de aproximadamente 15 minutos por pedido corresponde al mismo flujo integrado descrito en el sistema de gestión."
-      },
-      "imageCaptions": [
-        {
-          "alt": "PWA Desktop",
-          "description": "Vista del PWA en escritorio."
-        },
-        {
-          "alt": "Favicon del proyecto",
-          "description": "Icono / carátula del PWA."
-        }
-      ]
+      }
     },
     "3": {
       "title": "Gestor de Salas de Reunión — Jaume & Sere",
@@ -239,45 +434,7 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "Según lo informado por la organización, se eliminaron las reservas que mantenían salas ocupadas incorrectamente. Las invitaciones y notificaciones por correo resolvieron también la falta de información entre los participantes: todos reciben la convocatoria y los avisos de cancelación.",
         "highlight": "Fin de las reservas que bloqueaban salas incorrectamente",
         "evidence": "Resultado informado por la organización."
-      },
-      "imageCaptions": [
-        {
-          "alt": "Vista de Calendario",
-          "description": "Vista de calendario con reservas de salas."
-        },
-        {
-          "alt": "Listado de Mis Reservas",
-          "description": "Listado de reservas realizadas por el usuario."
-        },
-        {
-          "alt": "Administración de Sedes",
-          "description": "Administración de sedes del sistema."
-        },
-        {
-          "alt": "Administración de Salas",
-          "description": "Administración de salas de reunión."
-        },
-        {
-          "alt": "Administración de Equipamiento",
-          "description": "Administración de equipamiento disponible en las salas de reunión."
-        },
-        {
-          "alt": "Administración de Parámetros del Sistema",
-          "description": "Administración de parámetros del sistema."
-        },
-        {
-          "alt": "Reportes de Uso Indebido de Salas",
-          "description": "Reportes de uso indebido de salas de reunión."
-        },
-        {
-          "alt": "Vista en Tableta",
-          "description": "Vista del sistema en tableta."
-        },
-        {
-          "alt": "Logo Jaume & Sere",
-          "description": ""
-        }
-      ]
+      }
     },
     "4": {
       "title": "FyV Traslados",
@@ -297,8 +454,7 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "La empresa cuenta con un sitio publicado que reúne su propuesta y facilita compartir la información y contactar por WhatsApp.",
         "highlight": "Servicios y proceso en un solo lugar",
         "evidence": "Resultado: sitio web publicado con servicios, proceso y contacto centralizados."
-      },
-      "imageCaptions": []
+      }
     }
   },
   "en": {
@@ -326,37 +482,7 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "Inventory stays current with recorded purchases and sales. Sales reports provide information for replenishment decisions. Staff copy and paste incoming WhatsApp messages to load orders ready for picking and delivery.",
         "highlight": "≈15 minutes saved per order",
         "evidence": "Business estimate for the integrated catalog and management system workflow."
-      },
-      "imageCaptions": [
-        {
-          "alt": "Mayorista Javier - sales dashboard",
-          "description": "Business reports, sales metrics and KPIs."
-        },
-        {
-          "alt": "Mayorista Javier - sign-in",
-          "description": "Sign-in screen for the business management system."
-        },
-        {
-          "alt": "Mayorista Javier - products and inventory",
-          "description": "Product and stock management."
-        },
-        {
-          "alt": "Mayorista Javier - supplier management",
-          "description": "Supplier administration screen."
-        },
-        {
-          "alt": "Mayorista Javier - order management",
-          "description": "Order management and PDF order generation."
-        },
-        {
-          "alt": "Mayorista Javier - user management",
-          "description": "User administration screen."
-        },
-        {
-          "alt": "Mayorista Javier - management system logo",
-          "description": "Logo of the Mayorista Javier management system."
-        }
-      ]
+      }
     },
     "2": {
       "title": "Mayorista Javier Customer Catalog (PWA)",
@@ -382,17 +508,7 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "Customers browse the catalog and prepare their orders online. The business receives the WhatsApp message and loads the order in seconds, ready for picking and delivery.",
         "highlight": "From catalog to order in seconds",
         "evidence": "The approximately 15 minutes saved per order refers to the same integrated workflow described in the management system."
-      },
-      "imageCaptions": [
-        {
-          "alt": "Mayorista Javier - desktop product catalog",
-          "description": "Customer product catalog in the desktop layout."
-        },
-        {
-          "alt": "Mayorista Javier - customer catalog logo",
-          "description": "Logo of the customer-facing PWA."
-        }
-      ]
+      }
     },
     "3": {
       "title": "Meeting Room Booking — Jaume & Sere",
@@ -416,45 +532,7 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "The organization reported that bookings incorrectly blocking meeting rooms were eliminated. Email invitations and notifications also resolved communication gaps: all participants receive meeting invitations and cancellation notices.",
         "highlight": "No more bookings incorrectly blocking rooms",
         "evidence": "Outcome reported by the organization."
-      },
-      "imageCaptions": [
-        {
-          "alt": "Jaume & Sere - room booking calendar",
-          "description": "Calendar showing meeting room reservations."
-        },
-        {
-          "alt": "Jaume & Sere - my bookings",
-          "description": "List of the current user's room bookings."
-        },
-        {
-          "alt": "Jaume & Sere - location management",
-          "description": "Administration of company locations."
-        },
-        {
-          "alt": "Jaume & Sere - meeting room management",
-          "description": "Meeting room administration."
-        },
-        {
-          "alt": "Jaume & Sere - room equipment",
-          "description": "Administration of equipment available in meeting rooms."
-        },
-        {
-          "alt": "Jaume & Sere - system settings",
-          "description": "Booking system configuration."
-        },
-        {
-          "alt": "Jaume & Sere - room misuse reports",
-          "description": "Reports of meeting room misuse."
-        },
-        {
-          "alt": "Jaume & Sere - tablet layout",
-          "description": "Meeting room booking interface on a tablet."
-        },
-        {
-          "alt": "Jaume & Sere - company logo",
-          "description": "Jaume & Sere project logo."
-        }
-      ]
+      }
     },
     "4": {
       "title": "FyV Traslados",
@@ -474,18 +552,16 @@ const projectCopy: Record<Locale, Record<number, ProjectCopy>> = {
         "result": "The company has a published website bringing its offering together and making it easier to share service information and contact the team through WhatsApp.",
         "highlight": "Services and process in one place",
         "evidence": "Delivered: a published website with services, process and contact information in one place."
-      },
-      "imageCaptions": []
+      }
     }
   }
 }
 
 export function getProjects(locale: Locale): Project[] {
-  return projectCore.map(({ imageSources, ...core }) => {
-    const { imageCaptions, ...copy } = projectCopy[locale][core.id]
-    return {
-      ...core, ...copy,
-      images: imageSources.map((src, index) => ({ src, ...imageCaptions[index] })),
-    }
-  })
+  return projectCore.map(({ images, ...core }) => ({
+    ...core, ...projectCopy[locale][core.id],
+    images: images.map(({ src, captions }) => ({ src, ...captions[locale] })),
+  }))
 }
+export const projectPath = (project: Pick<Project, "slug">, locale: Locale) =>
+  `${locale === "en" ? "/en" : "/"}#${project.slug}`
