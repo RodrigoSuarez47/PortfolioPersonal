@@ -12,6 +12,13 @@ const config = JSON.parse(readFileSync("vercel.json", "utf8"))
 const server = createServer((request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, "http://localhost").pathname)
+    // The Vercel-hosted analytics endpoint does not exist on the local static server.
+    // Use an explicit no-op provider fixture here; live delivery is checked on Vercel.
+    if (pathname === "/_vercel/insights/script.js") {
+      response.setHeader("Content-Type", "text/javascript")
+      response.end("/* Vercel Analytics provider fixture for local browser tests. */")
+      return
+    }
     if (pathname.includes("..")) throw new Error("Invalid path")
     let path = resolve("dist", "." + pathname)
     if (pathname === "/" || pathname === "/en") path = resolve("dist", "." + pathname, "index.html")
@@ -83,6 +90,7 @@ try {
     for (const path of ["/", "/en"]) {
       const result = await lighthouse("http://127.0.0.1:4173" + path, { port: chrome.port, output: "json", onlyCategories: ["performance", "accessibility", "best-practices", "seo"] })
       writeFileSync(`audit-results/lighthouse-${path === "/" ? "es" : "en"}.json`, result.report)
+      console.log("Failed audits:", Object.values(result.lhr.audits).filter(audit => audit.score === 0).map(audit => ({ id: audit.id, title: audit.title, details: audit.details })))
       for (const [id, category] of Object.entries(result.lhr.categories)) {
         console.log(path, id, category.score)
         assert.ok(category.score >= (id === "performance" ? .95 : 1), `${path}: ${id} budget`)

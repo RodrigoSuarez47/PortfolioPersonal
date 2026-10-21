@@ -14,7 +14,7 @@ export async function registerAgentTools(doc: Document = document) {
   const locale = doc.documentElement.lang.startsWith("en") ? "en" : "es"
   const projectSlugs = Array.from(doc.querySelectorAll<HTMLElement>(".project-card[id]")).map(card => card.id)
   const readPortfolio = async () => {
-    const response = await fetch("/portfolio.json", { credentials: "omit" })
+    const response = await fetch("/portfolio.json", { credentials: "same-origin", headers: { Accept: "application/json" } })
     if (!response.ok) throw new Error("Public portfolio data is temporarily unavailable")
     return (await response.json())[locale]
   }

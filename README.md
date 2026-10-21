@@ -39,3 +39,5 @@ Astro generates per-page CSP hashes for scripts and styles. Vercel adds frame re
 CI runs type checking, build assertions, a high-severity dependency audit, browser checks for both languages (including no-JavaScript navigation, CSP, gallery focus, theme persistence and registered agent tools), and mobile Lighthouse budgets. Audit utilities are installed at exact versions in an isolated temporary directory, not in the shipped application. Dependabot checks dependencies and actions weekly.
 
 The browser audit simulates `document.modelContext` to test our tool contract where the browser does not expose the experimental API. Native agent discovery still depends on browser support. Lab results do not replace field Core Web Vitals, manual accessibility review or a penetration test.
+
+The local test server provides a no-op fixture for the Vercel-hosted Analytics script, which only exists on the deployment. This keeps a missing local provider endpoint from being reported as a product console error. Production behavior is verified on Vercel separately.
