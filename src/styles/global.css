@@ -52,7 +52,6 @@
   .project-card[data-wide] { @apply md:col-span-2; }
   .project-card { @apply min-w-0 overflow-hidden rounded-2xl border bg-card transition-colors hover:border-primary/50; }
   .text-link { @apply transition-colors hover:text-primary focus-visible:text-primary; }
-  .text-link:hover, .text-link:focus-visible { color: var(--primary); }
   summary { @apply transition-colors hover:text-primary focus-visible:text-primary; }
   .technology-badge { @apply inline-flex items-center gap-2 rounded-lg border border-transparent bg-muted px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground; }
   .technology-mark { @apply flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background p-0.5; }
@@ -77,3 +76,6 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* Explicit interactive state must win over utility text colors. */
+.text-link:hover, .text-link:focus-visible { color: var(--primary); }
