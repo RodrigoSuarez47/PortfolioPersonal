@@ -13,7 +13,7 @@ export function getSeo(locale: Locale) {
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Person", "@id": site.url + "/#person", name: site.name, url: site.url, jobTitle: locale === "en" ? "Information Technology Analyst" : "Analista en Tecnologías de la Información", sameAs: [site.github, site.linkedin] },
+      { "@type": "Person", "@id": site.url + "/#person", name: site.name, url: site.url, description, jobTitle: locale === "en" ? "Information Technology Analyst" : "Analista en Tecnologías de la Información", sameAs: [site.github, site.linkedin] },
       { "@type": "WebSite", "@id": site.url + "/#website", url: site.url, name: site.name, inLanguage: ["es-UY", "en"], publisher: { "@id": site.url + "/#person" } },
       { "@type": "ProfilePage", "@id": url + "#webpage", url, name: title, description, inLanguage: language, isPartOf: { "@id": site.url + "/#website" }, mainEntity: { "@id": site.url + "/#person" }, hasPart: { "@id": url + "#projects" } },
       { "@type": "ItemList", "@id": url + "#projects", name: locale === "en" ? "Projects by Rodrigo Suárez" : "Proyectos de Rodrigo Suárez", itemListElement: getProjects(locale).map((project, index) => ({

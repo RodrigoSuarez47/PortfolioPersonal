@@ -439,7 +439,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
     "4": {
       "title": "FyV Traslados",
       "status": "En producción",
-      "description": "Sitio comercial para presentar los servicios de traslado, explicar cómo contratar y facilitar consultas por WhatsApp. Construido con Astro y Tailwind CSS, con páginas de servicios y una estructura preparada para buscadores.",
+      "description": "Sitio comercial para presentar los servicios de traslado, explicar cómo contratar y facilitar consultas por WhatsApp. Construido con Astro y Tailwind CSS, con secciones de servicios y una estructura preparada para buscadores.",
       "longDescription": "Desarrollo de la presencia web de FyV Traslados: servicios, tarifas, proceso de contratación y contacto. La implementación combina componentes reutilizables, contenido orientado al servicio y SEO técnico con sitemap y datos estructurados.",
       "features": [
         "Presentación de servicios y tarifas",
@@ -537,8 +537,8 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
     "4": {
       "title": "FyV Traslados",
       "status": "In production",
-      "description": "Business website presenting transport services, the booking process and WhatsApp inquiries. Built with Astro and Tailwind CSS, with service pages and technical SEO.",
-      "longDescription": "Business website presenting transport services, the booking process and WhatsApp inquiries. Built with Astro and Tailwind CSS, with service pages and technical SEO.",
+      "description": "Business website presenting transport services, the booking process and WhatsApp inquiries. Built with Astro and Tailwind CSS, with service sections and technical SEO.",
+      "longDescription": "Business website presenting transport services, the booking process and WhatsApp inquiries. Built with Astro and Tailwind CSS, with service sections and technical SEO.",
       "features": [
         "Services and pricing",
         "WhatsApp inquiries and quotes",
