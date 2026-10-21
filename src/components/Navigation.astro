@@ -4,7 +4,7 @@ import { getCopy, type Locale } from "@/lib/i18n"
 interface Props { locale: Locale }
 const { locale } = Astro.props
 const t = getCopy(locale)
-const navigationIcons = { "#projects": "code", "#about": "file", "#experience": "building", "#skills": "code", "#contact": "mail" } as const
+const navigationIcons = { "#projects": "code", "#about": "user", "#experience": "briefcase", "#skills": "layers", "#contact": "mail" } as const
 const items = [
   ["Proyectos", "#projects"], ["Sobre mí", "#about"], ["Experiencia y formación", "#experience"],
   ["Habilidades", "#skills"], ["Contacto", "#contact"],
@@ -17,7 +17,7 @@ const items = [
       {items.map(([title, href]) => <a href={href} class="text-link inline-flex items-center gap-2 text-sm text-muted-foreground"><Icon name={navigationIcons[href]} class="h-4 w-4" />{t(title)}</a>)}
     </div>
     <div class="flex items-center gap-2">
-      <a class="button button-outline" href={locale === "es" ? "/en" : "/"} hreflang={locale === "es" ? "en" : "es"} lang={locale === "es" ? "en" : "es"} aria-label={locale === "es" ? "View in English" : "Ver en español"}>{locale === "es" ? "EN" : "ES"}</a>
+      <a class="button button-outline" href={locale === "es" ? "/en" : "/"} hreflang={locale === "es" ? "en" : "es"} lang={locale === "es" ? "en" : "es"} aria-label={locale === "es" ? "EN — View in English" : "ES — Ver en español"}>{locale === "es" ? "EN" : "ES"}</a>
       <button type="button" class="button button-outline" data-theme-toggle hidden data-light-label={t("Cambiar a modo claro")} data-dark-label={t("Cambiar a modo oscuro")} aria-label={t("Cambiar a modo claro")}>
         <span data-theme-light><Icon name="sun" /></span><span data-theme-dark hidden><Icon name="moon" /></span>
       </button>

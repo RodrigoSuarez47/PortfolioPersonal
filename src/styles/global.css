@@ -51,15 +51,14 @@
   .hero-shell { @apply relative overflow-hidden pt-32 pb-16 sm:pb-24 lg:pt-40 lg:pb-28; }
   .project-card[data-wide] { @apply md:col-span-2; }
   .project-card { @apply min-w-0 overflow-hidden rounded-2xl border bg-card transition-colors hover:border-primary/50; }
-  .text-link { @apply transition-colors hover:text-primary focus-visible:text-primary; }
+  .text-link { @apply transition-colors; }
   summary { @apply transition-colors hover:text-primary focus-visible:text-primary; }
   .technology-badge { @apply inline-flex items-center gap-2 rounded-lg border border-transparent bg-muted px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground; }
   .technology-mark { @apply flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background p-0.5; }
   .button { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors; }
-  .button-primary { @apply border border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground; }
-  .button-primary:hover, .button-primary:focus-visible { background: var(--background); color: var(--primary); }
-  .button-whatsapp { background: #137a3c; color: #fff; border: 1px solid #137a3c; }
-  .button-whatsapp:hover, .button-whatsapp:focus-visible { background: #0e6030; border-color: #0e6030; color: #fff; }
+  .button-primary { @apply border border-primary bg-primary text-primary-foreground; }
+
+
   .button-outline { @apply border bg-background text-foreground hover:bg-primary hover:text-primary-foreground; }
   .button:disabled { @apply cursor-default opacity-40; }
   .skip-link { @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-primary px-4 py-3 text-primary-foreground focus:translate-y-0; }
@@ -79,3 +78,11 @@
 
 /* Explicit interactive state must win over utility text colors. */
 .text-link:hover, .text-link:focus-visible { color: var(--primary); }
+
+/* Keep action states above utility colors and give documents a full hit area. */
+.button-primary:hover, .button-primary:focus-visible { background: var(--foreground); color: var(--background); border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 28%, transparent); }
+.button-whatsapp { background: #25d366; color: #052e16; border: 1px solid #25d366; }
+.button-whatsapp:hover, .button-whatsapp:focus-visible { background: #1fb45a; border-color: #1fb45a; color: #052e16; }
+.document-link { border-radius: .5rem; padding-inline: .75rem; transition: color 150ms, background-color 150ms; }
+.document-link:hover, .document-link:focus-visible { background: #006685; color: #fff; }
+.document-link:hover svg, .document-link:focus-visible svg { color: #fff; }

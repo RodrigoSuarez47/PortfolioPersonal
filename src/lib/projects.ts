@@ -16,7 +16,7 @@ export interface CaseStudy {
 }
 
 export interface Project {
-  cover?: { eyebrow: string; subtitle: string }
+  cover?: { eyebrow: string; subtitle: string; logo?: string }
   delivery?: { title: string; description: string; cta: string }
   caseStudy: CaseStudy
   id: ProjectId
@@ -481,6 +481,9 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       "longDescription": "Ratio busca sustituir planillas dispersas por una herramienta compartida para gestionar proyectos de obra y procesos del contexto uruguayo, incluidas las leyes sociales. Mi incorporación al equipo se centra en el frontend: claridad de la información, consistencia visual y facilidad de uso en los flujos de trabajo.",
       "features": [
         "Gestión de proyectos de obra orientada al contexto uruguayo",
+        "Presupuestos con materiales, mano de obra, maquinaria, partidas y rubros",
+        "Costos directos e indirectos, distribución de beneficios y ajustes de oferta",
+        "Informes e importación y exportación de planillas Excel",
         "Centralización de información entre departamentos",
         "Consideración de requisitos locales, incluidas las leyes sociales",
         "Trabajo colaborativo como objetivo frente a las planillas aisladas",
@@ -489,6 +492,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       ],
       "cover": {
         "eyebrow": "Construcción · Uruguay",
+        "logo": "/images/Ratio/ratio-logo.jpg",
         "subtitle": "Software libre · Colaboración frontend"
       },
       "delivery": {
@@ -610,6 +614,9 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       "longDescription": "Ratio aims to replace scattered spreadsheets with a shared tool for construction projects and local requirements, including Uruguay’s construction-sector social contributions (leyes sociales). My contribution focuses on the frontend: clear information, consistent interfaces and usable workflows.",
       "features": [
         "Construction project management for Uruguay’s local context",
+        "Budgets with materials, labor, machinery, work items and cost categories",
+        "Direct and indirect costs, profit distribution and bid adjustments",
+        "Reports and Excel spreadsheet import and export",
         "Centralized information across departments",
         "Local requirements, including construction-sector social contributions",
         "Collaboration as a goal instead of isolated spreadsheets",
@@ -618,6 +625,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       ],
       "cover": {
         "eyebrow": "Construction · Uruguay",
+        "logo": "/images/Ratio/ratio-logo.jpg",
         "subtitle": "Free software · Frontend contribution"
       },
       "delivery": {

@@ -67,6 +67,28 @@ try {
     assert.notEqual(hoverColor, initialColor, "Header links change color on hover")
     const accent = await yearPage.locator(".button-primary").first().evaluate(button => getComputedStyle(button).backgroundColor)
     assert.equal(hoverColor, accent, "Header hover uses the site's accent color")
+    for (const theme of ["dark", "light"]) {
+      if ((await yearPage.locator("html").getAttribute("class")) !== (theme === "dark" ? "dark" : "")) await yearPage.locator("[data-theme-toggle]").click()
+      for (const link of await yearPage.locator("#home .text-link").all()) {
+        await link.hover()
+        await link.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
+        assert.equal(await link.evaluate(el => getComputedStyle(el).color), await headerLink.evaluate(el => { const probe = document.createElement("span"); probe.style.color = getComputedStyle(el).getPropertyValue("--primary"); document.body.append(probe); const color = getComputedStyle(probe).color; probe.remove(); return color }))
+      }
+      const explore = yearPage.locator('#home a[href="#projects"]')
+      await headerLink.hover()
+      const before = await explore.evaluate(el => getComputedStyle(el).backgroundColor)
+      await explore.hover()
+      await explore.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
+      assert.notEqual(await explore.evaluate(el => getComputedStyle(el).backgroundColor), before, "Project CTA has a visible hover")
+      const document = yearPage.locator(".document-link").first()
+      await document.hover()
+      await document.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
+      assert.equal(await document.locator("svg").first().evaluate(el => getComputedStyle(el).color), "rgb(255, 255, 255)")
+      assert.ok(await yearPage.locator('.site-navigation a[href="#projects"] svg').first().isVisible())
+    }
+    const whatsapp = yearPage.locator(".button-whatsapp")
+    assert.equal(await whatsapp.evaluate(el => getComputedStyle(el).backgroundColor), "rgb(37, 211, 102)")
+    assert.equal(await whatsapp.locator("svg[fill='currentColor'][stroke='none']").count(), 1)
     await yearPage.close()
     const ratio = page.locator("#ratio-espina")
     assert.ok((await ratio.innerText()).includes("frontend"))
@@ -109,9 +131,14 @@ try {
   const chrome = await launch({ chromePath: chromium.executablePath(), chromeFlags: ["--headless", "--no-sandbox"] })
   try {
     for (const path of ["/", "/en"]) {
-      const result = await lighthouse("http://127.0.0.1:4173" + path, { port: chrome.port, output: "json", onlyCategories: ["performance", "accessibility", "best-practices", "seo"] })
+      let result = await lighthouse("http://127.0.0.1:4173" + path, { port: chrome.port, output: "json", onlyCategories: ["performance", "accessibility", "best-practices", "seo"] })
+      if (result.lhr.runtimeError?.code === "NO_NAVSTART") {
+        console.log("Retrying one failed Lighthouse trace recording (NO_NAVSTART); score thresholds are unchanged.")
+        result = await lighthouse("http://127.0.0.1:4173" + path, { port: chrome.port, output: "json", onlyCategories: ["performance", "accessibility", "best-practices", "seo"] })
+      }
       writeFileSync(`audit-results/lighthouse-${path === "/" ? "es" : "en"}.json`, result.report)
-      console.log("Failed audits:", Object.values(result.lhr.audits).filter(audit => audit.score === 0).map(audit => ({ id: audit.id, title: audit.title, details: audit.details })))
+      console.log("Lighthouse runtime:", JSON.stringify(result.lhr.runtimeError ?? null))
+      console.log("Failed audits:", JSON.stringify(Object.values(result.lhr.audits).filter(audit => audit.score === 0 || audit.errorMessage).map(audit => ({ id: audit.id, title: audit.title, details: audit.details, errorMessage: audit.errorMessage }))))
       for (const [id, category] of Object.entries(result.lhr.categories)) {
         console.log(path, id, category.score)
         assert.ok(category.score >= (id === "performance" ? .95 : 1), `${path}: ${id} budget`)

@@ -5,10 +5,12 @@ import type { Locale } from "@/lib/i18n"
 import "@/styles/global.css"
 import { getImage } from "astro:assets"
 import socialImage from "@/assets/og-image.png"
+import portrait from "@/assets/profile-picture.png"
 interface Props { locale: Locale }
 const { locale } = Astro.props
-const { title, description, language, url, graph } = getSeo(locale)
 const social = await getImage({ src: socialImage, width: 1200, format: "jpeg", quality: 80 })
+const profileImage = await getImage({ src: portrait, width: 384, format: "webp" })
+const { title, description, language, url, graph } = getSeo(locale, site.url + profileImage.src)
 ---
 <!doctype html>
 <html lang={language} class="dark">
