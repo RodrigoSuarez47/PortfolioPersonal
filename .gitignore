@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .vercel/
+audit-results/
 .env
 .env.*
 !.env.example

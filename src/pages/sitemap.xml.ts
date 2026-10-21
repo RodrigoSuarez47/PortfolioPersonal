@@ -1,0 +1,3 @@
+import type { APIRoute } from "astro"
+import { site } from "@/lib/site"
+export const GET: APIRoute = () => new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${["/", "/en"].map(path => `<url><loc>${site.url}${path}</loc><xhtml:link rel="alternate" hreflang="es-UY" href="${site.url}/"/><xhtml:link rel="alternate" hreflang="en" href="${site.url}/en"/><xhtml:link rel="alternate" hreflang="x-default" href="${site.url}/"/></url>`).join("")}</urlset>`, { headers: { "Content-Type": "application/xml; charset=utf-8" } })

@@ -1,6 +1,6 @@
 import { site } from "./site"
 import { localePath, type Locale } from "./i18n"
-import { getProjects } from "./projects"
+import { getProjects, projectPath } from "./projects"
 
 export function getSeo(locale: Locale) {
   const path = localePath(locale)
@@ -18,7 +18,7 @@ export function getSeo(locale: Locale) {
       { "@type": "ProfilePage", "@id": url + "#webpage", url, name: title, description, inLanguage: language, isPartOf: { "@id": site.url + "/#website" }, mainEntity: { "@id": site.url + "/#person" }, hasPart: { "@id": url + "#projects" } },
       { "@type": "ItemList", "@id": url + "#projects", name: locale === "en" ? "Projects by Rodrigo Suárez" : "Proyectos de Rodrigo Suárez", itemListElement: getProjects(locale).map((project, index) => ({
         "@type": "ListItem", position: index + 1,
-        item: { "@type": "CreativeWork", "@id": url + "#project-" + project.id, name: project.title, description: project.description, url: project.demoUrl ?? url + "#project-" + project.id, creator: { "@id": site.url + "/#person" } },
+        item: { "@type": "CreativeWork", "@id": site.url + projectPath(project, locale), name: project.title, description: project.description, url: site.url + projectPath(project, locale), ...(project.demoUrl ? { sameAs: project.demoUrl } : {}), creator: { "@id": site.url + "/#person" }, inLanguage: language, keywords: project.technologies.join(", ") },
       })) },
     ],
   }

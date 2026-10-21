@@ -9,7 +9,7 @@ const categories = [
   { title: "Frontend", skills: ["TypeScript", "JavaScript", "React", "Next.js", "Vite", "Tailwind CSS"] },
   { title: "Datos", skills: ["PostgreSQL", "SQL Server", "MySQL", "MongoDB", "Python", "Big Data"] },
   { title: "Herramientas y despliegue", skills: ["Git", "GitHub", "Docker", "Azure", "Vercel", "Neon"] },
-]
+] as const
 const additionalSkills = ["HTML", "CSS", "Java", "Firebase", "Bootstrap", "jQuery", "Redux", "Ionic Framework", "BCrypt.NET", "Kubernetes", "AWS", "Somee", "Windows Server", "GeneXus"]
 ---
 <Section id="skills" eyebrow={t("Herramientas")} title={t("Un stack al servicio del problema")} description={t("Tecnologías que utilizo en desarrollo, integración y trabajo con datos. Los proyectos muestran cómo las aplico.")}>

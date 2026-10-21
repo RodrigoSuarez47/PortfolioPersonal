@@ -1,5 +1,7 @@
+import { siteUrl } from "../../site.config.mjs"
+
 export const site = {
-  url: "https://rodrigosuarez.vercel.app",
+  url: siteUrl,
   name: "Rodrigo Suárez",
   title: "Rodrigo Suárez | Desarrollador de software en Uruguay",
   description: "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo aplicaciones web, APIs y sistemas de gestión con C#, React y TypeScript.",

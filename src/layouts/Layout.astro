@@ -17,6 +17,10 @@ const { title, description, language, url, graph } = getSeo(locale)
     <meta name="author" content={site.name} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="color-scheme" content="dark light" />
+    <meta name="is-agentic-site-type" content="business" />
+    <link rel="alternate" type="text/markdown" href="/portfolio.md" title="Portfolio — Markdown (ES/EN)" />
+    <link rel="alternate" type="application/json" href="/portfolio.json" title="Portfolio — structured public data (ES/EN)" />
+    <link rel="help" type="text/plain" href="/llms.txt" title="AI navigation guide" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={url} />
     <link rel="alternate" hreflang="es-UY" href={site.url + "/"} />
@@ -61,6 +65,7 @@ const { title, description, language, url, graph } = getSeo(locale)
     </dialog>
     <script>
       import "../scripts/interactions"
+      import "../scripts/agent-tools"
       import { inject } from "@vercel/analytics"
       inject()
     </script>

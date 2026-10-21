@@ -1,10 +1,10 @@
 ---
 import Section from "./Section.astro"
-import { getCopy, type Locale } from "@/lib/i18n"
+import { getCopy, type Locale, type CopyKey } from "@/lib/i18n"
 interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
 const t = getCopy(locale)
-interface BackgroundItem { kind: string; title: string; period?: string; description: string }
+interface BackgroundItem { kind: CopyKey; title: CopyKey; period?: CopyKey; description: CopyKey }
 const background: BackgroundItem[] = [
   { kind: "Experiencia laboral", title: "Desarrollador freelance", period: "2025 - Actualidad", description: "Mayorista Javier: sistema de gestión, inventario, compras, ventas y catálogo de clientes. FyV Traslados: diseño y desarrollo de su web comercial." },
   { kind: "Experiencia laboral", title: "Operador de Sistemas Informáticos · CASMU", period: "2020 - Actualidad", description: "Monitoreo de sistemas, análisis de logs y datos, ejecución de consultas SQL y revisión de archivos para la detección proactiva de incidentes." },
@@ -16,7 +16,7 @@ const background: BackgroundItem[] = [
 <Section id="experience" eyebrow={t("Recorrido")} title={t("Experiencia y formación")} description={t("Del análisis a la entrega")}>
       <div class="grid gap-5 md:grid-cols-2">
         {background.map((item) => (
-          <article class="space-y-3 rounded-2xl border bg-card p-6">
+          <article class:list={["space-y-3 rounded-2xl border bg-card p-6", { "md:col-span-2": item.kind === "Formación complementaria" }]}>
             <p class="eyebrow">{t(item.kind)}</p>
             <h3 class="text-lg font-semibold">{t(item.title)}</h3>
             {item.period && <p class="text-sm font-medium text-primary">{t(item.period)}</p>}
