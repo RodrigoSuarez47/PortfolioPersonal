@@ -56,7 +56,10 @@
   .technology-badge { @apply inline-flex items-center gap-2 rounded-lg border border-transparent bg-muted px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground; }
   .technology-mark { @apply flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background p-0.5; }
   .button { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors; }
-  .button-primary { @apply bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground; }
+  .button-primary { @apply border border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground; }
+  .button-primary:hover, .button-primary:focus-visible { background: var(--background); color: var(--primary); }
+  .button-whatsapp { background: #137a3c; color: #fff; border: 1px solid #137a3c; }
+  .button-whatsapp:hover, .button-whatsapp:focus-visible { background: #0e6030; border-color: #0e6030; color: #fff; }
   .button-outline { @apply border bg-background text-foreground hover:bg-primary hover:text-primary-foreground; }
   .button:disabled { @apply cursor-default opacity-40; }
   .skip-link { @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-primary px-4 py-3 text-primary-foreground focus:translate-y-0; }
@@ -73,3 +76,6 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* Explicit interactive state must win over utility text colors. */
+.text-link:hover, .text-link:focus-visible { color: var(--primary); }

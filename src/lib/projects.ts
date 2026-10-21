@@ -363,6 +363,9 @@ const projectCore: ProjectCore[] = [
     "slug": "ratio-espina",
     "technologies": [
       "WPF",
+      "C#",
+      ".NET 8",
+      "MongoDB",
       "API",
       "Windows Server",
       "Linux"
@@ -495,7 +498,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina necesitaba una solución de gestión de obras ajustada a la realidad uruguaya, incluidas las leyes sociales. Cada departamento trabajaba con varias planillas Excel difíciles de utilizar y entender, que no facilitaban el trabajo conjunto. El desafío incluye reducir la fragmentación de información, la doble carga y las diferencias entre versiones.",
-        "role": "Desarrollador frontend en colaboración con Luis Terzano. Me incorporé a un proyecto existente para aportar a la interfaz y a la experiencia de uso; mi responsabilidad se concentra en el frontend dentro del equipo.",
+        "role": "Desarrollador frontend en colaboración con Luis Terzano. Me incorporé a un proyecto existente para aportar a la interfaz y a la experiencia de uso; mi responsabilidad se concentra en el frontend dentro del equipo, sin asumir el liderazgo técnico del proyecto.",
         "decisions": "Orientar las interfaces a los flujos de los usuarios y presentar la información de forma consistente. El proyecto busca centralizar los procesos en un sistema compartido y contempla una API instalable en servidores Windows o Linux y un cliente de escritorio para Windows.",
         "result": "Desarrollo colaborativo en curso, con mi contribución centrada en el frontend. La herramienta cuenta con instaladores que facilito a quienes quieran evaluar la API y el cliente de escritorio.",
         "highlight": "Gestión de obras adaptada a Uruguay · Mi aporte: frontend",
@@ -624,7 +627,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina needed construction management software adapted to Uruguay’s local context, including construction-sector social contributions (leyes sociales). Departments relied on multiple Excel spreadsheets that were difficult to use and understand and did not support effective collaboration. The challenge also includes reducing fragmented information, repeated data entry and conflicting versions.",
-        "role": "Frontend developer collaborating with Luis Terzano. I joined an existing project to contribute to the interface and user experience, with responsibility focused on the frontend within the team.",
+        "role": "Frontend developer collaborating with Luis Terzano. I joined an existing project to contribute to the interface and user experience, with responsibility focused on the frontend within the team rather than technical leadership.",
         "decisions": "Design interfaces around user workflows and present information consistently. The project aims to centralize processes in a shared system, with an API installable on Windows or Linux servers and a desktop client for Windows.",
         "result": "Collaborative development is ongoing, with my contribution focused on the frontend. I provide installers to people who want to evaluate the API and desktop client.",
         "highlight": "Construction management for Uruguay · My contribution: frontend",

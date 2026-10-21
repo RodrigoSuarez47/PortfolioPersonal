@@ -19,7 +19,7 @@ const documents = [
           <h3 class="mb-3 text-xl font-semibold">{t("Contacto directo")}</h3>
           <p class="mb-6 text-sm leading-relaxed text-muted-foreground">{t("Por email para compartir detalles de una oportunidad o por WhatsApp para iniciar la conversación.")}</p>
           <div class="flex flex-wrap gap-3">
-            <a class="button button-primary" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><Icon name="message" />{t("Escribir por WhatsApp")}</a>
+            <a class="button button-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" />{t("Escribir por WhatsApp")}</a>
             <a class="button button-outline" href={site.email}><Icon name="mail" />{t("Enviar email")}</a>
           </div>
           <a href={site.email} class="text-link mt-5 inline-flex items-center gap-2 break-all text-sm text-muted-foreground"><Icon name="mail" />rodrisua1@hotmail.com</a>
@@ -27,7 +27,7 @@ const documents = [
         <div class="rounded-2xl border bg-card p-6 sm:p-8">
           <h3 class="mb-3 text-xl font-semibold">{t("Perfil y formación")}</h3>
           <ul class="divide-y">{documents.map((document) => (
-            <li><a class="flex items-center justify-between gap-4 py-4 text-sm hover:text-primary focus-visible:text-primary" href={document.href} target="_blank" rel="noopener noreferrer"><span>{t(document.title)}</span><Icon name="download" class="text-primary" /></a></li>
+            <li><a class="flex items-center justify-between gap-4 py-4 text-sm hover:text-primary focus-visible:text-primary" href={document.href} download target="_blank" rel="noopener noreferrer"><span class="inline-flex items-center gap-3"><Icon name="file" class="text-primary" />{t(document.title)}</span><Icon name="download" class="text-primary" /></a></li>
           ))}</ul>
         </div>
       </div>
