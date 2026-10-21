@@ -109,8 +109,10 @@ try {
     assert.ok(installerEmail.searchParams.get("body").includes(lang === "en" ? "I visited your portfolio" : "revisé tu portfolio"))
     assert.equal(await page.locator('footer a[href*="google.com/maps"]').count(), 1)
     const employment = await page.locator("#experience").innerText()
-    for (const period of ["12/2020", "03/2021", "04/2025", "10/2026"]) assert.ok(employment.includes(period))
-    assert.ok(employment.includes("Ratio"))
+    assert.ok(employment.includes("2020"))
+    assert.ok(employment.includes(lang === "en" ? "Computer Systems Operator" : "Operador de Sistemas Informáticos"))
+    assert.equal((employment.match(/CASMU/g) ?? []).length, 1)
+    assert.ok(!employment.includes("1727"))
     assert.ok(await page.locator('footer svg').count() >= 1)
     assert.ok(await page.locator('#skills img[src^="/images/technologies/"]').count() >= 10)
     // Theme, persistence, keyboard gallery and focus restoration under enforced CSP.

@@ -34,7 +34,7 @@ styles = {
 }
 copy = {
 "es": {
-"role": "Desarrollador de Software Semi Senior | Full Stack C#/.NET y React",
+"role": "Desarrollador Full Stack | C#/.NET y React",
 "profile_h": "PERFIL PROFESIONAL",
 "profile": "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo aplicaciones web, APIs y sistemas de gestión con C#/.NET, React y TypeScript. Experiencia en integraciones corporativas y procesos de negocio; formación en Big Data.",
 "experience_h": "EXPERIENCIA LABORAL", "present": "Actualidad",
@@ -47,7 +47,7 @@ copy = {
 "references": "Referencias disponibles a solicitud."
 },
 "en": {
-"role": "Semi-Senior Software Developer | Full Stack C#/.NET and React",
+"role": "Full Stack Developer | C#/.NET and React",
 "profile_h": "PROFESSIONAL SUMMARY",
 "profile": "Information Technology Analyst graduate from Universidad ORT Uruguay. I develop web applications, APIs and business management systems with C#/.NET, React and TypeScript. Experience with corporate integrations and business processes; additional training in Big Data.",
 "experience_h": "WORK EXPERIENCE", "present": "Present",
@@ -82,9 +82,9 @@ for locale, c in copy.items():
     pdf = PdfReader(path)
     assert len(pdf.pages) == 1, f"{locale}: resume must fit on one page"
     extracted = pdf.pages[0].extract_text()
-    for expected in ["12/2020", "03/2021", "04/2025", "10/2026", "Ratio", "Luis Terzano", "CASMU", "1727", "C#", "rodrisua1@hotmail.com"]:
+    for expected in ["2020", "CASMU", "C#", "rodrisua1@hotmail.com", profile["employment"][0]["role"][locale]]:
         assert expected in extracted, f"{locale}: missing ATS text {expected}"
-    assert "\ufffd" not in extracted and len(extracted) > 2000
+    assert "\ufffd" not in extracted and len(extracted) > 1200
     destination = ROOT / "public" / "documents" / name
     if "--check" in sys.argv:
         committed = PdfReader(destination)
