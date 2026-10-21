@@ -1,7 +1,6 @@
 export type Locale = "es" | "en"
 const english = {
   "Frontend": "Frontend",
-  "Ver proyecto completo": "View full project",
   "Recursos para IA": "AI resources",
   "Saltar al contenido": "Skip to content",
   "Desarrollo de software · Uruguay": "Software development · Uruguay",

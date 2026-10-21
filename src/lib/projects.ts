@@ -342,7 +342,19 @@ const projectCore: ProjectCore[] = [
     "demoUrl": "https://fyv-traslados.vercel.app/",
     "githubUrl": "https://github.com/RodrigoSuarez47/fyv-traslados",
     "slug": "fyv-traslados",
-    "images": []
+    "images": [
+      {
+        "src": "/images/FyV/fyv-home.jpg",
+        "captions": {
+          "es": {
+            "alt": "FyV Traslados: portada, servicios y consulta por WhatsApp"
+          },
+          "en": {
+            "alt": "FyV Traslados: homepage, services and WhatsApp inquiry"
+          }
+        }
+      }
+    ]
   }
 ]
 
