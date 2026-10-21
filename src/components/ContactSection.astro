@@ -27,7 +27,7 @@ const documents = [
         <div class="rounded-2xl border bg-card p-6 sm:p-8">
           <h3 class="mb-3 text-xl font-semibold">{t("Perfil y formación")}</h3>
           <ul class="divide-y">{documents.map((document) => (
-            <li><a class="flex items-center justify-between gap-4 py-4 text-sm hover:text-primary focus-visible:text-primary" href={document.href} download target="_blank" rel="noopener noreferrer"><span class="inline-flex items-center gap-3"><Icon name="file" class="text-primary" />{t(document.title)}</span><Icon name="download" class="text-primary" /></a></li>
+            <li><a class="document-link flex items-center justify-between gap-4 py-4 text-sm" href={document.href} download target="_blank" rel="noopener noreferrer"><span class="inline-flex items-center gap-3"><Icon name="file" class="text-primary" />{t(document.title)}</span><Icon name="download" class="text-primary" /></a></li>
           ))}</ul>
         </div>
       </div>

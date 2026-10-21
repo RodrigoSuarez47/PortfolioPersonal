@@ -67,6 +67,28 @@ try {
     assert.notEqual(hoverColor, initialColor, "Header links change color on hover")
     const accent = await yearPage.locator(".button-primary").first().evaluate(button => getComputedStyle(button).backgroundColor)
     assert.equal(hoverColor, accent, "Header hover uses the site's accent color")
+    for (const theme of ["dark", "light"]) {
+      if ((await yearPage.locator("html").getAttribute("class")) !== (theme === "dark" ? "dark" : "")) await yearPage.locator("[data-theme-toggle]").click()
+      for (const link of await yearPage.locator("#home .text-link").all()) {
+        await link.hover()
+        await link.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
+        assert.equal(await link.evaluate(el => getComputedStyle(el).color), await headerLink.evaluate(el => { const probe = document.createElement("span"); probe.style.color = getComputedStyle(el).getPropertyValue("--primary"); document.body.append(probe); const color = getComputedStyle(probe).color; probe.remove(); return color }))
+      }
+      const explore = yearPage.locator('#home a[href="#projects"]')
+      await headerLink.hover()
+      const before = await explore.evaluate(el => getComputedStyle(el).backgroundColor)
+      await explore.hover()
+      await explore.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
+      assert.notEqual(await explore.evaluate(el => getComputedStyle(el).backgroundColor), before, "Project CTA has a visible hover")
+      const document = yearPage.locator(".document-link").first()
+      await document.hover()
+      await document.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
+      assert.equal(await document.locator("svg").first().evaluate(el => getComputedStyle(el).color), "rgb(255, 255, 255)")
+      assert.ok(await yearPage.locator('.site-navigation a[href="#projects"] svg').first().isVisible())
+    }
+    const whatsapp = yearPage.locator(".button-whatsapp")
+    assert.equal(await whatsapp.evaluate(el => getComputedStyle(el).backgroundColor), "rgb(37, 211, 102)")
+    assert.equal(await whatsapp.locator("svg[fill='currentColor'][stroke='none']").count(), 1)
     await yearPage.close()
     const ratio = page.locator("#ratio-espina")
     assert.ok((await ratio.innerText()).includes("frontend"))

@@ -1,5 +1,7 @@
 ---
 import Icon from "./Icon.astro"
+import { Image } from "astro:assets"
+import { projectAsset } from "@/lib/images"
 import TechnologyBadge from "./TechnologyBadge.astro"
 import { site } from "@/lib/site"
 import Gallery from "./Gallery.astro"
@@ -16,7 +18,7 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
     {images.length > 0 ? <Gallery images={images} locale={locale} /> : (
       <div class="flex h-56 flex-col justify-between rounded-xl bg-primary/10 p-6 sm:h-64">
         <p class="eyebrow flex items-center gap-2"><Icon name="building" />{project.cover?.eyebrow ?? t("Web de servicios")}</p>
-        <p class="text-3xl font-semibold tracking-tight">{project.title}</p>
+        {project.cover?.logo ? <Image src={projectAsset(project.cover.logo) as import("astro").ImageMetadata} alt={locale === "es" ? "Ratio · Gestión de presupuestos" : "Ratio · Budget management"} width={420} height={229} format="webp" loading="lazy" class="h-40 w-auto max-w-full rounded-lg object-contain" /> : <p class="text-3xl font-semibold tracking-tight">{project.title}</p>}
         <p class="text-sm text-muted-foreground">{project.cover?.subtitle ?? t("Servicios · Tarifas · Contacto")}</p>
       </div>
     )}

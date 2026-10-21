@@ -1,4 +1,9 @@
 const logos: Record<string, string> = {
+  "Vercel": "/images/technologies/vercel.svg",
+  "Neon": "/images/technologies/neon.svg",
+  "Astro": "/images/technologies/astro.svg",
+  "Somee": "/images/technologies/somee.svg",
+  "GeneXus": "/images/technologies/genexus.svg",
   "C#": "/images/technologies/csharp.svg",
   "ASP.NET Core": "/images/technologies/dotnetcore.svg",
   "TypeScript": "/images/technologies/typescript.svg",
@@ -27,12 +32,8 @@ const logos: Record<string, string> = {
   "Kubernetes": "/images/technologies/kubernetes.svg",
   "AWS": "/images/technologies/amazonwebservices.svg",
   "Windows Server": "/images/technologies/windows11.svg",
-  "Linux": "/images/technologies/linux.svg",
-  "Entity Framework Core": "/images/technologies/dotnetcore.svg",
   ".NET 8": "/images/technologies/dotnetcore.svg",
-  "TailwindCSS": "/images/technologies/tailwindcss.svg",
-  "MS SQL Server Express": "/images/technologies/microsoftsqlserver.svg",
-  "WPF": "/images/technologies/dotnetcore.svg"
+  "MS SQL Server Express": "/images/technologies/microsoftsqlserver.svg"
 }
 
 export const technologyLogo = (name: string): string | undefined => logos[name]

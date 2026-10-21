@@ -18,7 +18,7 @@ export function agentContent(locale: Locale) {
     sections: Object.fromEntries(["home", "projects", "about", "experience", "skills", "contact"].map(id => [id, site.url + localePath(locale) + "#" + id])),
     contact: { email: site.email, whatsapp: site.whatsapp, github: site.github, linkedin: site.linkedin },
     resume: site.url + `/documents/Cv_Rodrigo_Suarez${locale === "en" ? "_EN" : ""}.pdf`,
-    projects: getProjects(locale).map(({ images: _images, longDescription: _longDescription, ...project }) => ({ ...project, url: site.url + projectPath(project, locale) })),
+    projects: getProjects(locale).map(({ images: _images, longDescription: _longDescription, cover, ...project }) => ({ ...project, ...(cover ? { cover: { eyebrow: cover.eyebrow, subtitle: cover.subtitle } } : {}), url: site.url + projectPath(project, locale) })),
   }
 }
 

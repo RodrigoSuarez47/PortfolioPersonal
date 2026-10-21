@@ -43,3 +43,13 @@ The browser audit simulates `document.modelContext` to test our tool contract wh
 The local test server provides a no-op fixture for the Vercel-hosted Analytics script, which only exists on the deployment. This keeps a missing local provider endpoint from being reported as a product console error. Production behavior is verified on Vercel separately.
 
 The project pins pnpm 10.34.7 (supported by Dependabot) in package.json. Vercel and CI use that version and a frozen pnpm lockfile. Dependabot keeps the npm ecosystem identifier, which also covers pnpm, with weekly dependency and GitHub Actions updates. PRs run validation before merging; updates are not blindly auto-merged.
+
+## Source and asset maintenance
+
+Validation also checks that every source module is reachable from a page or configuration, every source image has a reference, and every public asset appears in the built output (404.html is an implicit hosting route). No generic technology icon substitutes for an unknown brand. Libraries and integration concepts without a verified logo are presented as text.
+
+## Search visibility
+
+The public profile links to Rodrigo’s LinkedIn and GitHub using rel=me and Schema.org sameAs. The Person entity includes the unaccented name, full professional name, education, location and profile image. Canonical links, language alternates, sitemap and indexable HTML remain enabled. Projects credit Rodrigo as a contributor, including Ratio.
+
+Google ranking is not guaranteed by code or Lighthouse. To measure indexing, the owner must verify this property in Google Search Console, submit /sitemap.xml and request indexing of the home page. Use the portfolio URL in the public website fields of LinkedIn and GitHub so those profiles link back. A custom domain is optional and requires choosing and registering one separately.
