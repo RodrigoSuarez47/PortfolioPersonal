@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>Rodrigo Suárez</title><rect x="2" y="2" width="60" height="60" rx="17" fill="#081114"/><rect x="2.75" y="2.75" width="58.5" height="58.5" rx="16.25" fill="none" stroke="#31c8ed" stroke-opacity=".45" stroke-width="1.5"/><path d="M17 44V20h10c8 0 9 12 0 12H17m10 0 8 12m11-24-7 24" fill="none" stroke="#31c8ed" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Rodrigo Suárez · Desarrollo de software</title>
+  <defs>
+    <linearGradient id="surface" x2="1" y2="1"><stop stop-color="#16243c"/><stop offset="1" stop-color="#070c16"/></linearGradient>
+    <linearGradient id="code" x2=".8" y2="1"><stop stop-color="#78f5ff"/><stop offset=".55" stop-color="#22d3ee"/><stop offset="1" stop-color="#818cf8"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="62" height="62" rx="17" fill="url(#surface)"/>
+  <rect x="1.75" y="1.75" width="60.5" height="60.5" rx="16.25" fill="none" stroke="url(#code)" stroke-opacity=".65" stroke-width="1.5"/>
+  <path d="m17 21-9 11 9 11m30-22 9 11-9 11" fill="none" stroke="url(#code)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 45V19h9a7 7 0 0 1 0 14h-9m9 0 9 12" fill="none" stroke="#f4fbff" stroke-width="4.5" stroke-linejoin="round"/>
+</svg>
