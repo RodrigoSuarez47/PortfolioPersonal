@@ -498,8 +498,8 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
     "5": {
       "title": "Ratio · Gestión de obras para Espina",
       "status": "Software libre · En desarrollo",
-      "description": "Colaboración con Luis Terzano en Ratio para Espina: administración de usuarios y logs, importación y exportación Excel e instaladores con Inno Setup. Actualmente desarrollo un diagrama de Gantt para planificar tiempos de obra.",
-      "longDescription": "Software libre de gestión de obras adaptado al contexto uruguayo. Me incorporé como colaborador, principalmente en frontend, y asumí de punta a punta los flujos de logs y usuarios del panel administrador, la importación y exportación Excel y la generación de instaladores con Inno Setup. El diagrama de Gantt para tiempos de obra está en desarrollo.",
+      "description": "Colaboración con Luis Terzano en Ratio para Espina: usuarios y logs, Excel, instaladores Inno Setup y Gantt implementado para planificar tiempos, recursos y costos de obra.",
+      "longDescription": "Software libre de gestión de obras adaptado a Uruguay. Como colaborador, principalmente en frontend, desarrollé logs y usuarios del panel administrador, importación/exportación Excel e instaladores Inno Setup de punta a punta. También implementé la planificación Gantt vinculada al presupuesto activo: fechas por rubro, calendario laboral, resumen mensual y gráficos de costos previstos y acumulados, con desglose de recursos y horas hombre.",
       "features": [
         "Gestión de proyectos de obra orientada al contexto uruguayo",
         "Presupuestos con materiales, mano de obra, maquinaria, partidas y rubros",
@@ -513,7 +513,14 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "Mi aporte: logs y usuarios del panel administrador",
         "Mi aporte: importación y exportación Excel de punta a punta",
         "Mi aporte: generación de instaladores con Inno Setup de punta a punta",
-        "En desarrollo: diagrama de Gantt para planificar tiempos de obra"
+        "Mi aporte: Gantt implementado, vinculado al presupuesto activo",
+        "Fechas por rubro; escalas semanal y mensual",
+        "Calendario laboral configurable, sin descuento automático de feriados",
+        "Resumen mensual y gráficos de costos previstos y acumulados",
+        "Desglose de materiales, mano de obra, equipos, servicios, suministros, indirectos, imprevistos y horas hombre",
+        "Búsqueda, filtro de rubros sin programar y navegación al día actual",
+        "Exportación Excel e impresión paginada/PDF mediante el diálogo de impresión de Windows",
+        "Permisos de consulta y edición; protección de cambios sin guardar"
       ],
       "cover": {
         "eyebrow": "Construcción · Uruguay",
@@ -527,16 +534,16 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina necesitaba una solución de gestión de obras ajustada a la realidad uruguaya, incluidas las leyes sociales. Cada departamento trabajaba con varias planillas Excel difíciles de utilizar y entender, que no facilitaban el trabajo conjunto. El desafío incluye reducir la fragmentación de información, la doble carga y las diferencias entre versiones.",
-        "role": "Colaborador de desarrollo con Luis Terzano, principalmente en frontend, sin ser el programador principal. Trabajé en logs y usuarios del panel administrador, importación y exportación Excel y generación de instaladores con Inno Setup de punta a punta.",
-        "decisions": "Resolver los flujos completos de administración, intercambio de datos con Excel y distribución del software mediante instaladores con Inno Setup. Actualmente trabajo en un diagrama de Gantt para visualizar y planificar los tiempos de obra.",
-        "result": "Logs y usuarios, Excel e Inno Setup implementados; Gantt en desarrollo.",
-        "highlight": "Logs y usuarios, Excel e Inno Setup implementados; Gantt en desarrollo.",
-        "evidence": "Aportes y estado informados por Rodrigo. Gantt en desarrollo; sin métricas de impacto cuantificadas todavía."
+        "role": "Colaborador de desarrollo con Luis Terzano, principalmente en frontend, sin ser el programador principal. Trabajé en logs y usuarios del panel administrador, importación y exportación Excel y generación de instaladores con Inno Setup de punta a punta. También desarrollé el módulo Gantt de planificación de obra.",
+        "decisions": "Vincular la planificación al presupuesto activo y distribuir costos proporcionalmente a los días seleccionados. Separar cambios pendientes de los datos guardados usados en diagramas, totales y exportaciones. Incorporar permisos, filtros y avisos de inconsistencias. Los importes son costos planificados, no cobros o pagos reales.",
+        "result": "Gantt terminado y en uso para planificar tiempos de obra y consultar recursos y costos previstos mensuales y acumulados, con Excel e impresión/PDF. Identifica rubros sin programar y muestra la cobertura del presupuesto planificado.",
+        "highlight": "Gantt implementado: cronograma de obra, recursos y costos previstos por mes.",
+        "evidence": "Funcionalidad revisada en el código local de feature/gantt-rubros-hoja del cliente y la API. Uso confirmado por Rodrigo; sin métricas de impacto cuantificadas. Costos previstos, no flujo de caja real."
       },
       "summary": {
         "problem": "Planillas aisladas y necesidades propias de la construcción en Uruguay.",
-        "role": "Colaboración frontend con Luis Terzano: administración, Excel e instaladores.",
-        "result": "Logs y usuarios, Excel e Inno Setup implementados; Gantt en desarrollo."
+        "role": "Colaboración frontend con Luis Terzano: administración, Excel, instaladores y Gantt.",
+        "result": "Gantt implementado: cronograma de obra, recursos y costos previstos por mes."
       }
     }
   },
@@ -660,8 +667,8 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
     "5": {
       "title": "Ratio · Construction management for Espina",
       "status": "Free software · In development",
-      "description": "Collaboration with Luis Terzano on Ratio for Espina: user and log administration, end-to-end Excel import/export and Inno Setup installers. Currently developing a Gantt chart for construction scheduling.",
-      "longDescription": "Free construction management software tailored to Uruguay. I joined as a contributor, primarily in frontend, taking end-to-end responsibility for admin panel log and user workflows, Excel import/export and Inno Setup installer generation. The Gantt chart for construction scheduling is in development.",
+      "description": "Collaboration with Luis Terzano on Ratio for Espina: users and logs, Excel, Inno Setup installers and an implemented Gantt module for construction schedules, resources and planned costs.",
+      "longDescription": "Free construction management software tailored to Uruguay. As a contributor, primarily in frontend, I developed admin logs and users, end-to-end Excel import/export and Inno Setup installers. I also implemented Gantt planning linked to the active budget: work-item dates, working calendars, monthly summaries and planned and cumulative cost charts, with resource breakdowns and labor hours.",
       "features": [
         "Construction project management for Uruguay’s local context",
         "Budgets with materials, labor, machinery, work items and cost categories",
@@ -675,7 +682,14 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "My contribution: admin panel logs and user management",
         "My contribution: end-to-end Excel import and export",
         "My contribution: end-to-end Inno Setup installer generation",
-        "In development: Gantt chart for construction scheduling"
+        "My contribution: implemented Gantt linked to the active budget",
+        "Work-item dates; weekly and monthly scales",
+        "Configurable working-day calendar, without automatic holiday exclusion",
+        "Monthly summaries and planned and cumulative cost charts",
+        "Materials, labor, equipment, services, supplies, indirect costs, contingencies and labor-hour breakdowns",
+        "Search, unscheduled-item filter and jump-to-today navigation",
+        "Excel export and paginated print/PDF via the Windows print dialog",
+        "Viewing/editing permissions and unsaved-change protection"
       ],
       "cover": {
         "eyebrow": "Construction · Uruguay",
@@ -689,16 +703,16 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina needed construction management software adapted to Uruguay’s local context, including construction-sector social contributions (leyes sociales). Departments relied on multiple Excel spreadsheets that were difficult to use and understand and did not support effective collaboration. The challenge also includes reducing fragmented information, repeated data entry and conflicting versions.",
-        "role": "Development contributor alongside Luis Terzano, primarily in frontend, rather than the lead developer. Worked on admin panel logs and users, end-to-end Excel import/export and end-to-end Inno Setup installer generation.",
-        "decisions": "Implement complete administration, Excel data exchange and software distribution workflows with Inno Setup installers. Currently working on a Gantt chart to visualize and plan construction timelines.",
-        "result": "Logs, users, Excel and Inno Setup delivered; Gantt in development.",
-        "highlight": "Logs, users, Excel and Inno Setup delivered; Gantt in development.",
-        "evidence": "Contributions and status reported by Rodrigo. Gantt is in development; no quantified impact metrics yet."
+        "role": "Development contributor alongside Luis Terzano, primarily in frontend, rather than the lead developer. Worked on admin panel logs and users, end-to-end Excel import/export and end-to-end Inno Setup installer generation. I also developed the construction planning Gantt module.",
+        "decisions": "Link planning to the active budget and allocate costs proportionally across selected days. Separate pending changes from saved data used by charts, totals and exports. Include permissions, filters and consistency warnings. Amounts are planned costs, not actual receipts or payments.",
+        "result": "Completed Gantt, in use for construction scheduling and reviewing resources and monthly and cumulative planned costs, with Excel and print/PDF output. Identifies unscheduled work items and shows planned-budget coverage.",
+        "highlight": "Gantt implemented: construction schedules, resources and monthly planned costs.",
+        "evidence": "Functionality reviewed in local client and API code on feature/gantt-rubros-hoja. Usage confirmed by Rodrigo; no quantified impact metrics. Planned costs, not actual cash flow."
       },
       "summary": {
         "problem": "Isolated spreadsheets and Uruguay-specific construction requirements.",
-        "role": "Collaboration with Luis Terzano in frontend: administration, Excel and installers.",
-        "result": "Logs, users, Excel and Inno Setup delivered; Gantt in development."
+        "role": "Collaboration with Luis Terzano in frontend: administration, Excel, installers and Gantt.",
+        "result": "Gantt implemented: construction schedules, resources and monthly planned costs."
       }
     }
   }
