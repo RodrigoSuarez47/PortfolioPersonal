@@ -34,12 +34,12 @@ styles = {
 }
 copy = {
 "es": {
-"role": "Analista en Tecnologías de la Información | Universidad ORT Uruguay",
+"role": "Desarrollador Full Stack | C#/.NET, React y WPF",
 "profile_h": "PERFIL PROFESIONAL",
-"profile": "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo aplicaciones web, APIs y sistemas de gestión con C#/.NET, React y TypeScript. Experiencia en integraciones corporativas y procesos de negocio; formación en Big Data.",
+"profile": "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo aplicaciones web y de escritorio, APIs y sistemas de gestión con C#/.NET, React y WPF. Experiencia en seguridad de accesos, auditoría, integraciones y despliegue; formación en Big Data.",
 "experience_h": "EXPERIENCIA LABORAL", "present": "Actualidad",
 "projects_h": "PROYECTOS DESTACADOS",
-"projects": "<b>Mayorista Javier:</b> sistema .NET/PostgreSQL y catálogo web; inventario, ventas y pedidos por WhatsApp. Ahorro estimado por el cliente: ~15 min/pedido.<br/><b>Ratio (Espina):</b> colaboración con Luis Terzano; logs y usuarios del panel administrador, Excel e instaladores Inno Setup de punta a punta. Gantt en desarrollo.<br/><b>Jaume &amp; Sere:</b> proyecto final en equipo; reservas con .NET/React, Active Directory y avisos Outlook mediante Microsoft Graph.",
+"projects": "<b>Mayorista Javier:</b> sistema .NET/PostgreSQL y catálogo web; inventario, ventas y pedidos por WhatsApp. Ahorro estimado por el cliente: ~15 min/pedido.<br/><b>Ratio (Espina):</b> colaborador Full Stack con Luis Terzano. Gantt completo (lógica, API y WPF), seguridad y auditoría, Excel e instaladores Inno Setup. Modernización de interfaz, iconos y marca.<br/><b>Jaume &amp; Sere:</b> proyecto final en equipo; reservas con .NET/React, Active Directory y avisos Outlook mediante Microsoft Graph.",
 "education_h": "FORMACIÓN ACADÉMICA Y COMPLEMENTARIA",
 "education": "<b>Universidad ORT Uruguay</b> | Analista en Tecnologías de la Información | 2023 - 2026.<br/>Título intermedio: Analista Programador. Promedio: 94%.<br/>Big Data (ORT) y Analista GeneXus 18 | 2026.<br/>Desarrollo Web, JavaScript y React (Coderhouse) | 2023. PC y Redes (BIOS) | 2017.",
 "skills_h": "HABILIDADES TÉCNICAS",
@@ -47,12 +47,12 @@ copy = {
 "references": "Referencias disponibles a solicitud."
 },
 "en": {
-"role": "Information Technology Analyst | Universidad ORT Uruguay",
+"role": "Full Stack Developer | C#/.NET, React and WPF",
 "profile_h": "PROFESSIONAL SUMMARY",
-"profile": "Information Technology Analyst graduate from Universidad ORT Uruguay. I develop web applications, APIs and business management systems with C#/.NET, React and TypeScript. Experience with corporate integrations and business processes; additional training in Big Data.",
+"profile": "Information Technology Analyst graduate from Universidad ORT Uruguay. I build web and desktop applications, APIs and business systems with C#/.NET, React and WPF. Experience with access security, audit logging, integrations and deployment; additional training in Big Data.",
 "experience_h": "WORK EXPERIENCE", "present": "Present",
 "projects_h": "SELECTED PROJECTS",
-"projects": "<b>Mayorista Javier:</b> .NET/PostgreSQL system and web catalog; inventory, sales and WhatsApp orders. Client-estimated saving: ~15 min/order.<br/><b>Ratio (Espina):</b> contributor alongside Luis Terzano; admin logs/users, end-to-end Excel import/export and Inno Setup installers. Gantt in development.<br/><b>Jaume &amp; Sere:</b> team final degree project; .NET/React bookings, Active Directory and Outlook notifications via Microsoft Graph.",
+"projects": "<b>Mayorista Javier:</b> .NET/PostgreSQL system and web catalog; inventory, sales and WhatsApp orders. Client-estimated saving: ~15 min/order.<br/><b>Ratio (Espina):</b> Full Stack contributor with Luis Terzano. Complete Gantt (logic, API and WPF), security and auditing, Excel and Inno Setup installers. Modernized UI, icons and branding.<br/><b>Jaume &amp; Sere:</b> team final degree project; .NET/React bookings, Active Directory and Outlook notifications via Microsoft Graph.",
 "education_h": "EDUCATION AND ADDITIONAL TRAINING",
 "education": "<b>Universidad ORT Uruguay</b> | Information Technology Analyst | 2023 - 2026.<br/>Intermediate qualification: Programming Analyst. Grade average: 94%.<br/>Big Data certificate (ORT) and GeneXus 18 Analyst | 2026.<br/>Web Development, JavaScript and React (Coderhouse) | 2023. PC and Networks (BIOS) | 2017.",
 "skills_h": "TECHNICAL SKILLS",
