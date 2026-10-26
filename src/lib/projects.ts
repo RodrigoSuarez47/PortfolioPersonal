@@ -16,6 +16,7 @@ export interface CaseStudy {
 }
 
 export interface Project {
+  collaborator?: { name: string; url: string }
   cover?: { eyebrow: string; subtitle: string; logo?: string }
   delivery?: { title: string; description: string; cta: string }
   summary: Pick<CaseStudy, "problem" | "role" | "result">
@@ -498,7 +499,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
     "5": {
       "title": "Ratio · Gestión de obras para Espina",
       "status": "Software libre · En desarrollo",
-      "description": "Colaborador Full Stack con Luis Terzano en Ratio para Espina. Desarrollé Gantt de punta a punta, logs y seguridad, Excel e instaladores; modernicé la interfaz WPF y la identidad visual.",
+      "description": "Colaborador Full Stack con Ing. Luis Terzano en Ratio para Espina. Desarrollé Gantt de punta a punta, logs y seguridad, Excel e instaladores; modernicé la interfaz WPF y la identidad visual.",
       "longDescription": "Mi aporte abarca frontend, backend y distribución: módulo Gantt completo con lógica de planificación, API e interfaz WPF; auditoría y logs; mejoras de seguridad y permisos; importación/exportación Excel e instaladores Inno Setup. Modernicé pantallas, navegación, estilos Fluent, iconos, marca y componentes reutilizables. Próxima evolución prevista: parametrizar empresa, logo y opciones del sistema para facilitar instalaciones en otras empresas sin cambios de código.",
       "features": [
         "Gestión de proyectos de obra orientada al contexto uruguayo",
@@ -540,7 +541,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina necesitaba una solución de gestión de obras ajustada a la realidad uruguaya, incluidas las leyes sociales. Cada departamento trabajaba con varias planillas Excel difíciles de utilizar y entender, que no facilitaban el trabajo conjunto. El desafío incluye reducir la fragmentación de información, la doble carga y las diferencias entre versiones.",
-        "role": "Colaborador Full Stack junto a Luis Terzano, sin asumir la autoría del producto completo. Implementé Gantt de punta a punta —lógica, API e interfaz—, logs y auditoría, mejoras de seguridad, Excel e instaladores. También modernicé la interfaz, los logos y los componentes visuales.",
+        "role": "Colaborador Full Stack junto a Ing. Luis Terzano, sin asumir la autoría del producto completo. Implementé Gantt de punta a punta —lógica, API e interfaz—, logs y auditoría, mejoras de seguridad, Excel e instaladores. También modernicé la interfaz, los logos y los componentes visuales.",
         "decisions": "Vincular la planificación al presupuesto activo y distribuir costos proporcionalmente a los días seleccionados. Separar cambios pendientes de los datos guardados usados en diagramas, totales y exportaciones. Incorporar permisos, filtros y avisos de inconsistencias. Los importes son costos planificados, no cobros o pagos reales. Incorporé autenticación en endpoints, permisos por rol, limitación de intentos de login y trazabilidad de accesos y operaciones críticas; centralicé estilos e iconos y mejoré la instalación y actualización.",
         "result": "Gantt terminado y en uso para planificar tiempos de obra y consultar recursos y costos previstos mensuales y acumulados, con Excel e impresión/PDF. Identifica rubros sin programar y muestra la cobertura del presupuesto planificado. Los cambios incluyen permisos coherentes entre cliente y API, índices para logs y usuarios, componentes reutilizables y una experiencia visual consistente.",
         "highlight": "Planificación de tiempos y costos implementada; accesos y auditoría reforzados e interfaz unificada.",
@@ -550,6 +551,10 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "problem": "Planillas aisladas y necesidades propias de la construcción en Uruguay.",
         "role": "Colaborador Full Stack: Gantt completo, seguridad y logs, Excel, instaladores y modernización WPF.",
         "result": "Planificación de tiempos y costos implementada; accesos y auditoría reforzados e interfaz unificada."
+      },
+      "collaborator": {
+        "name": "Ing. Luis Terzano",
+        "url": "https://github.com/jterzano"
       }
     }
   },
@@ -673,7 +678,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
     "5": {
       "title": "Ratio · Construction management for Espina",
       "status": "Free software · In development",
-      "description": "Full Stack contributor alongside Luis Terzano on Ratio for Espina. Built the Gantt end to end, logs and security, Excel and installers; modernized the WPF interface and visual identity.",
+      "description": "Full Stack contributor alongside Ing. Luis Terzano on Ratio for Espina. Built the Gantt end to end, logs and security, Excel and installers; modernized the WPF interface and visual identity.",
       "longDescription": "My contribution spans frontend, backend and distribution: the complete Gantt module with planning logic, API and WPF interface; audit logging; security and permission improvements; Excel import/export and Inno Setup installers. Modernized screens, navigation, Fluent styling, icons, branding and reusable components. Planned next: configurable company identity, logo and system settings to support installation at other companies without code changes.",
       "features": [
         "Construction project management for Uruguay’s local context",
@@ -715,7 +720,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       },
       "caseStudy": {
         "problem": "Espina needed construction management software adapted to Uruguay’s local context, including construction-sector social contributions (leyes sociales). Departments relied on multiple Excel spreadsheets that were difficult to use and understand and did not support effective collaboration. The challenge also includes reducing fragmented information, repeated data entry and conflicting versions.",
-        "role": "Full Stack contributor alongside Luis Terzano, without claiming authorship of the whole product. Implemented Gantt end to end—logic, API and UI—plus audit logs, security improvements, Excel and installers. Also modernized the interface, branding and reusable visual components.",
+        "role": "Full Stack contributor alongside Ing. Luis Terzano, without claiming authorship of the whole product. Implemented Gantt end to end—logic, API and UI—plus audit logs, security improvements, Excel and installers. Also modernized the interface, branding and reusable visual components.",
         "decisions": "Link planning to the active budget and allocate costs proportionally across selected days. Separate pending changes from saved data used by charts, totals and exports. Include permissions, filters and consistency warnings. Amounts are planned costs, not actual receipts or payments. Added endpoint authentication, role-based permissions, login rate limiting and tracing for access and critical operations; centralized styles/icons and improved installation and updates.",
         "result": "Completed Gantt, in use for construction scheduling and reviewing resources and monthly and cumulative planned costs, with Excel and print/PDF output. Identifies unscheduled work items and shows planned-budget coverage. Changes also include consistent client/API permissions, log and user indexes, reusable components and a coherent visual experience.",
         "highlight": "Implemented scheduling and cost planning; stronger access controls and auditing, with a consistent interface.",
@@ -725,6 +730,10 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "problem": "Isolated spreadsheets and Uruguay-specific construction requirements.",
         "role": "Full Stack contributor: complete Gantt, security and logs, Excel, installers and WPF modernization.",
         "result": "Implemented scheduling and cost planning; stronger access controls and auditing, with a consistent interface."
+      },
+      "collaborator": {
+        "name": "Ing. Luis Terzano",
+        "url": "https://github.com/jterzano"
       }
     }
   }

@@ -26,6 +26,7 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
   <div class="flex flex-col gap-5 p-6 sm:p-8">
     <p class="eyebrow">{project.status}</p>
     <h3 id={"project-" + project.id} tabindex="-1" class="text-2xl font-semibold tracking-tight"><a href={"#" + project.slug} class="hover:text-primary" title={locale === "en" ? "Direct link to this project" : "Enlace directo a este proyecto"}>{project.title}</a></h3>
+    {project.collaborator && <p class="text-sm text-muted-foreground">{locale === "es" ? "Colaboro con " : "Collaboration with "}<a class="font-medium underline underline-offset-4 hover:text-primary" href={project.collaborator.url} target="_blank" rel="noopener noreferrer">{project.collaborator.name}<Icon name="external" class="ml-1 inline h-3.5 w-3.5" /></a></p>}
     <dl class="space-y-3 text-sm leading-relaxed" data-project-summary>
       {(["problem", "role", "result"] as const).map(key => <div>
         <dt class="font-semibold">{key === "role" ? (locale === "en" ? "My contribution" : "Mi aporte") : t(labels[key])}</dt>
