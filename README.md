@@ -42,7 +42,7 @@ The browser audit simulates `document.modelContext` to test our tool contract wh
 
 The local test server provides a no-op fixture for the Vercel-hosted Analytics script, which only exists on the deployment. This keeps a missing local provider endpoint from being reported as a product console error. Production behavior is verified on Vercel separately.
 
-The project pins pnpm 10.34.7 (supported by Dependabot) in package.json. Vercel and CI use that version and a frozen pnpm lockfile. Dependabot keeps the npm ecosystem identifier, which also covers pnpm, with weekly dependency and GitHub Actions updates. PRs run validation before merging; updates are not blindly auto-merged.
+The project pins pnpm 10.34.8 (supported by Dependabot) in package.json. Vercel and CI use that version and a frozen pnpm lockfile. Dependabot keeps the npm ecosystem identifier, which also covers pnpm, with weekly dependency and GitHub Actions updates. PRs run validation before merging; updates are not blindly auto-merged.
 
 ## Source and asset maintenance
 
