@@ -1,0 +1,46 @@
+{
+  "es": {
+    "qualification": "Analista en Tecnologías de la Información - Universidad ORT",
+    "website": "Web Personal",
+    "present": "Actualidad",
+    "profile_heading": "Perfil Profesional",
+    "profile": "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo sistemas de gestión, aplicaciones web y de escritorio e integraciones con C#/.NET, React y TypeScript, desde el análisis de necesidades hasta la puesta en producción.",
+    "education_heading": "Formación Académica",
+    "education": "Universidad ORT Uruguay - Analista en Tecnologías de la Información | 2023 - 2026<br/>Título intermedio: Analista Programador - Promedio: 94% | 2023 - 2026<br/>Referencias académicas disponibles a solicitud.<br/>Proyecto final: reservas de salas para Jaume & Sere (.NET y React).",
+    "training_heading": "Formación Complementaria",
+    "training": "GeneXus - Analista GeneXus 18 | 2026<br/>Universidad ORT Uruguay - Certificado en Big Data | 2026<br/>Coderhouse - Desarrollo Web, JavaScript, React | 2023<br/>Instituto BIOS - Reparación y Mantenimiento de PC y Redes | 2017",
+    "experience_heading": "Experiencia Laboral",
+    "experience": "<b>Desarrollador Freelance | 2025 - Actualidad</b>",
+    "skills_heading": "Habilidades Técnicas",
+    "skills": "Lenguajes: C#, Java, JavaScript, TypeScript, Python, SQL.<br/>Frameworks: ASP.NET Core, Entity Framework Core, React, WPF, Next.js, Astro, Tailwind CSS.<br/>Bases de datos: PostgreSQL, SQL Server, MySQL, MongoDB, Firebase.<br/>Cloud y herramientas: Git, Docker, Azure, AWS, Vercel, Railway, Neon, GeneXus.<br/>Análisis de datos: Power BI, Tableau, Jupyter, Pandas, Apache Spark, Hive.",
+    "freelance_summary": "Full Stack: Mayorista Javier; <link href=\"https://github.com/jterzano\">Ratio (Gantt, seguridad y WPF)</link>; FyV Traslados.",
+    "operator_bullets": [
+      "Monitoreo de sistemas.",
+      "Análisis de logs y datos.",
+      "Ejecución de consultas SQL y revisión de archivos para detectar incidentes."
+    ],
+    "references": "Referencias laborales disponibles a solicitud."
+  },
+  "en": {
+    "qualification": "Information Technology Analyst - Universidad ORT Uruguay",
+    "website": "Portfolio",
+    "present": "Present",
+    "profile_heading": "Professional Profile",
+    "profile": "Information Technology Analyst graduate from Universidad ORT Uruguay. I build business management systems, web and desktop applications and integrations with C#/.NET, React and TypeScript, from requirements analysis through production deployment.",
+    "education_heading": "Education",
+    "education": "Universidad ORT Uruguay - Information Technology Analyst | 2023 - 2026<br/>Intermediate qualification: Programming Analyst - Grade average: 94% | 2023 - 2026<br/>Academic references available on request.<br/>Final-year project: meeting room bookings for Jaume & Sere (.NET and React).",
+    "training_heading": "Additional Training",
+    "training": "GeneXus - GeneXus 18 Analyst | 2026<br/>Universidad ORT Uruguay - Certificate in Big Data | 2026<br/>Coderhouse - Web Development, JavaScript and React | 2023<br/>Instituto BIOS - PC and Network Repair and Maintenance | 2017",
+    "experience_heading": "Work Experience",
+    "experience": "<b>Freelance Software Developer | 2025 - Present</b>",
+    "skills_heading": "Technical Skills",
+    "skills": "Languages: C#, Java, JavaScript, TypeScript, Python, SQL.<br/>Frameworks: ASP.NET Core, Entity Framework Core, React, WPF, Next.js, Astro, Tailwind CSS.<br/>Databases: PostgreSQL, SQL Server, MySQL, MongoDB, Firebase.<br/>Cloud and tools: Git, Docker, Azure, AWS, Vercel, Railway, Neon, GeneXus.<br/>Data analysis: Power BI, Tableau, Jupyter, Pandas, Apache Spark, Hive.",
+    "freelance_summary": "Full Stack: Mayorista Javier; <link href=\"https://github.com/jterzano\">Ratio (Gantt, security and WPF)</link>; FyV Traslados.",
+    "operator_bullets": [
+      "Monitor computer systems.",
+      "Analyze logs and data.",
+      "Run SQL queries and review files to identify incidents."
+    ],
+    "references": "Professional references available on request."
+  }
+}

@@ -1,4 +1,5 @@
 const logos: Record<string, string> = {
+  "Linux": "/images/technologies/linux.svg",
   "Vercel": "/images/technologies/vercel.svg",
   "Neon": "/images/technologies/neon.svg",
   "Astro": "/images/technologies/astro.svg",
@@ -36,4 +37,4 @@ const logos: Record<string, string> = {
   "MS SQL Server Express": "/images/technologies/microsoftsqlserver.svg"
 }
 
-export const technologyLogo = (name: string): string | undefined => logos[name]
+export const technologyLogo = (name: string): string | undefined => logos[name === "React 19" ? "React" : name === ".NET 10" ? ".NET 8" : name]

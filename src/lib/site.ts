@@ -3,7 +3,7 @@ import { siteUrl } from "../../site.config.mjs"
 export const site = {
   url: siteUrl,
   name: "Rodrigo Suárez",
-  title: "Rodrigo Suárez | Desarrollador Full Stack · C#/.NET y React",
+  title: "Rodrigo Suárez | Desarrollador Full Stack",
   description: "Analista en Tecnologías de la Información por Universidad ORT Uruguay. Desarrollo aplicaciones web, APIs y sistemas de gestión con C#, React y TypeScript.",
   github: "https://github.com/RodrigoSuarez47",
   linkedin: "https://www.linkedin.com/in/rodrigogabrielsuarez/",

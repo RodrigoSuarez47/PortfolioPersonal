@@ -8,7 +8,7 @@ export function agentContent(locale: Locale) {
     version: 1,
     language: locale,
     name: site.name,
-    role: locale === "en" ? "Full Stack Developer · C#/.NET and React" : "Desarrollador Full Stack · C#/.NET y React",
+    role: locale === "en" ? "Full Stack Developer" : "Desarrollador Full Stack",
     location: "Montevideo, Uruguay",
     education: "Analista en Tecnologías de la Información — Universidad ORT Uruguay",
     experience: employment.map(item => ({ organization: item.organization, since: item.since, until: item.until, role: item.role[locale], description: item.description[locale] })),

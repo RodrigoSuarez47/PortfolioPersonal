@@ -6,10 +6,10 @@ interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
 const t = getCopy(locale)
 const categories = [
-  { title: "Backend e integraciones", skills: ["C#", "ASP.NET Core", "Entity Framework Core"] },
-  { title: "Frontend", skills: ["TypeScript", "JavaScript", "React", "Next.js", "Astro", "Vite", "Tailwind CSS"] },
-  { title: "Datos", skills: ["PostgreSQL", "SQL Server", "MySQL", "MongoDB", "Python"] },
-  { title: "Herramientas y despliegue", skills: ["Git", "GitHub", "Docker", "Azure", "Vercel", "Neon"] },
+  { project: "mayorista-javier", evidence: { es: "Mayorista Javier: API, autenticación e inventario", en: "Mayorista Javier: API, authentication and inventory" }, title: "Backend e integraciones", skills: ["C#", "ASP.NET Core", "Entity Framework Core"] },
+  { project: "catalogo-mayorista-javier", evidence: { es: "Catálogo Mayorista Javier: React y TypeScript", en: "Mayorista Javier catalog: React and TypeScript" }, title: "Frontend", skills: ["TypeScript", "JavaScript", "React", "Next.js", "Astro", "Vite", "Tailwind CSS"] },
+  { project: "ratio-espina", evidence: { es: "Ratio: costos previstos, MongoDB y auditoría", en: "Ratio: planned costs, MongoDB and audit logging" }, title: "Datos", skills: ["PostgreSQL", "SQL Server", "MySQL", "MongoDB", "Python"] },
+  { project: "fyv-traslados", evidence: { es: "FyV Traslados: Astro y despliegue en Vercel", en: "FyV Traslados: Astro and Vercel deployment" }, title: "Herramientas y despliegue", skills: ["Git", "GitHub", "Docker", "Azure", "Vercel", "Neon"] },
 ] as const
 const additionalSkills = ["HTML", "CSS", "Java", "Firebase", "Bootstrap", "jQuery", "Redux", "Ionic Framework", "Kubernetes", "AWS", "Somee", "Windows Server", "GeneXus"]
 ---
@@ -19,6 +19,7 @@ const additionalSkills = ["HTML", "CSS", "Java", "Firebase", "Bootstrap", "jQuer
           <div class="rounded-2xl border bg-card p-6">
             <h3 class="mb-5 text-lg font-semibold">{t(category.title)}</h3>
             <ul class="flex flex-wrap gap-2">{category.skills.map((skill) => <li><TechnologyBadge name={skill} /></li>)}</ul>
+            <a class="text-link mt-5 block border-t pt-4 text-sm leading-relaxed text-muted-foreground" href={"#" + category.project}><span class="mb-1 block text-xs font-semibold uppercase tracking-wide">{t("Aplicado en proyectos")}</span>{category.evidence[locale]}</a>
           </div>
         ))}
       </div>

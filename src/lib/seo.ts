@@ -5,7 +5,7 @@ import { getProjects, projectPath } from "./projects"
 export function getSeo(locale: Locale, image: string) {
   const path = localePath(locale)
   const url = site.url + path
-  const title = locale === "en" ? "Rodrigo Suárez | Full Stack Developer · C#/.NET & React" : site.title
+  const title = locale === "en" ? "Rodrigo Suárez | Full Stack Developer" : site.title
   const description = locale === "en"
     ? "Information Technology Analyst graduate from Universidad ORT Uruguay. Web applications, APIs and business management systems with C#, React and TypeScript."
     : site.description

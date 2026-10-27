@@ -20,7 +20,7 @@ const t = getCopy(locale)
   <Navigation locale={locale} />
   <main id="main-content" tabindex="-1">
     <HeroSection locale={locale} />
-    <Section id="projects" eyebrow={t("Trabajo seleccionado")} title={t("Software que resuelve necesidades reales")} description={t("Sistemas de gestión, experiencias web e integraciones. Cada proyecto parte de un proceso de negocio y lo lleva a una solución concreta.")}>
+    <Section id="projects" eyebrow={t("Trabajo seleccionado")} title={t("Software que resuelve necesidades reales")} description={t("Sistemas de gestión, aplicaciones web y de escritorio e integraciones. Cada proyecto parte de un proceso o problema del negocio y lo transforma en una solución concreta.")}>
       <div class="grid items-start gap-6 md:grid-cols-2">{getProjects(locale).map((project) => <ProjectCard project={project} locale={locale} />)}</div>
     </Section>
     <AboutSection locale={locale} />

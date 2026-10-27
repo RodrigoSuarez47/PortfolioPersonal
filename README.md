@@ -59,3 +59,10 @@ Google ranking is not guaranteed by code or Lighthouse. To measure indexing, the
 `src/data/profile.json` supplies employment history for the website, agent data and PDF generator. `python scripts/generate-resumes.py` requires reportlab and pypdf and verifies single-page PDFs, selectable text, employment dates and Ratio. CI renders both resumes for review.
 
 The performance audit now uses gzip and cache headers for hashed assets, matching production delivery. The hero uses right-sized AVIF images; inline styles remove a separate render-blocking request. Performance budgets retain mobile CPU and network throttling.
+
+
+## Bilingual content and the approved CV layout
+
+`pnpm test:content` checks project field parity in Spanish and English, complete case studies, internal skill links and UI translation coverage. Project information stays in `src/lib/projects.ts`; presentation uses one shared component. English copy is edited for meaning and technical context, rather than generated with a literal translation.
+
+The CV layout follows the original in commit `01b1a13`: serif typography, centered sky-blue name and headings, fixed margins, rules and section positions. Edit only `scripts/resume-copy.json` and the shared employment data when updating its content. `scripts/generate-resumes.py` rejects overflow instead of changing the layout or reducing font sizes. `--check` verifies that committed PDFs match the generated content and layout. Both languages must be rendered and visually reviewed after changes.

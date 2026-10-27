@@ -36,3 +36,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 - Ratio: project logo from the existing WPF client, Assets/Icons/Logo.jpg, included to illustrate Rodrigo’s contribution.
 
 Brand marks identify technologies and projects; they do not imply endorsement.
+
+- Linux: monochrome Tux icon from Devicon, icons/linux/linux-plain.svg, at the pinned revision above.

@@ -15,8 +15,8 @@ const t = getCopy(locale)
         <div class="space-y-7">
           <p class="eyebrow">{t("Desarrollo de software · Uruguay")}</p>
           <h1 id="hero-title" class="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">{site.name}</h1>
-          <p class="max-w-xl text-2xl font-medium leading-snug sm:text-3xl">{t("Desarrollador Full Stack · C#/.NET y React")}</p>
-          <p class="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">{t("Analista en Tecnologías de la Información por Universidad ORT. Desarrollo aplicaciones web, APIs y sistemas de gestión. Especialización en Big Data y formación como Analista GeneXus Jr.")}</p>
+          <p class="max-w-xl text-2xl font-medium leading-snug sm:text-3xl">{t("Desarrollador Full Stack")}</p>
+          <div class="max-w-xl space-y-3 text-base leading-relaxed text-muted-foreground sm:text-lg"><p>{t("Analista en Tecnologías de la Información por Universidad ORT Uruguay.")}</p><p>{t("Desarrollo aplicaciones web y de escritorio a medida, desde el análisis y el diseño hasta el despliegue y el mantenimiento.")}</p></div>
           <div class="flex flex-wrap gap-3">
             <a class="button button-primary" href="#projects">{t("Explorar proyectos")}<Icon name="arrow" /></a>
             <a class="button button-outline" href="#contact"><Icon name="message" />{t("Hablemos")}</a>
@@ -31,7 +31,6 @@ const t = getCopy(locale)
           <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border bg-muted">
             <Image src={portrait} alt={locale === "en" ? "Rodrigo Suárez, software developer" : "Rodrigo Suárez, desarrollador de software"} width={384} height={480} widths={[384, 640, 768]} sizes="(max-width: 640px) calc(100vw - 48px), 384px" format="avif" quality={60} priority class="h-full w-full object-cover" />
           </div>
-          <p class="mt-4 border-l-2 border-primary pl-4 text-sm text-muted-foreground">C# / .NET · React / TypeScript<br />{t("Integraciones y datos")}</p>
         </div>
       </div>
     </section>
