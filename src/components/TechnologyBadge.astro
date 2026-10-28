@@ -4,9 +4,8 @@ interface Props { name: string; compact?: boolean }
 const { name, compact = false } = Astro.props
 const logo = technologyLogo(name)
 const darkLogo = name === "Astro" ? "/images/technologies/astro-dark.svg" : undefined
-const wordmark = ["Somee", "GeneXus"].includes(name)
 ---
 <span class:list={["technology-badge", { "!px-2.5 !py-1 !text-xs": compact }]}>
-  {logo ? <span class:list={["technology-mark", { "!w-28 !h-8 !bg-white !px-2": wordmark, "technology-mark-astro": name === "Astro" }]}><img src={logo} alt="" width="20" height="20" loading="lazy" decoding="async" class:list={["object-contain", { "technology-logo-light": !!darkLogo, "h-5 w-5": !wordmark, "h-6 w-24": wordmark, "dark:invert": ["GitHub", "Next.js", "Vercel", "Linux"].includes(name) }]} />{darkLogo && <img src={darkLogo} alt="" width="20" height="20" loading="lazy" decoding="async" class="technology-logo-dark h-5 w-5 object-contain" />}</span> : null}
-  <span class:list={{ "sr-only": wordmark }}>{name}</span>
+  {logo ? <span class:list={["technology-mark", { "technology-mark-astro": name === "Astro" }]}><img src={logo} alt="" width="20" height="20" loading="lazy" decoding="async" class:list={["object-contain", { "technology-logo-light": !!darkLogo, "h-5 w-5": true, "dark:invert": ["GitHub", "Next.js", "Vercel", "Linux"].includes(name) }]} />{darkLogo && <img src={darkLogo} alt="" width="20" height="20" loading="lazy" decoding="async" class="technology-logo-dark h-5 w-5 object-contain" />}</span> : null}
+  <span>{name}</span>
 </span>
