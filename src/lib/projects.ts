@@ -36,7 +36,7 @@ export interface Project {
 }
 
 
-export type ProjectId = 1 | 2 | 3 | 4 | 5
+export type ProjectId = 1 | 2 | 3 | 4 | 5 | 6
 type ProjectCore = Pick<Project, "id" | "slug" | "technologies" | "demoUrl" | "githubUrl"> & { images: { src: string; captions: Record<Locale, Omit<ProjectImage, "src">> }[] }
 type ProjectCopy = Omit<Project, keyof ProjectCore | "featured">
 
@@ -382,6 +382,26 @@ const projectCore: ProjectCore[] = [
     "demoUrl": null,
     "githubUrl": null,
     "images": []
+  },
+  {
+    "id": 6,
+    "slug": "pimpollo",
+    "technologies": [
+      "Astro",
+      "React 19",
+      "Vite",
+      "TypeScript",
+      "C#",
+      ".NET 10",
+      "PostgreSQL",
+      "Entity Framework Core",
+      "Docker",
+      "Railway",
+      "Vercel"
+    ],
+    "demoUrl": "https://pimpollo-web.vercel.app/",
+    "githubUrl": null,
+    "images": []
   }
 ]
 
@@ -568,6 +588,40 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "name": "Ing. Luis Terzano",
         "url": "https://github.com/jterzano"
       }
+    },
+    "6": {
+      "title": "PimPollo · Web de clientes y catálogo",
+      "status": "En construcción",
+      "description": "Web comercial para PimPollo, con un catálogo de productos y promociones, preparación de pedidos para coordinar por WhatsApp y secciones de contacto y Sobre nosotros. En construcción; no es un e-commerce con pago online.",
+      "longDescription": "La web pública actual es una página temporal con horarios, ubicación y contacto por WhatsApp y teléfono. El repositorio también contiene una vista de catálogo y promociones en Astro que consulta la API, además de un panel administrativo en React 19 y Vite para artículos, promociones y parámetros comerciales. El backend utiliza C#/.NET 10, Entity Framework Core y PostgreSQL, con arquitectura por capas. El catálogo navegable, el armado de pedidos y la presentación institucional están en desarrollo, sin pasarela de pagos ni checkout online.",
+      "features": [
+        "Disponible: página de presentación temporal con horarios, ubicación y contacto por WhatsApp y teléfono",
+        "En desarrollo: catálogo de productos, precios y promociones con filtros y ordenamiento",
+        "Implementado en el repositorio: API REST en C# y .NET 10 para artículos, promociones y parámetros",
+        "Implementado en el repositorio: panel administrativo React 19 + Vite con acceso autenticado",
+        "Arquitectura: Entity Framework Core, PostgreSQL, Docker y configuración para Railway y Vercel",
+        "Previsto: selección de productos y armado de pedidos para coordinar por WhatsApp",
+        "Previsto: secciones Sobre nosotros, contacto y guía de cómo comprar",
+        "Alcance: sin checkout ni pagos integrados; el comercio confirma y coordina el pedido"
+      ],
+      "cover": {
+        "eyebrow": "En construcción",
+        "logo": "/images/PimPollo/favicon.svg",
+        "subtitle": "Catálogo · Pedidos por WhatsApp · Contacto"
+      },
+      "caseStudy": {
+        "problem": "PimPollo necesita reunir su oferta de productos, promociones y vías de contacto en una web fácil de consultar desde el celular, sin adoptar un e-commerce con pagos integrados.",
+        "role": "Desarrollo Full Stack de la solución: web pública en Astro, panel de administración en React y API en C#/.NET para artículos, promociones y parámetros del negocio.",
+        "decisions": "Separar la presentación pública, el panel de gestión y la API REST. Utilizar Astro para la web comercial, React con Vite para administración y .NET 10 con PostgreSQL para los datos. El flujo previsto permitirá consultar productos, preparar un pedido y coordinarlo con el comercio por WhatsApp, sin carrito de pago, checkout ni pasarela online.",
+        "result": "La página temporal de PimPollo ya está publicada y reúne horarios, ubicación y contacto directo. Hay una base de catálogo y promociones en el código y módulos administrativos respaldados por una API; el catálogo público completo y el flujo de pedidos todavía están en construcción.",
+        "highlight": "Sitio temporal publicado; catálogo y coordinación de pedidos en desarrollo, sin pago online.",
+        "evidence": "Contrastado con el repositorio privado PimPollo: web/src/pages/index.astro publica la portada temporal; web/src/pages/_home.astro contiene el catálogo preliminar; admin y api gestionan artículos, promociones y parámetros. La versión temporal está desplegada en Vercel. No se atribuyen ventas ni funcionalidades aún no publicadas."
+      },
+      "summary": {
+        "problem": "Presentar productos, promociones y contacto sin implementar una tienda con pagos online.",
+        "role": "Desarrollo de web Astro, panel React y API .NET 10.",
+        "result": "Portada en construcción publicada; catálogo y armado de pedidos por WhatsApp previstos."
+      }
     }
   },
   "en": {
@@ -751,6 +805,40 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       "collaborator": {
         "name": "Ing. Luis Terzano",
         "url": "https://github.com/jterzano"
+      }
+    },
+    "6": {
+      "title": "PimPollo · Customer website and product catalog",
+      "status": "In development",
+      "description": "Business website for PimPollo, designed around a product and promotion catalog, WhatsApp order inquiries, contact information and an About us section. Under development; not an online-payment e-commerce store.",
+      "longDescription": "The live public site currently displays a temporary landing page with opening hours, location and contact links for WhatsApp and phone. The repository also includes an Astro catalog and promotions view that reads from the API, plus a React 19 and Vite admin panel for products, promotions and business settings. The backend uses C#/.NET 10, Entity Framework Core and PostgreSQL with a layered architecture. The interactive customer catalog, order preparation and About us content are still in development; there is no payment gateway or online checkout.",
+      "features": [
+        "Live: temporary landing page with opening hours, location and WhatsApp/phone contact",
+        "In development: product catalog, prices and promotions with filtering and sorting",
+        "Implemented in repository: C#/.NET 10 REST API for products, promotions and settings",
+        "Implemented in repository: authenticated React 19 + Vite admin panel",
+        "Architecture: Entity Framework Core, PostgreSQL, Docker and Railway/Vercel configuration",
+        "Planned: product selection and order preparation to coordinate via WhatsApp",
+        "Planned: About us, contact and how-to-order sections",
+        "Scope: no integrated checkout or online payments; the shop confirms orders directly"
+      ],
+      "cover": {
+        "eyebrow": "In development",
+        "logo": "/images/PimPollo/favicon.svg",
+        "subtitle": "Catalog · WhatsApp orders · Contact"
+      },
+      "caseStudy": {
+        "problem": "PimPollo needs a mobile-friendly place to showcase its products, promotions and contact information without introducing an online-payment e-commerce checkout.",
+        "role": "Full Stack development spanning the Astro public website, React administration panel and C#/.NET API for products, promotions and business settings.",
+        "decisions": "Separate the public-facing website, admin interface and REST API. Use Astro for the business website, React and Vite for administration, and .NET 10 with PostgreSQL for persistence. The planned ordering flow lets visitors browse products, prepare an order and coordinate it with the shop through WhatsApp, without an online payment cart, checkout or gateway.",
+        "result": "The temporary PimPollo landing page is already published, providing opening hours, location and direct contact links. A preliminary catalog and promotions view and API-backed admin modules exist in the repository; the full public catalog and order-preparation flow remain in development.",
+        "highlight": "Temporary site live; catalog and WhatsApp order coordination in development, without online payment.",
+        "evidence": "Checked against the private PimPollo repository: web/src/pages/index.astro serves the temporary site; web/src/pages/_home.astro contains the preliminary catalog; admin and api manage products, promotions and settings. The temporary site is deployed on Vercel. No sales outcomes or unpublished functionality are claimed as delivered."
+      },
+      "summary": {
+        "problem": "Showcase products, promotions and contact options without an online-payment storefront.",
+        "role": "Developing the Astro website, React admin panel and .NET 10 API.",
+        "result": "Under-construction page live; catalog and WhatsApp order preparation planned."
       }
     }
   }

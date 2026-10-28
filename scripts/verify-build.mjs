@@ -10,11 +10,11 @@ for (const [file, language, canonical] of [["index.html", "es-UY", "/"], ["en/in
   const canonicalTag = html.match(/<link\b[^>]*rel="canonical"[^>]*>/)?.[0]
   assert.ok(canonicalTag?.includes('href="' + siteUrl + canonical + '"'), file + ": canonical link, not an alternate")
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, file + ": one page heading")
-  assert.equal((html.match(/class="project-card"/g) ?? []).length, 5, file + ": five case studies")
+  assert.equal((html.match(/class="project-card"/g) ?? []).length, 6, file + ": six case studies")
   assert.ok(html.includes('id="experience"'), file + ": experience section")
   assert.ok(html.includes("15"), file + ": supplied business outcome")
   const caseStudies = [...html.matchAll(/<details\b[^>]*data-case-study[^>]*>/g)]
-  assert.equal(caseStudies.length, 5, file + ": expandable case studies")
+  assert.equal(caseStudies.length, 6, file + ": expandable case studies")
   assert.ok(caseStudies.every(([tag]) => !/\bopen\b/.test(tag)), file + ": case studies collapsed by default")
   const resume = language === "en" ? "Cv_Rodrigo_Suarez_EN.pdf" : "Cv_Rodrigo_Suarez.pdf"
   assert.equal(html.split('href="/documents/' + resume + '"').length - 1, 2, file + ": matching language CV in hero and contact")
@@ -37,6 +37,8 @@ for (const [file, language, canonical] of [["index.html", "es-UY", "/"], ["en/in
 for (const locale of ["es", "en"]) {
   const html = readFileSync(join(root, locale === "en" ? "en/index.html" : "index.html"), "utf8")
   assert.ok(html.includes('id="ratio-espina"'), "Ratio remains on the same page")
+  assert.ok(html.includes('id="pimpollo"'), "PimPollo is on the same page")
+  assert.ok(html.includes('href="https://pimpollo-web.vercel.app/"'), "PimPollo links to the public construction page")
   assert.ok(html.includes('data-copyright-year'), "Copyright can refresh without a rebuild")
 }
 const en = readFileSync(join(root, "en/index.html"), "utf8")
@@ -45,7 +47,7 @@ assert.ok(en.includes("Backend and integrations"), "English skills translated")
 assert.ok(existsSync(join(root, "sitemap.xml")))
 const data = JSON.parse(readFileSync(join(root, "portfolio.json"), "utf8"))
 for (const locale of ["es", "en"]) {
-  assert.equal(data[locale].projects.length, 5)
+  assert.equal(data[locale].projects.length, 6)
   for (const project of data[locale].projects) {
     assert.ok(project.url.includes("#"), "Projects remain on the same page")
     assert.ok(project.caseStudy.evidence && project.caseStudy.result)

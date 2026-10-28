@@ -11,7 +11,7 @@ interface Props { project: Project; locale: Locale }
 const { project, locale } = Astro.props
 const t = getCopy(locale)
 const { images } = project
-const statusIcon = project.id === 5 ? "construction" : "production"
+const statusIcon = project.status === "En construcción" || project.status === "In development" ? "construction" : "production"
 const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones técnicas", result: "Resultado" } as const
 ---
 <article id={project.slug} class="project-card" data-featured={project.featured || undefined} aria-labelledby={"project-" + project.id}>
@@ -19,7 +19,7 @@ const labels = { problem: "Problema", role: "Mi rol", decisions: "Decisiones té
     {images.length > 0 ? <Gallery images={images} locale={locale} /> : (
       <div class="flex h-56 flex-col justify-between rounded-xl bg-primary/10 p-6 sm:h-64">
         <p class="eyebrow flex items-center gap-2"><Icon name={statusIcon} />{project.cover?.eyebrow ?? t("Web de servicios")}</p>
-        {project.cover?.logo ? <Image src={projectAsset(project.cover.logo) as import("astro").ImageMetadata} alt={locale === "es" ? "Ratio · Gestión de presupuestos" : "Ratio · Budget management"} width={420} height={229} format="webp" loading="lazy" class="h-32 w-auto max-w-full rounded-lg object-contain sm:h-40" /> : <p class="text-3xl font-semibold tracking-tight">{project.title}</p>}
+        {project.cover?.logo ? (project.cover.logo.endsWith(".svg") ? <img src={project.cover.logo} alt={project.title + " · logo"} width="144" height="144" loading="lazy" decoding="async" class="h-32 w-auto max-w-full object-contain sm:h-40" /> : <Image src={projectAsset(project.cover.logo) as import("astro").ImageMetadata} alt={project.title + " · logo"} width={420} height={229} format="webp" loading="lazy" class="h-32 w-auto max-w-full rounded-lg object-contain sm:h-40" />) : <p class="text-3xl font-semibold tracking-tight">{project.title}</p>}
         <p class="text-sm text-muted-foreground">{project.cover?.subtitle ?? t("Servicios · Tarifas · Contacto")}</p>
       </div>
     )}

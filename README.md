@@ -22,7 +22,7 @@ pnpm validate
 - `src/assets/projects`: screenshots optimized by Astro into responsive WebP images.
 - `public`: small logos, professional documents and social assets.
 
-Project case studies retain the client-reported outcomes. The approximately 15 minutes saved per order is one estimate for the integrated Mayorista Javier catalog and management workflow.
+Project case studies retain the client-reported outcomes. The approximately 15 minutes saved per order is one estimate for the integrated Mayorista Javier catalog and management workflow. PimPollo is explicitly marked as in development: the public landing page is live, while the catalog, WhatsApp ordering flow and About us section are planned. It is not an online-payment e-commerce site.
 
 Vercel uses the Astro preset and publishes `dist`. Navigation, content, language switching and technical details work without JavaScript; image links remain accessible when the optional dialog is unavailable.
 

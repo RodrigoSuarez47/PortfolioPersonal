@@ -11,7 +11,7 @@ const projects = { es: getProjects("es"), en: getProjects("en") }
 const shape = value => Array.isArray(value) ? value.map(shape) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, shape(item)])) : typeof value
 assert.deepEqual(shape(projects.es), shape(projects.en), "Both languages must contain the same project fields, features and screenshots")
 for (const locale of ["es", "en"]) {
-  assert.equal(projects[locale].length, 5)
+  assert.equal(projects[locale].length, 6)
   assert.deepEqual(projects[locale].filter(project => project.featured).map(project => project.id), [1, 5])
   assert.equal(new Set(projects[locale].map(project => project.slug)).size, 5)
   for (const project of projects[locale]) {
@@ -22,6 +22,13 @@ for (const locale of ["es", "en"]) {
     assert.ok(project.longDescription.length > 100)
     assert.ok(!JSON.stringify(project).includes("\ufffd"), `${locale}: corrupt Unicode`)
   }
+  const pimPollo = projects[locale].find(project => project.id === 6)
+  assert.ok(pimPollo, `${locale}: PimPollo present`)
+  assert.equal(pimPollo.slug, "pimpollo")
+  assert.equal(pimPollo.status, locale === "es" ? "En construcción" : "In development")
+  assert.match(pimPollo.features.join(" "), /Previsto:|Planned:/, "PimPollo future features explicitly labelled")
+  assert.equal(pimPollo.githubUrl, null, "Private source stays private")
+  assert.equal(pimPollo.demoUrl, "https://pimpollo-web.vercel.app/", "Published construction page")
   const ratio = projects[locale].find(project => project.id === 5)
   assert.match(ratio.features.join(" "), /Gantt/)
   assert.match(ratio.features.join(" "), /Previsto:|Planned:/, "Future work must be labelled")
@@ -42,4 +49,4 @@ for (const [, slug] of skills.matchAll(/project: "([^"]+)"/g)) {
 }
 const cv = JSON.parse(readFileSync("scripts/resume-copy.json", "utf8"))
 assert.deepEqual(Object.keys(cv.es).sort(), Object.keys(cv.en).sort(), "CV language parity")
-console.log(`Content checks passed: five complete bilingual projects, featured order, skills links, ${translations} translated UI strings and bilingual CV copy.`)
+console.log(`Content checks passed: six complete bilingual projects, featured order, skills links, ${translations} translated UI strings and bilingual CV copy.`)
