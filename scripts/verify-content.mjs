@@ -13,7 +13,7 @@ assert.deepEqual(shape(projects.es), shape(projects.en), "Both languages must co
 for (const locale of ["es", "en"]) {
   assert.equal(projects[locale].length, 6)
   assert.deepEqual(projects[locale].filter(project => project.featured).map(project => project.id), [1, 5])
-  assert.equal(new Set(projects[locale].map(project => project.slug)).size, 5)
+  assert.equal(new Set(projects[locale].map(project => project.slug)).size, 6)
   for (const project of projects[locale]) {
     for (const field of ["problem", "role", "decisions", "result", "highlight", "evidence"]) {
       assert.ok(project.caseStudy[field]?.trim(), `${locale}/${project.slug}: missing ${field}`)
