@@ -2,30 +2,84 @@
 import { getCopy, type Locale } from "@/lib/i18n"
 import TechnologyBadge from "./TechnologyBadge.astro"
 import Section from "./Section.astro"
+
 interface Props { locale?: Locale }
 const { locale = "es" } = Astro.props
 const t = getCopy(locale)
+
+// Cada grupo destaca tecnologías verificadas en proyectos; los enlaces explican dónde se aplicaron.
 const categories = [
-  { project: "mayorista-javier", evidence: { es: "Mayorista Javier: API, autenticación e inventario", en: "Mayorista Javier: API, authentication and inventory" }, title: "Backend e integraciones", skills: ["C#", "ASP.NET Core", "Entity Framework Core"] },
-  { project: "catalogo-mayorista-javier", evidence: { es: "Catálogo Mayorista Javier: React y TypeScript", en: "Mayorista Javier catalog: React and TypeScript" }, title: "Frontend", skills: ["TypeScript", "JavaScript", "React", "Next.js", "Astro", "Vite", "Tailwind CSS"] },
-  { project: "ratio-espina", evidence: { es: "Ratio: costos previstos, MongoDB y auditoría", en: "Ratio: planned costs, MongoDB and audit logging" }, title: "Datos", skills: ["PostgreSQL", "SQL Server", "MySQL", "MongoDB", "Python"] },
-  { project: "fyv-traslados", evidence: { es: "FyV Traslados: Astro y despliegue en Vercel", en: "FyV Traslados: Astro and Vercel deployment" }, title: "Herramientas y despliegue", skills: ["Git", "GitHub", "Docker", "Azure", "Vercel", "Neon"] },
+  {
+    title: { es: "Backend e integraciones", en: "Backend and integrations" },
+    skills: ["C#", "ASP.NET Core", "Entity Framework Core"],
+    examples: [
+      { project: "mayorista-javier", evidence: { es: "Mayorista Javier: .NET 10, APIs, seguridad e inventario", en: "Mayorista Javier: .NET 10, APIs, security and inventory" } },
+      { project: "jaume-sere", evidence: { es: "Jaume & Sere: Microsoft Graph y Active Directory", en: "Jaume & Sere: Microsoft Graph and Active Directory" } },
+    ],
+  },
+  {
+    title: { es: "Frontend web", en: "Web frontend" },
+    skills: ["TypeScript", "JavaScript", "React", "Next.js", "Astro", "Vite", "Tailwind CSS"],
+    examples: [
+      { project: "catalogo-mayorista-javier", evidence: { es: "Catálogo: Next.js 16, React 19 y TypeScript", en: "Catalog: Next.js 16, React 19 and TypeScript" } },
+      { project: "fyv-traslados", evidence: { es: "FyV Traslados: Astro, React y Tailwind CSS", en: "FyV Traslados: Astro, React and Tailwind CSS" } },
+    ],
+  },
+  {
+    title: { es: "Bases de datos", en: "Databases" },
+    skills: ["PostgreSQL", "SQL Server", "MongoDB"],
+    examples: [
+      { project: "mayorista-javier", evidence: { es: "Mayorista Javier: PostgreSQL", en: "Mayorista Javier: PostgreSQL" } },
+      { project: "jaume-sere", evidence: { es: "Jaume & Sere: SQL Server", en: "Jaume & Sere: SQL Server" } },
+      { project: "ratio-espina", evidence: { es: "Ratio: MongoDB", en: "Ratio: MongoDB" } },
+    ],
+  },
+  {
+    title: { es: "Escritorio y distribución", en: "Desktop and distribution" },
+    skills: ["WPF", "XAML", "Inno Setup"],
+    examples: [
+      { project: "ratio-espina", evidence: { es: "Ratio: diagrama de Gantt, modernización WPF e instaladores", en: "Ratio: Gantt chart, WPF modernization and installers" } },
+    ],
+  },
+  {
+    title: { es: "Herramientas e infraestructura", en: "Tools and infrastructure" },
+    skills: ["Git", "GitHub", "Docker", "Azure", "Vercel", "Neon", "Railway", "GitHub Actions"],
+    examples: [
+      { project: "mayorista-javier", evidence: { es: "Mayorista Javier: contenedores, pruebas y automatización", en: "Mayorista Javier: containers, testing and automation" } },
+      { project: "jaume-sere", evidence: { es: "Jaume & Sere: despliegue en Azure", en: "Jaume & Sere: Azure deployment" } },
+      { project: "fyv-traslados", evidence: { es: "FyV Traslados: despliegue en Vercel", en: "FyV Traslados: Vercel deployment" } },
+    ],
+  },
 ] as const
-const additionalSkills = ["HTML", "CSS", "Java", "Firebase", "Bootstrap", "jQuery", "Redux", "Ionic Framework", "Kubernetes", "AWS", "Somee", "Windows Server", "GeneXus"]
+
+// Tecnologías de aprendizaje y proyectos anteriores; no se presentan como stack principal actual.
+const additionalSkills = ["HTML", "CSS", "Java", "Python", "Bootstrap", "Redux", "Capacitor", "Windows Server"]
 ---
 <Section id="skills" eyebrow={t("Herramientas")} title={t("Un stack al servicio del problema")} description={t("Tecnologías que utilizo en desarrollo, integración y trabajo con datos. Los proyectos muestran cómo las aplico.")}>
-      <div class="grid gap-5 sm:grid-cols-2">
-        {categories.map((category) => (
-          <div class="rounded-2xl border bg-card p-6">
-            <h3 class="mb-5 text-lg font-semibold">{t(category.title)}</h3>
-            <ul class="flex flex-wrap gap-2">{category.skills.map((skill) => <li><TechnologyBadge name={skill} /></li>)}</ul>
-            <a class="text-link mt-5 block border-t pt-4 text-sm leading-relaxed text-muted-foreground" href={"#" + category.project}><span class="mb-1 block text-xs font-semibold uppercase tracking-wide">{t("Aplicado en proyectos")}</span>{category.evidence[locale]}</a>
-          </div>
-        ))}
+  <div class="grid gap-5 sm:grid-cols-2">
+    {categories.map((category) => (
+      <div class="rounded-2xl border bg-card p-6">
+        <h3 class="mb-5 text-lg font-semibold">{category.title[locale]}</h3>
+        <ul class="flex flex-wrap gap-2">{category.skills.map((skill) => <li><TechnologyBadge name={skill} /></li>)}</ul>
+        <div class="mt-5 border-t pt-4 text-sm leading-relaxed text-muted-foreground">
+          <span class="mb-2 block text-xs font-semibold uppercase tracking-wide">{t("Aplicado en proyectos")}</span>
+          <ul class="space-y-2">
+            {category.examples.map((example) => (
+              <li><a class="text-link" href={"#" + example.project}>{example.evidence[locale]}</a></li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <p class="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">{locale === "es" ? "Integraciones y seguridad aplicadas en mis proyectos: diseño de APIs REST, autenticación con JWT, hashing de contraseñas con BCrypt.NET y notificaciones mediante Microsoft Graph. Mi formación también incluye Big Data." : "Integrations and security applied in my projects: REST API design, JWT authentication, password hashing with BCrypt.NET and notifications through Microsoft Graph. My training also includes Big Data."}</p>
-      <details class="mt-6 rounded-2xl border p-6">
-        <summary class="cursor-pointer text-sm font-medium">{t("Otras tecnologías y herramientas")}</summary>
-        <ul class="flex flex-wrap gap-2 pt-4">{additionalSkills.map(skill => <li><TechnologyBadge name={skill} /></li>)}</ul>
-      </details>
-    </Section>
+    ))}
+  </div>
+  <p class="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">{locale === "es"
+    ? "También trabajo con JWT, BCrypt.NET, Microsoft Graph, pruebas automatizadas y CI/CD. Railway forma parte de soluciones privadas como PimPollo; Python lo utilizo en scripts de automatización y generación de documentos."
+    : "I also work with JWT, BCrypt.NET, Microsoft Graph, automated testing and CI/CD. Railway is used in private solutions such as PimPollo; I use Python for automation scripts and document generation."}</p>
+  <details class="mt-6 rounded-2xl border p-6">
+    <summary class="cursor-pointer text-sm font-medium">{t("Otras tecnologías y herramientas")}</summary>
+    <p class="pt-3 text-sm leading-relaxed text-muted-foreground">{locale === "es"
+      ? "Tecnologías de formación, proyectos anteriores o tareas específicas; no todas forman parte de mi stack principal actual."
+      : "Technologies from education, earlier projects or specific tasks; not all are part of my current core stack."}</p>
+    <ul class="flex flex-wrap gap-2 pt-4">{additionalSkills.map((skill) => <li><TechnologyBadge name={skill} /></li>)}</ul>
+  </details>
+</Section>
