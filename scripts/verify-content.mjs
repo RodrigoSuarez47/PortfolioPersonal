@@ -31,6 +31,7 @@ for (const locale of ["es", "en"]) {
   assert.equal(pimPollo.demoUrl, "https://pimpollo-web.vercel.app/", "Published construction page")
   assert.equal(pimPollo.images.length, 1, `${locale}: PimPollo social preview is the project cover`)
   assert.equal(pimPollo.images[0].src, "/images/PimPollo/og-image.png", `${locale}: original social thumbnail`)
+  assert.equal(pimPollo.images[0].original, "/images/PimPollo/og-image.png", `${locale}: full-resolution image must be accessible`)
   assert.match(pimPollo.images[0].alt, /PimPollo/, `${locale}: meaningful thumbnail description`)
   assert.ok(!pimPollo.features.join(" ").includes("100/100"), "Do not claim universal production scores")
   const ratio = projects[locale].find(project => project.id === 5)

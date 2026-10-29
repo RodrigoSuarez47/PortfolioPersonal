@@ -5,7 +5,7 @@ import type { ProjectImage } from "@/lib/projects"
 interface Props { image: ProjectImage; thumbnail?: boolean; locale: "es" | "en" }
 const { image, thumbnail = false, locale } = Astro.props
 const src = projectAsset(image.src)
-const full = typeof src === "string" ? src : (await getImage({ src, width: Math.min(src.width, 1600), format: "webp", quality: 85 })).src
+const full = image.original ?? (typeof src === "string" ? src : (await getImage({ src, width: Math.min(src.width, 1600), format: "webp", quality: 85 })).src)
 const variants = typeof src === "string" ? [] : await Promise.all((thumbnail ? [160, 320] : [320, 640, 960]).map(width => getImage({ src, width: Math.min(width, src.width), format: "webp", quality: 70 })))
 const preview = variants.at(-1)
 ---

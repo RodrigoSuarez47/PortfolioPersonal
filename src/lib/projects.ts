@@ -4,6 +4,7 @@ export interface ProjectImage {
   src: string
   alt: string
   description?: string
+  original?: string
 }
 
 export interface CaseStudy {
@@ -407,11 +408,13 @@ const projectCore: ProjectCore[] = [
         "captions": {
           "es": {
             "alt": "PimPollo: miniatura oficial para redes con el pollito y el aviso de sitio en construcción",
-            "description": "Portada para redes: identidad negra y amarilla de PimPollo con un pollito y el anuncio de la nueva web en construcción."
+            "description": "Portada para redes: identidad negra y amarilla de PimPollo con un pollito y el anuncio de la nueva web en construcción.",
+            "original": "/images/PimPollo/og-image.png"
           },
           "en": {
             "alt": "PimPollo: official social media preview with the chick and the under-construction announcement",
-            "description": "PimPollo's black-and-yellow social preview featuring the chick mascot and the upcoming website."
+            "description": "PimPollo's black-and-yellow social preview featuring the chick mascot and the upcoming website.",
+            "original": "/images/PimPollo/og-image.png"
           }
         }
       }
