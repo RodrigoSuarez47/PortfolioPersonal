@@ -617,7 +617,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         "API .NET 10 + EF Core + PostgreSQL: endpoints comerciales públicos y administración protegida por autorización.",
         "Seguridad: cookies HttpOnly/Secure, CSRF, rotación de sesiones, bloqueo por intentos y logs estructurados.",
         "Infraestructura y calidad: Vercel, Railway, Docker, PostgreSQL en red privada, copias cifradas programadas y CI con pruebas reales de base y navegador.",
-        "En desarrollo: catálogo navegable, selección de productos y preparación de pedidos para coordinar por WhatsApp.",
+        "Previsto: publicar el catálogo navegable, la selección de productos y la preparación de pedidos para coordinar por WhatsApp.",
         "Alcance: sin checkout ni pasarela de pago."
       ],
       "cover": {
@@ -837,7 +837,7 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
         ".NET 10 API + EF Core + PostgreSQL: public business endpoints and protected management operations.",
         "Security: HttpOnly/Secure cookies, CSRF, rotating sessions, login lockout and structured logs.",
         "Infrastructure and quality: Vercel, Railway, Docker, private PostgreSQL, scheduled encrypted backups and CI with real database/browser tests.",
-        "In development: browsable public catalog, product selection and WhatsApp order preparation.",
+        "Planned: launch the browsable public catalog, product selection and WhatsApp order preparation.",
         "Scope: no online payment gateway or checkout."
       ],
       "cover": {
