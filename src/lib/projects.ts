@@ -622,7 +622,6 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       ],
       "cover": {
         "eyebrow": "En construcción",
-        "logo": "/images/PimPollo/favicon.svg",
         "subtitle": "Sitio en construcción · Web y panel · API .NET"
       },
       "caseStudy": {
@@ -842,7 +841,6 @@ const projectCopy: Record<Locale, Record<ProjectId, ProjectCopy>> = {
       ],
       "cover": {
         "eyebrow": "In development",
-        "logo": "/images/PimPollo/favicon.svg",
         "subtitle": "Under construction · Website & admin · .NET API"
       },
       "caseStudy": {
