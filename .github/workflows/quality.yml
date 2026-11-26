@@ -23,7 +23,7 @@ jobs:
       - run: pnpm validate
       - run: pnpm audit --audit-level=high
       - name: Install isolated audit tools
-        run: npm install --prefix "$RUNNER_TEMP/portfolio-audit" --ignore-scripts playwright@1.58.2 lighthouse@13.0.3
+        run: npm install --prefix "$RUNNER_TEMP/portfolio-audit" --ignore-scripts playwright@1.65.1 lighthouse@13.6.0
       - name: Install test browser
         run: "$RUNNER_TEMP/portfolio-audit/node_modules/.bin/playwright install --with-deps chromium"
       - name: Browser and performance audit
@@ -44,7 +44,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Install isolated PDF tools
-        run: python3 -m pip install --target "$RUNNER_TEMP/resume-tools" reportlab==4.4.4 pypdf==6.1.1 pymupdf==1.26.4
+        run: python3 -m pip install --target "$RUNNER_TEMP/resume-tools" reportlab==5.1.2 pypdf==7.1.1 pymupdf==1.28.2
       - name: Generate and check one-page resumes
         run: |
           python3 scripts/generate-resumes.py --check

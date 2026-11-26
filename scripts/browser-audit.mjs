@@ -2,6 +2,7 @@ import assert from "node:assert/strict"
 import { gzipSync } from "node:zlib"
 import { createRequire } from "node:module"
 import { resolve } from "node:path"
+import { pathToFileURL } from "node:url"
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs"
 import { createServer } from "node:http"
 import { siteUrl } from "../site.config.mjs"
@@ -60,7 +61,10 @@ try {
     assert.equal(await page.locator('link[rel="alternate"][type="application/json"]').count(), 1)
     assert.equal(await page.locator("[data-case-study][open]").count(), 0)
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
-    const yearPage = await browser.newPage()
+    // The New Year timer targets local midnight; pin the page timezone so the
+    // audit behaves the same on developer machines and on UTC CI runners.
+    const yearContext = await browser.newContext({ timezoneId: "UTC" })
+    const yearPage = await yearContext.newPage()
     await yearPage.clock.install({ time: new Date("2027-12-31T23:59:50Z") })
     await yearPage.goto("http://127.0.0.1:4173" + path)
     assert.equal(await yearPage.locator("[data-copyright-year]").innerText(), "2027")
@@ -101,7 +105,7 @@ try {
     await whatsapp.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
     assert.equal(await whatsapp.evaluate(el => getComputedStyle(el).color), "rgb(255, 255, 255)")
     assert.equal(await whatsapp.evaluate(el => getComputedStyle(el).backgroundColor), "rgb(19, 122, 60)")
-    await yearPage.close()
+    await yearContext.close()
     const ratio = page.locator("#ratio-espina")
     assert.ok((await ratio.innerText()).includes("Full Stack"))
     assert.ok((await ratio.innerText()).includes("Gantt"))
@@ -147,7 +151,7 @@ try {
     assert.equal(await plain.locator('footer a[href="/llms.txt"]').count(), 1)
     await noJS.close()
   }
-  const { default: lighthouse } = await import(require.resolve("lighthouse"))
+  const { default: lighthouse } = await import(pathToFileURL(require.resolve("lighthouse")).href)
   const { launch } = require("chrome-launcher")
   const chrome = await launch({ chromePath: chromium.executablePath(), chromeFlags: ["--headless", "--no-sandbox"] })
   try {

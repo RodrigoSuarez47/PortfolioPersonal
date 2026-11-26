@@ -109,6 +109,13 @@ def validate(data, locale):
     return text
 
 
+def layout_stream(data):
+    # PDF byte equality depends on the platform zlib build, so compare the
+    # decompressed drawing stream instead. It encodes every position, font,
+    # color and text run, which is what the approved layout locks.
+    return PdfReader(BytesIO(data)).pages[0].get_contents().get_data()
+
+
 for locale in ("es", "en"):
     filename = "Cv_Rodrigo_Suarez" + ("_EN" if locale == "en" else "") + ".pdf"
     data = generate(locale)
@@ -117,7 +124,7 @@ for locale in ("es", "en"):
     target = ROOT / "public/documents" / filename
     if "--check" in sys.argv:
         assert validate(target.read_bytes(), locale) == text, f"{locale}: committed CV content is stale"
-        assert target.read_bytes() == data, f"{locale}: committed CV layout differs from the approved template"
+        assert layout_stream(target.read_bytes()) == layout_stream(data), f"{locale}: committed CV layout differs from the approved template"
     else:
         target.write_bytes(data)
     print(f"{locale}: approved layout preserved; one page; selectable text; links and content verified")
